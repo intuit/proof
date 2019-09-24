@@ -1,16 +1,15 @@
-name: Node CI
+name: Docs
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   default:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Skip CI
-        uses: veggiemonk/skip-commit@master
-        env:
-          COMMIT_FILTER: skip ci
       - name: Prepare repository
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -24,15 +23,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
-      - name: Build
-        run: |
-          git remote -v
-          yarn install --frozen-lockfile
-          yarn build
-          yarn test
-      - name: Release
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn release
+      - name: Docs
+          run: |
+            yarn lerna run deploy --scope @proof/docs --stream
