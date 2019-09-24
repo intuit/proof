@@ -23,6 +23,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 10.x
+      - name: Install
+        run: |
+          yarn install --frozen-lockfile
       - name: Docs
         run: |
           yarn lerna run deploy --scope @proof/docs --stream
