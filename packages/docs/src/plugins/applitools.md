@@ -1,8 +1,8 @@
 # @proof-ui/applitools-plugin
 
-Uses [applitools](https://applitools.com/) to take a snapshot of your story and run a visual regression check.
+Uses [applitools](https://applitools.com/) Visual Grid to take a snapshot of your story and run a visual regression check.
 It can be configured to run on may different screen-size and browser combinations.
-Make sure the `APPLITOOLS_ID` environment variable is set.
+Make sure the `APPLITOOLS_ID` environment variable is set, and that you have access to the Visual Grid beta.
 
 ## Installation
 
@@ -41,7 +41,7 @@ Run visual diffs against _every_ story, even if no tests are written for one, re
 
 ```bash
 # Every story will be visually tested
-proof --visual --add-alll
+proof --visual --add-all
 ```
 
 ## Options
