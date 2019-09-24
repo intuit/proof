@@ -6,7 +6,7 @@
   "repository": "https://github.com/intuit/proof",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./**/tsconfig.tsbuildinfo && rm -rf ./packages/*/dist/* && lerna clean -y",
+    "clean": "rm -rf ./**/tsconfig.tsbuildinfo && rm -rf ./packages/*/dist/* && rm -rf ./plugins/*/dist/* && lerna clean -y",
     "build": "lerna run build --stream",
     "build:watch": "lerna run build:watch --parallel",
     "test": "jest",

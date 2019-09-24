@@ -1,11 +1,10 @@
-import { getStorybook, StoryBucket } from '@storybook/react';
+import { getStorybook } from '@storybook/react';
 import { STORY_RENDERED } from '@storybook/core-events';
-
-const addons: any = require('@storybook/addons').default;
+import addons from '@storybook/addons';
 
 interface ProofWindow extends Window {
   __proof__?: {
-    getStorybook: () => StoryBucket[];
+    getStorybook: () => any[];
     rendered: () => boolean;
   };
 }
