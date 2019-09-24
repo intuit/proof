@@ -1,3 +1,22 @@
+# v0.0.6 (Tue Sep 24 2019)
+
+#### 🐛  Bug Fix
+
+- Add a code of conduct and license file [#4](https://github.com/intuit/proof/pull/4) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/browser`
+  - Add hook for capabilities [#6](https://github.com/intuit/proof/pull/6) ([@adierkens](https://github.com/adierkens))
+
+#### 📝  Documentation
+
+- fix applitools docs [#5](https://github.com/intuit/proof/pull/5) (tylerkrupicka@gmail.com)
+
+#### Authors: 2
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Tyler Krupicka (tylerkrupicka@gmail.com)
+
+---
+
 # v0.0.5 (Tue Sep 24 2019)
 
 #### ⚠️  Pushed to master
