@@ -4,9 +4,6 @@
 
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src",
-    "composite": true
-  },
-
-  "references": [{ "path": "../logger" }, { "path": "../utils" }]
+    "rootDir": "./src"
+  }
 }

@@ -4,8 +4,8 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
   },
   "peerDependencies": {
     "@storybook/core-events": "^5.2.1",
