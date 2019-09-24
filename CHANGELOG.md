@@ -1,3 +1,15 @@
+# v0.0.3 (Tue Sep 24 2019)
+
+#### ⚠️  Pushed to master
+
+- Install before deploy  (Adam_Dierkens@intuit.com)
+
+#### Authors: 1
+
+- Adam Dierkens (Adam_Dierkens@intuit.com)
+
+---
+
 # v0.0.2 (Tue Sep 24 2019)
 
 #### 🐛  Bug Fix
