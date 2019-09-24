@@ -1,3 +1,15 @@
+# v0.0.2 (Tue Sep 24 2019)
+
+#### 🐛  Bug Fix
+
+- publish docs on master [#2](https://github.com/intuit/proof/pull/2) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.1 (Tue Sep 24 2019)
 
 #### 🐛  Bug Fix
