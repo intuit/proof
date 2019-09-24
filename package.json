@@ -11,7 +11,7 @@
     "build:watch": "lerna run build:watch --parallel",
     "test": "jest",
     "lint": "xo",
-    "release": "auto shipit"
+    "release": "auto shipit -w"
   },
   "author": "Adam Dierkens <Adam_Dierkens@intuit.com>",
   "license": "MIT",
