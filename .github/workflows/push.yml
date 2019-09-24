@@ -36,3 +36,10 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           yarn release
+      - name: Docs
+          on:
+            push:
+              branches:
+                - master
+          run: |
+            yarn lerna run deploy --scope @proof/docs --stream
