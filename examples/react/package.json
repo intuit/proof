@@ -1,7 +1,7 @@
 {
-  "name": "@proof/react-example",
+  "name": "@proof-ui/react-example",
   "private": true,
-  "version": "0.3.5",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -9,14 +9,14 @@
     "test": "proof"
   },
   "dependencies": {
-    "@proof/a11y-plugin": "^0.3.5",
-    "@proof/add-all-plugin": "^0.3.5",
-    "@proof/applitools-plugin": "^0.3.5",
-    "@proof/babel-plugin": "^0.3.5",
-    "@proof/cli": "^0.3.5",
-    "@proof/junit-plugin": "^0.3.5",
-    "@proof/skip-tests-plugin": "^0.3.5",
-    "@proof/storybook": "^0.3.5",
+    "@proof-ui/a11y-plugin": "^0.0.0",
+    "@proof-ui/add-all-plugin": "^0.0.0",
+    "@proof-ui/applitools-plugin": "^0.0.0",
+    "@proof-ui/babel-plugin": "^0.0.0",
+    "@proof-ui/cli": "^0.0.0",
+    "@proof-ui/junit-plugin": "^0.0.0",
+    "@proof-ui/skip-tests-plugin": "^0.0.0",
+    "@proof-ui/storybook": "^0.0.0",
     "power-assert": "^1.6.1"
   },
   "devDependencies": {

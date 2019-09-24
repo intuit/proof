@@ -1,4 +1,4 @@
-import { Browser } from '@proof/browser';
+import { Browser } from '@proof-ui/browser';
 
 export type TestService = (
   config: TestConfig,

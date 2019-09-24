@@ -4,7 +4,7 @@
     // Monorepo support
     "baseUrl": ".",
     "paths": {
-      "@proof/*": ["packages/*/src", "plugins/*/src"]
+      "@proof-ui/*": ["packages/*/src", "plugins/*/src"]
     }
   }
 }

@@ -1,7 +1,7 @@
 import { AsyncSeriesHook, AsyncSeriesBailHook } from 'tapable';
-import { TestConfig, TestCallback } from '@proof/test';
-import BrowserFactory, { Browser } from '@proof/browser';
-import { Logger } from '@proof/logger';
+import { TestConfig, TestCallback } from '@proof-ui/test';
+import BrowserFactory, { Browser } from '@proof-ui/browser';
+import { Logger } from '@proof-ui/logger';
 
 export interface TestHookBaseArgs {
   logger: Logger;

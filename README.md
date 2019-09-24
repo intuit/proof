@@ -9,14 +9,14 @@ Storybook is a great tool for developing components -- and while simulated and s
 The quickest way to get started is to use the proof-cli.
 
 ```
-npm i --save-dev @proof/cli @proof/storybook
+npm i --save-dev @proof-ui/cli @proof-ui/storybook
 ```
 
-Next, make sure to configure the `@proof/storybook` addon in your storybook's `config.js` file.
+Next, make sure to configure the `@proof-ui/storybook` addon in your storybook's `config.js` file.
 
 ```javascript
 // .storybook/config.js
-import configureProof from '@proof/storybook';
+import configureProof from '@proof-ui/storybook';
 configureProof();
 ```
 
@@ -25,7 +25,7 @@ Now you're ready to start writing tests!
 Inspired by [ava](https://github.com/avajs/ava) proof exposes a concise API for authoring tests:
 
 ```javascript
-import test, { assert } from '@proof/test';
+import test, { assert } from '@proof-ui/test';
 
 test({ kind: 'Components|Button', story: 'Basic' }, async ({ browser }) => {
   // Use the browser object to test your component
@@ -36,7 +36,7 @@ test({ kind: 'Components|Button', story: 'Basic' }, async ({ browser }) => {
 Or mirror storybook to make it easy to cross-reference tests between files.
 
 ```javascript
-import { proofsOf, assert } from '@proof/test';
+import { proofsOf, assert } from '@proof-ui/test';
 
 const proofs = proofsOf('Components|Button');
 

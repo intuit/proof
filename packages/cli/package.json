@@ -1,6 +1,6 @@
 {
-  "name": "@proof/cli",
-  "version": "0.3.5",
+  "name": "@proof-ui/cli",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "bin": {
@@ -15,12 +15,12 @@
     "build:watch": "tsc --build --watch"
   },
   "dependencies": {
-    "@proof/babel-plugin": "link:../../plugins/babel",
-    "@proof/cli-plugin": "link:../cli-plugin",
-    "@proof/config": "link:../config",
-    "@proof/console-plugin": "link:../../plugins/console",
-    "@proof/core": "link:../core",
-    "@proof/logger": "link:../logger",
+    "@proof-ui/babel-plugin": "link:../../plugins/babel",
+    "@proof-ui/cli-plugin": "link:../cli-plugin",
+    "@proof-ui/config": "link:../config",
+    "@proof-ui/console-plugin": "link:../../plugins/console",
+    "@proof-ui/core": "link:../core",
+    "@proof-ui/logger": "link:../logger",
     "chalk": "^2.4.2",
     "command-line-application": "^0.1.8",
     "url": "^0.11.0"

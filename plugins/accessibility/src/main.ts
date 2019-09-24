@@ -1,9 +1,9 @@
-import Proof, { ProofPlugin, ProofTest, TestHookArgs } from '@proof/core';
-import { Browser } from '@proof/browser';
-import CLIPlugin, { CLIOption } from '@proof/cli-plugin';
+import Proof, { ProofPlugin, ProofTest, TestHookArgs } from '@proof-ui/core';
+import { Browser } from '@proof-ui/browser';
+import CLIPlugin, { CLIOption } from '@proof-ui/cli-plugin';
 import fs from 'fs';
 import * as axe from 'axe-core';
-import { TestConfig } from '@proof/test';
+import { TestConfig } from '@proof-ui/test';
 
 export interface A11yPluginConfig {
   config: axe.Spec;

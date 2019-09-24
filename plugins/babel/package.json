@@ -1,6 +1,6 @@
 {
-  "name": "@proof/babel-plugin",
-  "version": "0.3.5",
+  "name": "@proof-ui/babel-plugin",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -13,10 +13,10 @@
     "babel-preset-power-assert": "^3.0.0"
   },
   "peerDependencies": {
-    "@proof/core": "link:../../packages/core"
+    "@proof-ui/core": "link:../../packages/core"
   },
   "devDependencies": {
-    "@proof/core": "link:../../packages/core",
+    "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"
   }
 }

@@ -1,6 +1,6 @@
 {
-  "name": "@proof/core",
-  "version": "0.3.5",
+  "name": "@proof-ui/core",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,9 +8,9 @@
     "build:watch": "tsc --build --watch"
   },
   "dependencies": {
-    "@proof/browser": "link:../browser",
-    "@proof/logger": "link:../logger",
-    "@proof/test": "link:../test",
+    "@proof-ui/browser": "link:../browser",
+    "@proof-ui/logger": "link:../logger",
+    "@proof-ui/test": "link:../test",
     "promise-pool-executor": "^1.1.1",
     "tapable": "^1.1.3"
   },

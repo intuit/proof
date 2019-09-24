@@ -1,4 +1,4 @@
-import { toId } from '@proof/utils';
+import { toId } from '@proof-ui/utils';
 import URL from 'url-parse';
 import urlJoin from 'url-join';
 

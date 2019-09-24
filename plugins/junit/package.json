@@ -1,6 +1,6 @@
 {
-  "name": "@proof/junit-plugin",
-  "version": "0.3.5",
+  "name": "@proof-ui/junit-plugin",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -12,12 +12,12 @@
     "xmlbuilder": "^13.0.2"
   },
   "peerDependencies": {
-    "@proof/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof/core": "link:../../packages/core"
+    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
+    "@proof-ui/core": "link:../../packages/core"
   },
   "devDependencies": {
-    "@proof/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof/core": "link:../../packages/core",
+    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
+    "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"
   }
 }

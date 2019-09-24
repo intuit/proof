@@ -1,4 +1,4 @@
-# @proof/applitools-plugin
+# @proof-ui/applitools-plugin
 
 Uses [applitools](https://applitools.com/) to take a snapshot of your story and run a visual regression check.
 It can be configured to run on may different screen-size and browser combinations.
@@ -7,14 +7,14 @@ Make sure the `APPLITOOLS_ID` environment variable is set.
 ## Installation
 
 ```bash
-yarn add -D @proof/applitools-plugin
+yarn add -D @proof-ui/applitools-plugin
 ```
 
 ## Usage
 
 ```javascript
 // proof.config.js
-import ApplitoolsPlugin from '@proof/applitools-plugin';
+import ApplitoolsPlugin from '@proof-ui/applitools-plugin';
 
 export default {
   plugins: [

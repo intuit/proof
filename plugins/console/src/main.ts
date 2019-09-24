@@ -4,9 +4,9 @@ import Proof, {
   SuiteResult,
   FoundTest,
   TestResult
-} from '@proof/core';
-import { logger, createLogger } from '@proof/logger';
-import { stats } from '@proof/utils';
+} from '@proof-ui/core';
+import { logger, createLogger } from '@proof-ui/logger';
+import { stats } from '@proof-ui/utils';
 
 function scope(s: string) {
   return createLogger({ scope: s });

@@ -1,4 +1,4 @@
-# @proof/add-all-plugin
+# @proof-ui/add-all-plugin
 
 A plugin to add an empty test for each untested storybook story.
 
@@ -7,14 +7,14 @@ Especially powerful when combined with the [accessibility-plugin](./accessibilit
 ## Installation
 
 ```bash
-yarn add -D @proof/add-all-plugin
+yarn add -D @proof-ui/add-all-plugin
 ```
 
 ## Usage
 
 ```javascript
 // proof.config.js
-import AddAllPlugin from '@proof/add-all-plugin';
+import AddAllPlugin from '@proof-ui/add-all-plugin';
 
 export default {
   plugins: [new AddAllPlugin()]

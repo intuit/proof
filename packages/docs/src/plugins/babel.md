@@ -1,4 +1,4 @@
-# @proof/babel-plugin
+# @proof-ui/babel-plugin
 
 A plugin to enable babel as a test preprocessor, allowing the use of ES6/ESNext features while authoring.
 The default configuration uses `@babel/preset-env`
@@ -6,14 +6,14 @@ The default configuration uses `@babel/preset-env`
 ## Installation
 
 ```bash
-yarn add -D @proof/babel-plugin
+yarn add -D @proof-ui/babel-plugin
 ```
 
 ## Usage
 
 ```javascript
 // proof.config.js
-import BabelPlugin from '@proof/babel-plugin';
+import BabelPlugin from '@proof-ui/babel-plugin';
 
 export default {
   plugins: [
@@ -37,7 +37,7 @@ You can configure the babel-plugin through some options in it's constructor:
 To enable typescript support in your tests
 
 ```javascript
-import BabelPlugin from '@proof/babel-plugin';
+import BabelPlugin from '@proof-ui/babel-plugin';
 
 new BabelPlugin({
   config: {

@@ -1,4 +1,4 @@
-# @proof/cli
+# @proof-ui/cli
 
 The `cli` package is the main entry point to interacting with the `proof` test runner.
 

@@ -11,10 +11,10 @@ import Proof, {
   TestHookArgs,
   TestHookBaseArgs,
   ProofTest
-} from '@proof/core';
-import { TestCallback } from '@proof/test';
-import CLIPlugin, { CLIOption, Arguments } from '@proof/cli-plugin';
-import { Logger } from '@proof/logger';
+} from '@proof-ui/core';
+import { TestCallback } from '@proof-ui/test';
+import CLIPlugin, { CLIOption, Arguments } from '@proof-ui/cli-plugin';
+import { Logger } from '@proof-ui/logger';
 
 export interface ApplitoolsPluginConfig {
   delay?: number;

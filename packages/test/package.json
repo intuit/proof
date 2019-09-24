@@ -1,6 +1,6 @@
 {
-  "name": "@proof/test",
-  "version": "0.3.5",
+  "name": "@proof-ui/test",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:watch": "tsc --build --watch"
   },
   "dependencies": {
-    "@proof/browser": "link:../browser",
+    "@proof-ui/browser": "link:../browser",
     "@types/power-assert": "^1.5.0",
     "power-assert": "^1.6.1"
   },

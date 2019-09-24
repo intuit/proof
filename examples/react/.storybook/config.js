@@ -1,5 +1,5 @@
 import { configure } from '@storybook/react';
-import configProof from '@proof/storybook';
+import configProof from '@proof-ui/storybook';
 
 configProof();
 

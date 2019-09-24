@@ -1,4 +1,4 @@
-import Proof, { ProofPlugin, TestRunner } from '@proof/core';
+import Proof, { ProofPlugin, TestRunner } from '@proof-ui/core';
 import path from 'path';
 
 export interface BabelPluginConfig {

@@ -3,14 +3,14 @@
 Add the `proof` cli package
 
 ```bash
-yarn add @proof/cli
+yarn add @proof-ui/cli
 ```
 
 Using an existing story, add a test
 
 ```javascript
 // __automation__/button.test.ts
-import { proofsOf, assert } from '@proof/test';
+import { proofsOf, assert } from '@proof-ui/test';
 
 const proofs = proofsOf('Components|Button');
 

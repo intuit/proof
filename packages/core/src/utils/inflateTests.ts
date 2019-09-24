@@ -1,4 +1,4 @@
-import { logger } from '@proof/logger';
+import { logger } from '@proof-ui/logger';
 import { FoundTest } from '../runner';
 import { Storybook } from '../storybook';
 
@@ -13,9 +13,7 @@ export default function inflateStorybookTests(
   foundTests.forEach(foundTest => {
     if (foundTest.config.skip) {
       logger.skip(
-        `Skipping test ${foundTest.config.kind} -- ${
-          foundTest.config.story
-        } in ${foundTest.file}`
+        `Skipping test ${foundTest.config.kind} -- ${foundTest.config.story} in ${foundTest.file}`
       );
       return;
     }
@@ -26,9 +24,7 @@ export default function inflateStorybookTests(
       // Filter the stories by the kind
       if (!storybook.has(foundTest.config.kind)) {
         logger.warn(
-          `No storybook kind found for ${foundTest.config.kind} in ${
-            foundTest.file
-          }`
+          `No storybook kind found for ${foundTest.config.kind} in ${foundTest.file}`
         );
         return;
       }
@@ -38,9 +34,7 @@ export default function inflateStorybookTests(
       if (foundTest.config.story) {
         if (!availableStories.has(foundTest.config.story)) {
           logger.warn(
-            `No story found for ${foundTest.config.kind} -- ${
-              foundTest.config.story
-            } in ${foundTest.file}`
+            `No story found for ${foundTest.config.kind} -- ${foundTest.config.story} in ${foundTest.file}`
           );
           return;
         }

@@ -1,5 +1,5 @@
 import cosmicConfig from 'cosmiconfig';
-import { logger } from '@proof/logger';
+import { logger } from '@proof-ui/logger';
 import { Config } from './types';
 
 export * from './types';

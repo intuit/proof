@@ -6,9 +6,9 @@ import {
   setLength,
   setLogLevel,
   LogLevel
-} from '@proof/logger';
-import BrowserFactory from '@proof/browser';
-import { TestConfig } from '@proof/test';
+} from '@proof-ui/logger';
+import BrowserFactory from '@proof-ui/browser';
+import { TestConfig } from '@proof-ui/test';
 import { TestRunOptions, TestResult, SuiteResult } from './types';
 import { getStories, printStories, Storybook } from './storybook';
 import TestRunner, { FoundTest } from './runner';

@@ -7,7 +7,7 @@ The core libraries of `proof` are built using [`tapable`](https://github.com/web
 ## Writing a Plugin
 
 ```typescript
-import Proof, { ProofPlugin } from '@proof/core';
+import Proof, { ProofPlugin } from '@proof-ui/core';
 
 export default class HelloWorldPlugin implements ProofPlugin {
   public apply(proof: Proof) {
@@ -36,7 +36,7 @@ export default {
 To add additional options or arguments to the CLI. Simply add 2 more functions to your plugin:
 
 ```typescript
-import Proof, { ProofPlugin } from '@proof/core';
+import Proof, { ProofPlugin } from '@proof-ui/core';
 
 export default class HelloWorldPlugin implements ProofPlugin {
   private name = '';

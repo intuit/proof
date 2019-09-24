@@ -1,5 +1,5 @@
-import { GridOptions } from '@proof/browser';
-import { LogLevel } from '@proof/logger';
+import { GridOptions } from '@proof-ui/browser';
+import { LogLevel } from '@proof-ui/logger';
 
 export interface Config {
   plugins: any[];

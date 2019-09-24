@@ -1,5 +1,5 @@
-import { LogLevel } from '@proof/logger';
-import { BrowserConfig } from '@proof/browser';
+import { LogLevel } from '@proof-ui/logger';
+import { BrowserConfig } from '@proof-ui/browser';
 
 export interface TestRunOptions {
   url: string;

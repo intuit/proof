@@ -1,9 +1,9 @@
-# @proof/test
+# @proof-ui/test
 
 Writing a test using proof is very similar to how you write your stories. Typically you'd start with:
 
 ```javascript
-import { proofsOf } from '@proof/test';
+import { proofsOf } from '@proof-ui/test';
 
 const proofs = proofsOf('Components|Button');
 ```
@@ -17,7 +17,7 @@ While _most_ of your testing will probably occur at the unit-test using [react-t
 Adding a _proof_ is very similar to adding a story. In the callback function, instead of returning a `react` component, you're given a `browser` object to interact with the page.
 
 ```javascript
-import { proofsOf } from '@proof/test';
+import { proofsOf } from '@proof-ui/test';
 
 const proofs = proofsOf('Components|Button');
 
@@ -39,7 +39,7 @@ The test callback function is passed the following:
 To enable finer control of testing, you can also use the generic version of the test api:
 
 ```javascript
-import test from '@proof/test';
+import test from '@proof-ui/test';
 
 test({ kind: 'Components|Button', story: 'Simple' }, ({ browser }) => {});
 ```

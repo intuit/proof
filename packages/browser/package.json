@@ -1,6 +1,6 @@
 {
-  "name": "@proof/browser",
-  "version": "0.3.5",
+  "name": "@proof-ui/browser",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "build:watch": "tsc --build --watch"
   },
   "dependencies": {
-    "@proof/logger": "link:../logger",
-    "@proof/utils": "link:../utils",
+    "@proof-ui/logger": "link:../logger",
+    "@proof-ui/utils": "link:../utils",
     "@types/url-join": "4.0.0",
     "@types/url-parse": "1.4.3",
     "progress": "^2.0.3",

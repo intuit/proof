@@ -1,5 +1,5 @@
-import Proof, { ProofPlugin, ProofTest } from '@proof/core';
-import CLIPlugin, { Arguments } from '@proof/cli-plugin';
+import Proof, { ProofPlugin, ProofTest } from '@proof-ui/core';
+import CLIPlugin, { Arguments } from '@proof-ui/cli-plugin';
 
 export default class SkipTestPlugin implements ProofPlugin, CLIPlugin {
   private skipTests = false;

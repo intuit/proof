@@ -1,18 +1,18 @@
-# @proof/a11y-plugin
+# @proof-ui/a11y-plugin
 
 Uses [`axe`](https://www.deque.com/axe/) to scan each story against accessibility rules. Violatons are printed to the console, and included in any reports.
 
 ## Installation
 
 ```bash
-yarn add -D @proof/a11y-plugin
+yarn add -D @proof-ui/a11y-plugin
 ```
 
 ## Usage
 
 ```javascript
 // proof.config.js
-import A11yPlugin from '@proof/a11y-plugin';
+import A11yPlugin from '@proof-ui/a11y-plugin';
 
 export default {
   plugins: [

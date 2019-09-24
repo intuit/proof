@@ -1,6 +1,6 @@
 {
-  "name": "@proof/config",
-  "version": "0.3.5",
+  "name": "@proof-ui/config",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "build:watch": "tsc --build --watch"
   },
   "dependencies": {
-    "@proof/browser": "link:../browser",
-    "@proof/logger": "link:../logger",
+    "@proof-ui/browser": "link:../browser",
+    "@proof-ui/logger": "link:../logger",
     "cosmiconfig": "^5.2.1"
   },
   "devDependencies": {

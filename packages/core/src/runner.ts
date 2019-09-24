@@ -1,7 +1,7 @@
 import fg from 'fast-glob';
 import path from 'path';
-import { Logger, logger } from '@proof/logger';
-import { TestConfig, TestCallback, _setCallbackService } from '@proof/test';
+import { Logger, logger } from '@proof-ui/logger';
+import { TestConfig, TestCallback, _setCallbackService } from '@proof-ui/test';
 import { SyncHook, SyncWaterfallHook } from 'tapable';
 import { TestMatcherFunction, createMatcher } from './utils';
 

@@ -1,6 +1,6 @@
 {
-  "name": "@proof/applitools-plugin",
-  "version": "0.3.5",
+  "name": "@proof-ui/applitools-plugin",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -12,10 +12,10 @@
     "@applitools/eyes.webdriverio": "^2.9.0"
   },
   "peerDependencies": {
-    "@proof/core": "link:../../packages/core"
+    "@proof-ui/core": "link:../../packages/core"
   },
   "devDependencies": {
-    "@proof/core": "link:../../packages/core",
+    "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"
   }
 }

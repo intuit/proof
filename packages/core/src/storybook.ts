@@ -1,5 +1,5 @@
-import BrowserFactory from '@proof/browser';
-import { logger as baseLogger, Logger } from '@proof/logger';
+import BrowserFactory from '@proof-ui/browser';
+import { logger as baseLogger, Logger } from '@proof-ui/logger';
 
 export type Storybook = Map<string, Set<string>>;
 
@@ -31,7 +31,7 @@ export async function getStories(
   } catch (e) {
     console.error(e);
     throw new Error(
-      `Error getting stories from storybook. Make sure @proof/storybook is an installed addon`
+      `Error getting stories from storybook. Make sure @proof-ui/storybook is an installed addon`
     );
   } finally {
     await browser.end();

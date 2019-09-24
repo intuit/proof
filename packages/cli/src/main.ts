@@ -1,11 +1,11 @@
 import { app, Command } from 'command-line-application';
-import Proof, { ProofPlugin } from '@proof/core';
-import CLIPlugin from '@proof/cli-plugin';
-import { getConfig, Config } from '@proof/config';
-import BabelPlugin from '@proof/babel-plugin';
+import Proof, { ProofPlugin } from '@proof-ui/core';
+import CLIPlugin from '@proof-ui/cli-plugin';
+import { getConfig, Config } from '@proof-ui/config';
+import BabelPlugin from '@proof-ui/babel-plugin';
 import url from 'url';
-import { LogLevel, logger, logLevels } from '@proof/logger';
-import ConsoleReporterPlugin from '@proof/console-plugin';
+import { LogLevel, logger, logLevels } from '@proof-ui/logger';
+import ConsoleReporterPlugin from '@proof-ui/console-plugin';
 import appDef, { CLIArguments } from './args';
 export { CLIArguments } from './args';
 

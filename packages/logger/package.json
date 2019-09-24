@@ -1,6 +1,6 @@
 {
-  "name": "@proof/logger",
-  "version": "0.3.5",
+  "name": "@proof-ui/logger",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {

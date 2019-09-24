@@ -1,6 +1,6 @@
 {
-  "name": "@proof/add-all-plugin",
-  "version": "0.3.5",
+  "name": "@proof-ui/add-all-plugin",
+  "version": "0.0.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,12 +8,12 @@
     "build:watch": "tsc --build --watch"
   },
   "peerDependencies": {
-    "@proof/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof/core": "link:../../packages/core",
-    "@proof/utils": "link:../../packages/utils"
+    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
+    "@proof-ui/core": "link:../../packages/core",
+    "@proof-ui/utils": "link:../../packages/utils"
   },
   "devDependencies": {
-    "@proof/core": "link:../../packages/core",
+    "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"
   }
 }

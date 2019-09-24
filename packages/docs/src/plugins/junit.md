@@ -1,18 +1,18 @@
-# @proof/junit-plugin
+# @proof-ui/junit-plugin
 
 A plugin that outputs test results in the JUnit XML format.
 
 ## Installation
 
 ```bash
-yarn add -D @proof/junit-plugin
+yarn add -D @proof-ui/junit-plugin
 ```
 
 ## Usage
 
 ```javascript
 // proof.config.js
-import JUnitPlugin from '@proof/junit-plugin';
+import JUnitPlugin from '@proof-ui/junit-plugin';
 
 export default {
   plugins: [

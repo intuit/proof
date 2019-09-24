@@ -1,6 +1,6 @@
-import Proof, { ProofPlugin, Storybook, FoundTest } from '@proof/core';
-import CLIPlugin from '@proof/cli-plugin';
-import { toId } from '@proof/utils';
+import Proof, { ProofPlugin, Storybook, FoundTest } from '@proof-ui/core';
+import CLIPlugin from '@proof-ui/cli-plugin';
+import { toId } from '@proof-ui/utils';
 
 export type FilterFn = (kind: string, story: string) => boolean;
 

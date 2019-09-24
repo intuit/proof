@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import * as webdriverio from 'webdriverio';
 import { AsyncSeriesHook, SyncWaterfallHook } from 'tapable';
-import { createLogger } from '@proof/logger';
+import { createLogger } from '@proof-ui/logger';
 import urlJoin from 'url-join';
 import { normalizeBaseURL, getStoryURL } from './url';
 import { BrowserConfig, Browser, Grid } from './types';

@@ -1,4 +1,4 @@
-import { proofsOf, assert } from '@proof/test';
+import { proofsOf, assert } from '@proof-ui/test';
 
 const proofs = proofsOf('Components|Button');
 

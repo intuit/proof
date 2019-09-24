@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import XMLBuilder from 'xmlbuilder';
 import { newBuilder, TestSuite, Builder } from 'junit-report-builder';
-import Proof, { ProofPlugin, SuiteResult } from '@proof/core';
-import CLIPlugin, { Arguments } from '@proof/cli-plugin';
+import Proof, { ProofPlugin, SuiteResult } from '@proof-ui/core';
+import CLIPlugin, { Arguments } from '@proof-ui/cli-plugin';
 
 export interface JunitPluginConfig {
   reportPath: string;
