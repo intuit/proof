@@ -1,0 +1,20 @@
+{
+  "plugins": [
+    [
+      "npm",
+      {
+        "setRcToken": false
+      }
+    ],
+    "released"
+  ],
+  "labels": {
+    "dependency-update": {
+      "name": "dependency-update",
+      "title": "Dependency Updates"
+    }
+  },
+  "skipReleaseLabels": ["dependency-update"],
+  "githubApi": "https://github.intuit.com/api/v3",
+  "githubGraphqlApi": "https://github.intuit.com/api"
+}

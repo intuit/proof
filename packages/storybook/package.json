@@ -1,0 +1,15 @@
+{
+  "name": "@proof/storybook",
+  "version": "0.3.5",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch"
+  },
+  "devDependencies": {
+    "@types/reach__router": "^1.2.4",
+    "@types/storybook__react": "^4.0.2",
+    "typescript": "3.5.3"
+  }
+}

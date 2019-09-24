@@ -1,0 +1,31 @@
+{
+  "name": "@proof/cli",
+  "version": "0.3.5",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "bin": {
+    "proof": "bin/proof.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch"
+  },
+  "dependencies": {
+    "@proof/babel-plugin": "link:../../plugins/babel",
+    "@proof/cli-plugin": "link:../cli-plugin",
+    "@proof/config": "link:../config",
+    "@proof/console-plugin": "link:../../plugins/console",
+    "@proof/core": "link:../core",
+    "@proof/logger": "link:../logger",
+    "chalk": "^2.4.2",
+    "command-line-application": "^0.1.8",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "typescript": "3.5.3"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@proof/a11y-plugin",
+  "version": "0.3.5",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "build:watch": "tsc --build --watch"
+  },
+  "dependencies": {
+    "axe-core": "3.1.2"
+  },
+  "peerDependencies": {
+    "@proof/core": "link:../../packages/core"
+  },
+  "devDependencies": {
+    "@proof/core": "link:../../packages/core",
+    "typescript": "3.5.3"
+  }
+}

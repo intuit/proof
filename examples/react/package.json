@@ -1,0 +1,32 @@
+{
+  "name": "@proof/react-example",
+  "private": true,
+  "version": "0.3.5",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "test": "proof"
+  },
+  "dependencies": {
+    "@proof/a11y-plugin": "^0.3.5",
+    "@proof/add-all-plugin": "^0.3.5",
+    "@proof/applitools-plugin": "^0.3.5",
+    "@proof/babel-plugin": "^0.3.5",
+    "@proof/cli": "^0.3.5",
+    "@proof/junit-plugin": "^0.3.5",
+    "@proof/skip-tests-plugin": "^0.3.5",
+    "@proof/storybook": "^0.3.5",
+    "power-assert": "^1.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@storybook/react": "^5.1.9",
+    "babel-loader": "^8.0.6",
+    "babel-preset-power-assert": "^3.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

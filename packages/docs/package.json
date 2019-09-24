@@ -1,0 +1,24 @@
+{
+  "name": "@proof/docs",
+  "private": true,
+  "version": "0.3.5",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.intuit.com/adierkens/proof.git"
+  },
+  "scripts": {
+    "start": "docsify serve src",
+    "deploy": "gh-pages -d src --dotfiles"
+  },
+  "devDependencies": {
+    "command-line-docs": "0.0.3",
+    "docsify": "4.9.4",
+    "docsify-cli": "4.3.0",
+    "gh-pages": "2.0.1",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}

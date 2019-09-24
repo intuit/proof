@@ -1,0 +1,61 @@
+{
+  "name": "@proof/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Integration testing for storybook",
+  "repository": "https://github.intuit.com/design-systems/proof",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf ./**/tsconfig.tsbuildinfo && rm -rf ./packages/*/dist/* && lerna clean -y",
+    "build": "lerna run build --stream",
+    "build:watch": "lerna run build:watch --parallel",
+    "test": "jest",
+    "lint": "xo"
+  },
+  "author": "Adam Dierkens <Adam_Dierkens@intuit.com>",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.intuit.com"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "plugins/*",
+    "examples/*"
+  ],
+  "lint-staged": {
+    "*.{js,json,css,md,ts,tsx,jsx}": [
+      "prettier --write",
+      "xo --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.15",
+    "auto": "7.2.1",
+    "eslint-config-xo": "0.26.0",
+    "eslint-config-xo-react": "0.20.0",
+    "eslint-plugin-react": "7.14.2",
+    "eslint-plugin-react-hooks": "1.6.1",
+    "husky": "3.0.1",
+    "jest": "24.8.0",
+    "jest-junit": "7.0.0",
+    "lerna": "^3.15.0",
+    "lint-staged": "9.2.0",
+    "ts-jest": "24.0.2",
+    "typescript": "3.5.3",
+    "xo": "0.24.0"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "xo": {
+    "space": true,
+    "extends": "xo-react",
+    "prettier": true
+  }
+}
