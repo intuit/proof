@@ -1,3 +1,15 @@
+# v0.0.4 (Tue Sep 24 2019)
+
+#### ⚠️  Pushed to master
+
+- rename to proof-ui  (Adam_Dierkens@intuit.com)
+
+#### Authors: 1
+
+- Adam Dierkens (Adam_Dierkens@intuit.com)
+
+---
+
 # v0.0.3 (Tue Sep 24 2019)
 
 #### ⚠️  Pushed to master
