@@ -4,12 +4,19 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "peerDependencies": {
+    "@storybook/core-events": "^5.2.1",
+    "@storybook/addons": "^5.2.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@types/reach__router": "^1.2.4",
-    "@types/storybook__react": "^4.0.2",
+    "@types/webpack-env": "^1.14.0",
     "typescript": "3.5.3"
   }
 }

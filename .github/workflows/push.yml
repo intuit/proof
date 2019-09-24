@@ -29,6 +29,7 @@ jobs:
           git remote -v
           yarn install --frozen-lockfile
           yarn build
+          yarn test
       - name: Release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

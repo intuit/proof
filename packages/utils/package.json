@@ -4,10 +4,14 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
   },
   "devDependencies": {
     "typescript": "3.5.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

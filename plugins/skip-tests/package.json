@@ -4,8 +4,12 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",

@@ -4,9 +4,9 @@ import { AsyncSeriesHook, SyncWaterfallHook } from 'tapable';
 import { createLogger } from '@proof-ui/logger';
 import urlJoin from 'url-join';
 import { normalizeBaseURL, getStoryURL } from './url';
-import { BrowserConfig, Browser, Grid } from './types';
+import { BrowserConfig, Browser, Grid } from './common';
 import localGrid from './local-grid';
-export * from './types';
+export * from './common';
 
 export interface BrowserSession extends BrowserSessionOptions {
   browser: Browser;

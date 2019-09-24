@@ -4,13 +4,17 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build",
-    "build:watch": "tsc --build --watch"
+    "build": "tsc",
+    "build:watch": "tsc --watch"
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
     "@proof-ui/logger": "link:../logger",
     "cosmiconfig": "^5.2.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@types/cosmiconfig": "^5.0.3",
