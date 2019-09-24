@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/storybook",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -8,8 +8,8 @@
     "build:watch": "tsc --watch"
   },
   "peerDependencies": {
-    "@storybook/core-events": "^5.2.1",
-    "@storybook/addons": "^5.2.1"
+    "@storybook/addons": "^5.2.1",
+    "@storybook/core-events": "^5.2.1"
   },
   "publishConfig": {
     "access": "public",
