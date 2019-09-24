@@ -15,6 +15,10 @@
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
     "@proof-ui/core": "link:../../packages/core"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
     "@proof-ui/core": "link:../../packages/core",

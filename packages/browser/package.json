@@ -7,6 +7,10 @@
     "build": "tsc",
     "build:watch": "tsc --watch"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@proof-ui/logger": "link:../logger",
     "@proof-ui/utils": "link:../utils",

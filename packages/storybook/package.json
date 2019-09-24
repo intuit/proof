@@ -11,6 +11,10 @@
     "@storybook/core-events": "^5.2.1",
     "@storybook/addons": "^5.2.1"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "@types/webpack-env": "^1.14.0",
     "typescript": "3.5.3"

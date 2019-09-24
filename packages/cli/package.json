@@ -14,6 +14,10 @@
     "build": "tsc",
     "build:watch": "tsc --watch"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@proof-ui/babel-plugin": "link:../../plugins/babel",
     "@proof-ui/cli-plugin": "link:../cli-plugin",

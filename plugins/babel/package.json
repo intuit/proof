@@ -15,6 +15,10 @@
   "peerDependencies": {
     "@proof-ui/core": "link:../../packages/core"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"

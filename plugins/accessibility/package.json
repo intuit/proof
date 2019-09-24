@@ -16,5 +16,9 @@
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",
     "typescript": "3.5.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }
