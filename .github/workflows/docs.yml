@@ -28,4 +28,4 @@ jobs:
           yarn install --frozen-lockfile
       - name: Docs
         run: |
-          yarn lerna run deploy --scope @proof/docs --stream
+          yarn lerna run deploy --scope @proof-ui/docs --stream
