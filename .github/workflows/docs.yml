@@ -1,0 +1,28 @@
+name: Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Prepare repository
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git checkout "${GITHUB_REF:11}" --
+          git remote rm origin
+          git remote add origin "https://$GH_TOKEN@github.com/intuit/proof.git"
+          git fetch origin
+          git branch --set-upstream-to origin/master
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Docs
+        run: |
+          yarn lerna run deploy --scope @proof/docs --stream
