@@ -16,6 +16,7 @@
     "@proof-ui/utils": "link:../utils",
     "@types/url-join": "4.0.0",
     "@types/url-parse": "1.4.3",
+    "package.json": "^2.0.1",
     "progress": "^2.0.3",
     "selenium-standalone": "^6.16.0",
     "tapable": "^1.1.3",
