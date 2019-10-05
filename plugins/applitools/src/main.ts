@@ -131,6 +131,7 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
         const eyes = this.visualSessions.get(testArgs.name);
         if (eyes) {
           await eyes.abortIfNotClosed();
+          this.visualSessions.delete(testArgs.name);
         }
       });
     });
