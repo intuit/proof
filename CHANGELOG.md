@@ -1,3 +1,16 @@
+# v0.0.7 (Sat Oct 05 2019)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/applitools-plugin`
+  - Decrease memory footprint of the applitools plugin [#10](https://github.com/intuit/proof/pull/10) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.6 (Tue Sep 24 2019)
 
 #### 🐛  Bug Fix
