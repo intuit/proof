@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/junit-plugin",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
