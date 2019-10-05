@@ -18,5 +18,9 @@
   "devDependencies": {
     "@types/webpack-env": "^1.14.0",
     "typescript": "3.5.3"
+  },
+  "dependencies": {
+    "@storybook/react": "^5.2.1",
+    "package.json": "^2.0.1"
   }
 }
