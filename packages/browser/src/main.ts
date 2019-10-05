@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import * as webdriverio from 'webdriverio';
+
 import { AsyncSeriesHook, SyncWaterfallHook, SyncHook } from 'tapable';
 import { createLogger } from '@proof-ui/logger';
 import urlJoin from 'url-join';
@@ -7,6 +7,7 @@ import { normalizeBaseURL, getStoryURL } from './url';
 import { BrowserConfig, Browser, Grid } from './common';
 import localGrid from './local-grid';
 export * from './common';
+var webdriverio = require('webdriverio');
 
 export interface BrowserSession extends BrowserSessionOptions {
   browser: Browser;
@@ -36,11 +37,11 @@ const DefaultGridOptions: Record<Grid, any> = {
 
 export default class BrowserFactory {
   public hooks = {
-    resolveOptions: new SyncWaterfallHook<
-      any,
-      BrowserConfig,
-      BrowserSessionOptions
-    >(['wdioOptions', 'config', 'options']),
+    resolveOptions: new SyncWaterfallHook<any>([
+      'wdioOptions',
+      'config',
+      'options'
+    ]),
     create: new AsyncSeriesHook<BrowserSession>(['session']),
     capabilities: new SyncHook<Record<string, any>>(['capabilities'])
   };
@@ -134,19 +135,13 @@ export default class BrowserFactory {
       );
       logger.trace('Using options', remoteOptions);
 
-      const remoteClient = webdriverio.remote({
-        ...remoteOptions,
-        logLevel: this.browserLogLevel
-      });
+      const remoteClient = webdriverio
+        .remote({
+          capabilities: { browserName: 'chrome' } // or `browserName: 'firefox
+        })
+        .init();
 
-      const remoteSession = remoteClient.init();
-      remoteSession.then(capabilities => {
-        logger.complete(chalk.gray('sessionId'), capabilities.sessionId);
-        const value = capabilities.value as any;
-        if (value) {
-          this.hooks.capabilities.call(value);
-        }
-      });
+      const remoteSession = remoteClient.then();
 
       const url = urlJoin(
         getStoryURL(this.url, options.kind, options.story),

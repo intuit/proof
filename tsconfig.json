@@ -2,6 +2,7 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     // Monorepo support
+    "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
       "@proof-ui/*": ["packages/*/src", "plugins/*/src"]

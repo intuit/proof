@@ -37,6 +37,8 @@
     }
   },
   "devDependencies": {
+    "@proof-ui/cli": "0.0.6",
+    "@proof-ui/storybook": "0.0.6",
     "@types/jest": "24.0.15",
     "auto": "7.2.1",
     "eslint-config-xo": "0.26.0",
@@ -50,6 +52,7 @@
     "lint-staged": "9.2.0",
     "ts-jest": "24.0.2",
     "typescript": "3.5.3",
+    "webdriverio": "5.14.3",
     "xo": "0.24.0"
   },
   "prettier": {
@@ -59,5 +62,9 @@
     "space": true,
     "extends": "xo-react",
     "prettier": true
+  },
+  "dependencies": {
+    "@proof-ui/babel-plugin": "0.0.6",
+    "@types/webdriverio": "5.0.0"
   }
 }

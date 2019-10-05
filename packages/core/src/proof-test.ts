@@ -17,12 +17,10 @@ export default class ProofTest {
   public hooks = {
     start: new AsyncSeriesHook<TestHookArgs>(['hookArgs']),
     testFunction: new AsyncSeriesBailHook<TestCallback, TestHookArgs>([
-      'testFunction',
-      'hookArgs'
+      'testFunction'
     ]),
     beforeExecute: new AsyncSeriesBailHook<TestCallback, TestHookArgs>([
-      'testFunction',
-      'hookArgs'
+      'testFunction'
     ]),
     afterExecute: new AsyncSeriesHook<TestHookArgs>(['hookArgs']),
     end: new AsyncSeriesHook<TestHookBaseArgs>(['hookArgs'])
@@ -79,10 +77,10 @@ export default class ProofTest {
 
       logger.trace(`Got browser.`);
       const testFn: TestCallback =
-        (await this.hooks.testFunction.promise(this.testFunction, hookArgs)) ||
+        (await this.hooks.testFunction.promise(this.testFunction)) ||
         this.testFunction;
 
-      await this.hooks.beforeExecute.promise(testFn, hookArgs);
+      await this.hooks.beforeExecute.promise(testFn);
 
       await testFn({
         browser,

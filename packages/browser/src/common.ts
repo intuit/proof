@@ -1,6 +1,6 @@
-import { Client } from 'webdriverio';
+import { Browser } from 'webdriverio';
 
-export type Browser = Client<void>;
+export type Browser = Browser;
 
 const grids = ['local', 'remote'] as const;
 export type Grid = typeof grids[number];
