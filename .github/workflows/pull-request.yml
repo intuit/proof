@@ -17,9 +17,3 @@ jobs:
           yarn build
           yarn test
           yarn lint
-      - name: Release
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          yarn release
