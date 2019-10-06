@@ -6,27 +6,7 @@ Storybook is a great tool for developing components -- and while simulated and s
 
 ## Usage
 
-The quickest way to get started: 
-Clone the repo:
-
-```
-git clone https://github.com/intuit/proof.git
-```
-
-Go to the newly cloned repo, and download dependencies:
-
-```
-cd proof
-yarn
-```
-
-Build the project:
-
-```
-yarn build
-```
-
-Install the proof-cli with this command.
+The quickest way to get started is to use the proof-cli.
 
 ```
 npm i --save-dev @proof-ui/cli @proof-ui/storybook
@@ -95,3 +75,28 @@ Create a `proof.config.js` file in your package's root folder or use the `-c`, `
 ## Plugins
 
 At it's core, `proof` uses [tapable](https://github.com/webpack/tapable) and exposes many hooks to allow complete control over the entire test life-cycle.
+
+---
+
+## Contributing and Usage
+
+Please read the [contributing](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md) document.
+
+Clone the repo:
+
+```
+git clone https://github.com/intuit/proof.git
+```
+
+Go to the newly cloned repo, and download dependencies:
+
+```
+cd proof
+yarn
+```
+
+Build the project:
+
+```
+yarn build
+```
