@@ -6,7 +6,27 @@ Storybook is a great tool for developing components -- and while simulated and s
 
 ## Usage
 
-The quickest way to get started is to use the proof-cli.
+The quickest way to get started: 
+Clone the repo:
+
+```
+git clone https://github.com/intuit/proof.git
+```
+
+Go to the newly cloned repo, and download dependencies:
+
+```
+cd proof
+yarn
+```
+
+Build the project:
+
+```
+yarn build
+```
+
+Install the proof-cli with this command.
 
 ```
 npm i --save-dev @proof-ui/cli @proof-ui/storybook
