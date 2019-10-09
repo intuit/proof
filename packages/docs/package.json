@@ -10,12 +10,15 @@
   },
   "scripts": {
     "start": "docsify serve src",
+    "build:sidebar": "node ./scripts/build.js",
+    "predeploy": "npm build:sidebar",
     "deploy": "gh-pages -d src --dotfiles"
   },
   "devDependencies": {
     "command-line-docs": "0.0.3",
     "docsify": "4.9.4",
     "docsify-cli": "4.3.0",
+    "fs-extra": "8.1.0",
     "gh-pages": "2.0.1",
     "prop-types": "15.7.2",
     "react": "16.8.6",
