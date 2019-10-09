@@ -11,7 +11,7 @@
   "scripts": {
     "start": "docsify serve src",
     "build:sidebar": "node ./scripts/build.js",
-    "predeploy": "npm build:sidebar",
+    "predeploy": "npm run build:sidebar",
     "deploy": "gh-pages -d src --dotfiles"
   },
   "devDependencies": {
