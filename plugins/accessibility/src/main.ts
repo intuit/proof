@@ -18,15 +18,15 @@ const defaultAxeConfig: axe.Spec = {
   rules: [
     {
       id: 'color-contrast',
-      enabled: false
+      enabled: true
     },
     {
       id: 'duplicate-id',
-      enabled: false
+      enabled: true
     },
     {
       id: 'heading-order',
-      enabled: false
+      enabled: true
     },
     {
       id: 'label',
