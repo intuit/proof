@@ -14,26 +14,7 @@ type AxeBrowser = Browser & {
   getAxeReport: (root: string, config: axe.Spec) => Promise<any>;
 };
 
-const defaultAxeConfig: axe.Spec = {
-  rules: [
-    {
-      id: 'color-contrast',
-      enabled: true
-    },
-    {
-      id: 'duplicate-id',
-      enabled: true
-    },
-    {
-      id: 'heading-order',
-      enabled: true
-    },
-    {
-      id: 'label',
-      none: ['help-same-as-label', 'multiple-label']
-    }
-  ]
-};
+const defaultAxeConfig: axe.Spec = {};
 
 function createMessage(config: TestConfig, violations: axe.Result[]): string {
   let message = '\nAccessibility Errors: \n';
