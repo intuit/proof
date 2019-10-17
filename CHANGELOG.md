@@ -1,3 +1,41 @@
+# v0.0.8 (Thu Oct 17 2019)
+
+#### 🐛  Bug Fix
+
+- Add pull request gh action [#11](https://github.com/intuit/proof/pull/11) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/browser`, `@proof-ui/core`
+  - move webdriveio to dependency [#28](https://github.com/intuit/proof/pull/28) (haihua_wu@intuit.com [@adierkens](https://github.com/adierkens))
+- `@proof-ui/a11y-plugin`
+  - Issue 8 fix enabling default accessibility config [#24](https://github.com/intuit/proof/pull/24) ([@adierkens](https://github.com/adierkens))
+
+#### 📝  Documentation
+
+- Add contributing setup info to the README #13 [#14](https://github.com/intuit/proof/pull/14) ([@digikin](https://github.com/digikin))
+- `@proof-ui/a11y-plugin`
+  - Build docs site from plugin READMEs [#23](https://github.com/intuit/proof/pull/23) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/test`, `@proof-ui/skip-tests-plugin`
+  - Create README.md files for skip-tests plugin and test package [#15](https://github.com/intuit/proof/pull/15) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/junit-plugin`
+  - Create README.md for junit plugin [#16](https://github.com/intuit/proof/pull/16) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/console-plugin`
+  - added README.md file for console plugin [#17](https://github.com/intuit/proof/pull/17) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/babel-plugin`
+  - added README.md file for babel plugin [#18](https://github.com/intuit/proof/pull/18) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/config`
+  - Create README.md for config [#19](https://github.com/intuit/proof/pull/19) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/applitools-plugin`
+  - Added README.md for applitools plugin [#20](https://github.com/intuit/proof/pull/20) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/add-all-plugin`
+  - Added README.md for add-all plugin [#21](https://github.com/intuit/proof/pull/21) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 3
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Eric Stumbo ([@digikin](https://github.com/digikin))
+- hwu3 (haihua_wu@intuit.com)
+
+---
+
 # v0.0.7 (Sat Oct 05 2019)
 
 #### 🐛  Bug Fix
