@@ -1,3 +1,16 @@
+# v0.0.9 (Thu Oct 17 2019)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/browser`
+  - Wait for Root To Exist [#29](https://github.com/intuit/proof/pull/29) ([@tylerkrupicka](https://github.com/tylerkrupicka))
+
+#### Authors: 1
+
+- Tyler Krupicka ([@tylerkrupicka](https://github.com/tylerkrupicka))
+
+---
+
 # v0.0.8 (Thu Oct 17 2019)
 
 #### 🐛  Bug Fix
