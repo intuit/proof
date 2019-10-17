@@ -12,14 +12,14 @@
     "@proof-ui/logger": "link:../logger",
     "@proof-ui/test": "link:../test",
     "promise-pool-executor": "^1.1.1",
-    "tapable": "^1.1.3"
+    "tapable": "^1.1.3",
+    "@types/tapable": "^1.0.4"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@types/tapable": "^1.0.4",
     "typescript": "3.5.3"
   }
 }
