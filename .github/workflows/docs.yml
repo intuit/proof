@@ -2,11 +2,14 @@ name: Docs
 
 on:
   push:
+    paths:
+      - packages/docs/**
     branches:
       - master
 
 jobs:
   default:
+    if: "!contains(github.event.commits[0].message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
