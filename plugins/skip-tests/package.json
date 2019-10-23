@@ -12,8 +12,8 @@
     "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
-    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof-ui/core": "link:../../packages/core"
+    "@proof-ui/cli-plugin": "*",
+    "@proof-ui/core": "*"
   },
   "devDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",

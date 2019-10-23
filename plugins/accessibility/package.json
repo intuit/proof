@@ -11,7 +11,7 @@
     "axe-core": "3.1.2"
   },
   "peerDependencies": {
-    "@proof-ui/core": "link:../../packages/core"
+    "@proof-ui/core": "*"
   },
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",

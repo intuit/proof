@@ -11,8 +11,8 @@
     "chalk": "^2.4.2"
   },
   "peerDependencies": {
-    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof-ui/core": "link:../../packages/core"
+    "@proof-ui/cli-plugin": "*",
+    "@proof-ui/core": "*"
   },
   "publishConfig": {
     "access": "public",
