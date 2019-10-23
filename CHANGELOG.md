@@ -1,3 +1,16 @@
+# v0.0.10 (Wed Oct 23 2019)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/a11y-plugin`, `@proof-ui/add-all-plugin`, `@proof-ui/applitools-plugin`, `@proof-ui/babel-plugin`, `@proof-ui/console-plugin`, `@proof-ui/junit-plugin`, `@proof-ui/skip-tests-plugin`
+  - links don't work in peers [#31](https://github.com/intuit/proof/pull/31) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.0.9 (Thu Oct 17 2019)
 
 #### 🐛  Bug Fix
