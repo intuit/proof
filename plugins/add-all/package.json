@@ -8,9 +8,9 @@
     "build:watch": "tsc --watch"
   },
   "peerDependencies": {
-    "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof-ui/core": "link:../../packages/core",
-    "@proof-ui/utils": "link:../../packages/utils"
+    "@proof-ui/cli-plugin": "*",
+    "@proof-ui/core": "*",
+    "@proof-ui/utils": "*"
   },
   "publishConfig": {
     "access": "public",

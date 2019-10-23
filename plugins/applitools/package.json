@@ -12,7 +12,7 @@
     "@applitools/eyes.webdriverio": "^2.9.0"
   },
   "peerDependencies": {
-    "@proof-ui/core": "link:../../packages/core"
+    "@proof-ui/core": "*"
   },
   "publishConfig": {
     "access": "public",

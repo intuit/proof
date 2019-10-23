@@ -13,7 +13,7 @@
     "babel-preset-power-assert": "^3.0.0"
   },
   "peerDependencies": {
-    "@proof-ui/core": "link:../../packages/core"
+    "@proof-ui/core": "*"
   },
   "publishConfig": {
     "access": "public",
