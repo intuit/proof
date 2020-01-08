@@ -66,6 +66,13 @@ jobs:
           name: Send CodeCov Results
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_KEY
 
+  docs:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+        at: ~/proof
+      - run: yarn lerna run deploy --scope @proof-ui/docs --stream
+
   release:
     <<: *defaults
     steps:
@@ -97,6 +104,14 @@ workflows:
           filters:
             tags:
               only: /.*/
+      - docs:
+          requires:
+            - test
+            - lint
+          filters:
+            branches:
+              only:
+                - master
       - release:
           requires:
             - test
