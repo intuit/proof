@@ -1,3 +1,16 @@
+# v0.0.12 (Wed Jan 08 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/core`
+  - Wait longer for browser preview [#33](https://github.com/intuit/proof/pull/33) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.11 (Wed Jan 08 2020)
 
 #### 🐛  Bug Fix
