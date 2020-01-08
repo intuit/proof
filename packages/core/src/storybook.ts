@@ -1,5 +1,6 @@
 import BrowserFactory from '@proof-ui/browser';
 import { logger as baseLogger, Logger } from '@proof-ui/logger';
+import { promiseRetry } from './utils';
 
 export type Storybook = Map<string, Set<string>>;
 
@@ -24,10 +25,16 @@ export async function getStories(
 
   let stories;
 
+  const getStories = async () =>
+    (await browser.execute(() => eval('window.__proof__.getStorybook()')))
+      .value;
+
   try {
-    stories = (await browser.execute(() =>
-      eval('window.__proof__.getStorybook()')
-    )).value;
+    stories = await promiseRetry(
+      getStories,
+      3,
+      () => new Promise(r => setTimeout(() => r, 1000))
+    );
   } catch (e) {
     console.error(e);
     throw new Error(

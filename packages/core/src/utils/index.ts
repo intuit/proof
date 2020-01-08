@@ -16,7 +16,7 @@ export function createMatcher(match: string | string[]): TestMatcherFunction {
 export async function promiseRetry<T>(
   promiseGenerator: () => Promise<T>,
   retryCount: number,
-  onFail?: (err: Error, retriesLeft: number) => void
+  onFail?: (err: Error, retriesLeft: number) => Promise<void> | void
 ): Promise<T> {
   if (retryCount < 1) {
     return promiseGenerator();
@@ -25,7 +25,7 @@ export async function promiseRetry<T>(
   try {
     return await promiseGenerator();
   } catch (err) {
-    onFail && onFail(err, retryCount);
+    onFail && (await onFail(err, retryCount));
     return promiseRetry(promiseGenerator, retryCount - 1, onFail);
   }
 }
