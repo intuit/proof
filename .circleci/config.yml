@@ -1,0 +1,113 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+general:
+  artifacts: coverage/
+
+defaults: &defaults
+  working_directory: ~/proof
+  docker:
+    - image: circleci/node:latest-browsers
+
+jobs:
+  build:
+    <<: *defaults
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package.json checksum
+            # when this file is changed, this key will fail
+            - proof-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+            - proof-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - proof-{{ .Branch }}
+            # Find the most recent cache used from any branch
+            - proof-master
+            - proof-
+
+      - run: npm ci
+
+      - run: npm run build
+      # - run: bash ./.circleci/semver-check.sh
+
+      - save_cache:
+          key: proof-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/proof
+      - run:
+          name: 'Lint'
+          command: npm run lint
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/proof
+      - run:
+          name: 'Test'
+          command: npm run test
+          environment:
+            JEST_JUNIT_OUTPUT: 'coverage/junitjunit.xml'
+      - store_test_results:
+          path: coverage/junit
+      - store_artifacts:
+          path: coverage/junit
+      - run:
+          name: Send CodeCov Results
+          command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_KEY
+
+  release:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/proof
+      - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Release
+          command: npm run release
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
+      - lint:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+      - test:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /.*/
+      - release:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
