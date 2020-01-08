@@ -1,3 +1,23 @@
+# v0.0.11 (Wed Jan 08 2020)
+
+#### 🐛  Bug Fix
+
+- Swap to circle [#32](https://github.com/intuit/proof/pull/32) ([@adierkens](https://github.com/adierkens))
+- Fix ci-skip github action [#30](https://github.com/intuit/proof/pull/30) ([@DrSensor](https://github.com/DrSensor))
+
+#### ⚠️  Pushed to master
+
+- Require test and lint  ([@adierkens](https://github.com/adierkens))
+- Swap to yarn  ([@adierkens](https://github.com/adierkens))
+- Use yarn.lock for cache key  ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 2
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Fahmi Akbar Wildana ([@DrSensor](https://github.com/DrSensor))
+
+---
+
 # v0.0.10 (Wed Oct 23 2019)
 
 #### 🐛  Bug Fix
