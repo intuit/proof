@@ -24,8 +24,8 @@ jobs:
           keys:
             # Find a cache corresponding to this specific package.json checksum
             # when this file is changed, this key will fail
-            - proof-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
-            - proof-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - proof-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
+            - proof-{{ .Branch }}-{{ checksum "yarn.lock" }}
             - proof-{{ .Branch }}
             # Find the most recent cache used from any branch
             - proof-master
