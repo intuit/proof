@@ -25,11 +25,9 @@ export async function getStories(
 
   let stories;
 
-  async function getStories() {
-    return (await browser.execute(() =>
-      eval('window.__proof__.getStorybook()')
-    )).value;
-  }
+  const getStories = async () =>
+    (await browser.execute(() => eval('window.__proof__.getStorybook()')))
+      .value;
 
   try {
     stories = await promiseRetry(
