@@ -31,13 +31,12 @@ jobs:
             - proof-master
             - proof-
 
-      - run: npm ci
+      - run: yarn
 
-      - run: npm run build
-      # - run: bash ./.circleci/semver-check.sh
+      - run: yarn build
 
       - save_cache:
-          key: proof-{{ .Branch }}-{{ checksum "package-lock.json" }}-{{ checksum ".circleci/config.yml" }}
+          key: proof-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
           paths:
             - ~/.cache/yarn
             - node_modules
@@ -53,7 +52,7 @@ jobs:
           at: ~/proof
       - run:
           name: 'Lint'
-          command: npm run lint
+          command: yarn lint
 
   test:
     <<: *defaults
@@ -62,13 +61,7 @@ jobs:
           at: ~/proof
       - run:
           name: 'Test'
-          command: npm run test
-          environment:
-            JEST_JUNIT_OUTPUT: 'coverage/junitjunit.xml'
-      - store_test_results:
-          path: coverage/junit
-      - store_artifacts:
-          path: coverage/junit
+          command: yarn test
       - run:
           name: Send CodeCov Results
           command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_KEY
@@ -82,7 +75,7 @@ jobs:
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run:
           name: Release
-          command: npm run release
+          command: yarn release
 
 workflows:
   version: 2
