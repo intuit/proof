@@ -68,15 +68,21 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/proof
-      - run: yarn lerna run deploy --scope @proof-ui/docs --stream
+      - run:
+          name: deploy
+          command: yarn lerna run deploy --scope @proof-ui/docs --stream
 
   release:
     <<: *defaults
     steps:
       - attach_workspace:
-            at: ~/proof
-      - run: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          at: ~/proof
+      - run:
+          name: set ssh key
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
+          name: set registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run:
           name: Release
           command: yarn release
