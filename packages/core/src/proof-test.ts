@@ -18,23 +18,23 @@ export default class ProofTest {
     start: new AsyncSeriesHook<TestHookArgs>(['hookArgs']),
     testFunction: new AsyncSeriesBailHook<TestCallback, TestHookArgs>([
       'testFunction',
-      'hookArgs'
+      'hookArgs',
     ]),
     beforeExecute: new AsyncSeriesBailHook<TestCallback, TestHookArgs>([
       'testFunction',
-      'hookArgs'
+      'hookArgs',
     ]),
     afterExecute: new AsyncSeriesHook<TestHookArgs>(['hookArgs']),
-    end: new AsyncSeriesHook<TestHookBaseArgs>(['hookArgs'])
+    end: new AsyncSeriesHook<TestHookBaseArgs>(['hookArgs']),
   };
 
   public logger: Logger;
 
-  private testFunction: TestCallback;
+  private readonly testFunction: TestCallback;
 
   public config: TestConfig;
 
-  private browserFactory: BrowserFactory;
+  private readonly browserFactory: BrowserFactory;
 
   public name: string;
 
@@ -57,24 +57,26 @@ export default class ProofTest {
     const baseHookArgs = {
       logger: this.logger,
       config: this.config,
-      name: this.name
+      name: this.name,
     };
 
     let browser;
 
     try {
-      browser = (await this.browserFactory.create(
-        {
-          name: this.name,
-          kind: this.config.kind,
-          story: this.config.story
-        },
-        logger
-      )).browser;
+      browser = (
+        await this.browserFactory.create(
+          {
+            name: this.name,
+            kind: this.config.kind,
+            story: this.config.story,
+          },
+          logger
+        )
+      ).browser;
 
       const hookArgs = {
         ...baseHookArgs,
-        browser
+        browser,
       };
 
       logger.trace(`Got browser.`);
@@ -86,14 +88,15 @@ export default class ProofTest {
 
       await testFn({
         browser,
-        ...this.config
+        ...this.config,
       });
       await this.hooks.afterExecute.promise(hookArgs);
     } finally {
       await this.hooks.end.promise(baseHookArgs);
       if (browser) {
-        await browser.end();
+        await browser.deleteSession();
       }
+
       logger.trace(`Test Done`);
     }
   }

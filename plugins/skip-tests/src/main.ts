@@ -24,9 +24,9 @@ export default class SkipTestPlugin implements ProofPlugin, CLIPlugin {
           alias: 's',
           description: 'Skip the actual test execution',
           type: Boolean,
-          defaultValue: false
-        }
-      ]
+          defaultValue: false,
+        },
+      ],
     };
   }
 

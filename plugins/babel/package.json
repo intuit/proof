@@ -8,8 +8,8 @@
     "build:watch": "tsc --watch"
   },
   "dependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "^7.9.0",
+    "@babel/register": "^7.9.0",
     "babel-preset-power-assert": "^3.0.0"
   },
   "peerDependencies": {
@@ -21,6 +21,6 @@
   },
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

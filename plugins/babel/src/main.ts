@@ -6,30 +6,30 @@ export interface BabelPluginConfig {
 }
 
 export default class BabelPlugin implements ProofPlugin {
-  private options: BabelPluginConfig;
+  private readonly options: BabelPluginConfig;
 
   constructor(options?: BabelPluginConfig) {
-    this.options = options || {
+    this.options = options ?? {
       config: {
-        presets: ['@babel/preset-env', 'babel-preset-power-assert']
-      }
+        presets: ['@babel/preset-env', 'babel-preset-power-assert'],
+      },
     };
   }
 
   apply(proof: Proof) {
     proof.hooks.testRunner.tap('babel', (runner: TestRunner) => {
       runner.hooks.files.tap('babel', (files: string[]) => {
-        const relativePaths = files.map(p => path.resolve(p));
+        const relativePaths = files.map((p) => path.resolve(p));
 
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line
         require('@babel/register')({
           babelrc: false,
           ignore: [
             (fPath: string) => {
               return !relativePaths.includes(fPath);
-            }
+            },
           ],
-          ...this.options.config
+          ...this.options.config,
         });
       });
     });

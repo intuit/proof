@@ -5,7 +5,7 @@ import {
   createLogger,
   setLength,
   setLogLevel,
-  LogLevel
+  LogLevel,
 } from '@proof-ui/logger';
 import BrowserFactory from '@proof-ui/browser';
 import { TestConfig } from '@proof-ui/test';
@@ -15,15 +15,13 @@ import TestRunner, { FoundTest } from './runner';
 import { inflate, promiseRetry } from './utils';
 import Test from './proof-test';
 
+export * from './storybook';
+export * from './proof-test';
+export * from './runner';
 export * from './types';
 
-export {
-  default as ProofTest,
-  TestHookArgs,
-  TestHookBaseArgs
-} from './proof-test';
-export { default as TestRunner, FoundTest } from './runner';
-export { Storybook } from './storybook';
+export { default as ProofTest } from './proof-test';
+export { default as TestRunner } from './runner';
 
 export interface ProofPlugin {
   apply(proof: Proof): void;
@@ -59,12 +57,12 @@ export default class Proof {
     testStart: new SyncHook<Test>(['test']),
     testFinish: new SyncHook<TestResult>(['testResult']),
     start: new SyncHook<TestRunOptions>(['testargs']),
-    end: new AsyncSeriesHook<SuiteResult>(['results'])
+    end: new AsyncSeriesHook<SuiteResult>(['results']),
   };
 
   constructor(config: ProofConfig) {
     if (config.plugins) {
-      config.plugins.forEach(p => p.apply(this));
+      config.plugins.forEach((p) => p.apply(this));
     }
   }
 
@@ -80,7 +78,7 @@ export default class Proof {
       func: testConfig.callback,
       logger: scoppedLogger,
       browserFactory,
-      name
+      name,
     });
   }
 
@@ -94,19 +92,23 @@ export default class Proof {
       file,
       story: {
         kind: test.config.kind,
-        story: test.config.story
-      }
+        story: test.config.story,
+      },
     };
 
     const startTime = Date.now();
 
     try {
-      await promiseRetry(() => test.run(), retryCount, (err, retriesLeft) => {
-        test.logger.error(err);
-        test.logger.warn(`Test failed. Retrying ${retriesLeft} more times.`);
-      });
-    } catch (e) {
-      testResult.error = e;
+      await promiseRetry(
+        () => test.run(),
+        retryCount,
+        (err, retriesLeft) => {
+          test.logger.error(err);
+          test.logger.warn(`Test failed. Retrying ${retriesLeft} more times.`);
+        }
+      );
+    } catch (error) {
+      testResult.error = error;
     }
 
     const endTime = Date.now();
@@ -117,14 +119,14 @@ export default class Proof {
   }
 
   async run(options: TestRunOptions): Promise<SuiteResult> {
-    setLogLevel(options.logLevel || 'info');
+    setLogLevel(options.logLevel ?? 'info');
     this.hooks.start.call(options);
     logger.trace('Starting with options', options);
     const browserFactory = new BrowserFactory({
       config: options.browserConfig,
       storybookBaseURL: options.url,
       logLevel: browserLogLevel(options.logLevel),
-      waitForRoot: options.waitForRoot
+      waitForRoot: options.waitForRoot,
     });
     this.hooks.browserFactory.call(browserFactory);
 
@@ -134,8 +136,8 @@ export default class Proof {
     logger.trace(`Found stories: \n ${printStories(stories)}`);
 
     const testRunner = new TestRunner({
-      glob: options.testMatch || `__automation/**/*.js`,
-      logger
+      glob: options.testMatch ?? `__automation/**/*.js`,
+      logger,
     });
 
     this.hooks.testRunner.call(testRunner);
@@ -145,15 +147,17 @@ export default class Proof {
     this.hooks.tests.call(tests);
     logger.debug(`Got ${tests.length} after inflating.`);
 
-    const loglength = Math.max(...tests.map(t => createName(t.config).length));
+    const loglength = Math.max(
+      ...tests.map((t) => createName(t.config).length)
+    );
     setLength(loglength);
 
     const testResults: TestResult[] = await new PromisePoolExecutor({
-      concurrencyLimit: options.concurrency || 6
+      concurrencyLimit: options.concurrency ?? 6,
     })
       .addEachTask({
         data: tests,
-        generator: async testConfig => {
+        generator: async (testConfig) => {
           const test = this.createTest(testConfig, browserFactory);
           this.hooks.testStart.call(test);
           const result = await this.runTest(
@@ -163,7 +167,7 @@ export default class Proof {
           );
           this.hooks.testFinish.call(result);
           return result;
-        }
+        },
       })
       .promise();
 
@@ -183,7 +187,7 @@ export default class Proof {
         failures: 0,
         total: testResults.length,
         skipped: 0,
-        tests: testResults
+        tests: testResults,
       }
     );
 

@@ -8,13 +8,13 @@
     "build:watch": "tsc --watch"
   },
   "peerDependencies": {
-    "command-line-application": "^0.1.8"
+    "command-line-application": "^0.9.6"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

@@ -8,14 +8,17 @@
     "build:watch": "tsc --watch"
   },
   "dependencies": {
-    "axe-core": "3.1.2"
+    "axe-core": "3.5.2"
   },
   "peerDependencies": {
-    "@proof-ui/core": "*"
+    "@proof-ui/core": "*",
+    "@proof-ui/browser": "*",
+    "@proof-ui/cli-plugin": "*",
+    "@proof-ui/test": "*"
   },
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   },
   "publishConfig": {
     "access": "public",

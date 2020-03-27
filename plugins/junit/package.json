@@ -8,8 +8,8 @@
     "build:watch": "tsc --watch"
   },
   "dependencies": {
-    "junit-report-builder": "^1.3.2",
-    "xmlbuilder": "^13.0.2"
+    "junit-report-builder": "^1.3.3",
+    "xmlbuilder": "^15.1.0"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "*",
@@ -22,6 +22,6 @@
   "devDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
     "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

@@ -2,7 +2,7 @@ import { Command } from 'command-line-application';
 
 export interface CLIArguments {
   config?: string;
-  verbose?: 'v'[];
+  verbose?: Array<'v'>;
   testMatch?: string;
   port?: number;
   url?: string;
@@ -15,89 +15,90 @@ export interface CLIArguments {
   retryCount?: number;
 }
 
-export default {
+const cmd: Command = {
   name: 'proof',
   description: 'A test runner for storybook',
   examples: [
     {
       example: 'proof',
-      desc: 'Run some tests using the default options'
-    }
+      desc: 'Run some tests using the default options',
+    },
   ],
   options: [
     {
       name: 'config',
       alias: 'c',
       description: 'The location of the config file to use.',
-      type: String
+      type: String,
     },
     {
       name: 'verbose',
       alias: 'v',
       description: 'Talk louder. Can be repeated: -vv',
       type: Boolean,
-      multiple: true
+      multiple: true,
     },
     {
       name: 'concurrency',
       description: 'Number of tests to run at a time',
       type: Number,
-      defaultValue: 6
+      defaultValue: 6,
     },
     {
       name: 'retry-count',
       description: 'Number of times to retry a failing test before giving up.',
       type: Number,
-      defaultValue: 0
+      defaultValue: 0,
     },
     {
       name: 'test-match',
       alias: 't',
       description: 'The glob to use when searching for tests',
       type: String,
-      defaultValue: '__automation__/**/*.test.js'
+      defaultValue: '__automation__/**/*.test.js',
     },
     {
       name: 'port',
       alias: 'p',
       description:
         'The local port that a storybook is running on. A shorthand for --url http://localhost:<port>',
-      type: Number
+      type: Number,
     },
     {
       name: 'url',
       alias: 'u',
       description: 'The url that storybook is running at. ',
       type: String,
-      default: 'http://localhost'
+      defaultValue: 'http://localhost',
     },
     {
       name: 'remote',
       description: 'Run the browser against a remote selenium server',
       type: Boolean,
-      defaultValue: false
+      defaultValue: false,
     },
     {
       name: 'headless',
       description: 'Run the browser headlessly',
       type: Boolean,
-      defaultValue: false
+      defaultValue: false,
     },
     {
       name: 'browser-name',
       description: 'The name of the browser to use',
       type: String,
-      defaultValue: 'chrome'
+      defaultValue: 'chrome',
     },
     {
       name: 'browser-version',
       description: 'The version of the browser to use',
-      type: String
+      type: String,
     },
     {
       name: 'browser-platform',
       description: 'The name of the platform to run the browser on',
-      type: String
-    }
-  ]
-} as Command;
+      type: String,
+    },
+  ],
+};
+export default cmd;

@@ -1,0 +1,11 @@
+{
+  "extends": "@design-systems",
+  "rules": {
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0,
+    "jest/expect-expect": 0,
+    "jest/valid-title": 0,
+    "jest/no-export": 0,
+    "jsdoc/require-jsdoc": 0
+  }
+}

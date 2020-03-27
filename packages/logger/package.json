@@ -8,7 +8,7 @@
     "build:watch": "tsc --watch"
   },
   "dependencies": {
-    "@types/signale": "^1.2.1",
+    "@types/signale": "^1.4.0",
     "signale": "^1.4.0"
   },
   "publishConfig": {
@@ -16,6 +16,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

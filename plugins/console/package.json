@@ -8,11 +8,13 @@
     "build:watch": "tsc --watch"
   },
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^3.0.0"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "*",
-    "@proof-ui/core": "*"
+    "@proof-ui/core": "*",
+    "@proof-ui/logger": "*",
+    "@proof-ui/utils": "*"
   },
   "publishConfig": {
     "access": "public",
@@ -21,6 +23,6 @@
   "devDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
     "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

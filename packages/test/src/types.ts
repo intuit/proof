@@ -1,4 +1,4 @@
-import { Browser } from '@proof-ui/browser';
+import { Browser } from 'webdriverio';
 
 export type TestService = (
   config: TestConfig,

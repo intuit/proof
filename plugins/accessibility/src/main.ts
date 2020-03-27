@@ -38,10 +38,11 @@ function createMessage(config: TestConfig, violations: axe.Result[]): string {
 
 async function write(content: string, fName: string): Promise<void> {
   return new Promise((resolve, reject) => {
-    fs.writeFile(fName, content, err => {
+    fs.writeFile(fName, content, (err) => {
       if (err) {
         return reject(err);
       }
+
       return resolve();
     });
   });
@@ -49,19 +50,19 @@ async function write(content: string, fName: string): Promise<void> {
 
 export default class A11yPlugin implements ProofPlugin, CLIPlugin {
   private enabled = false;
-  private reportPath: string = 'proof-a11y.json';
+  private reportPath = 'proof-a11y.json';
 
-  private root: string = '#root';
+  private readonly root: string = '#root';
 
-  private options: A11yPluginConfig;
+  private readonly options: A11yPluginConfig;
 
   constructor(options?: A11yPluginConfig) {
-    if (options && options.root) {
+    if (options?.root) {
       this.root = options.root;
     }
 
-    this.options = options || {
-      config: defaultAxeConfig
+    this.options = options ?? {
+      config: defaultAxeConfig,
     };
   }
 
@@ -70,11 +71,11 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
       return;
     }
 
-    const testViolations: {
+    const testViolations: Array<{
       story: string;
       kind: string;
       violations: any[];
-    }[] = [];
+    }> = [];
 
     proof.hooks.testStart.tap('accessibility', (t: ProofTest) => {
       t.hooks.beforeExecute.tapPromise(
@@ -87,9 +88,9 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
               const axeSource = fs.readFileSync(axePath, 'utf8').toString();
               await testArgs.browser.execute(axeSource);
               const result = await testArgs.browser.executeAsync(
-                (root, axeConfig, done) => {
-                  axe.configure(axeConfig);
-                  axe.run(root, (err, results) => {
+                (execRoot, execAxeConfig, done) => {
+                  axe.configure(execAxeConfig);
+                  axe.run(execRoot, (err, results) => {
                     if (err) done(err);
                     done(results);
                   });
@@ -112,12 +113,12 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
           this.root,
           this.options.config
         );
-        const violations = results && results.violations;
+        const violations = results?.violations;
 
         testViolations.push({
           story: t.config.story,
           kind: t.config.kind,
-          violations: violations || []
+          violations: violations || [],
         });
 
         if (violations && violations.length > 0) {
@@ -141,15 +142,15 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
           description:
             'Run AXE on each test and report accessibility failures.',
           type: Boolean,
-          defaultValue: false
+          defaultValue: false,
         },
         {
           name: 'a11y-report',
           description: 'The file to write the accessibility report to',
           type: String,
-          defaultValue: 'proof-a11y.json'
-        }
-      ]
+          defaultValue: 'proof-a11y.json',
+        },
+      ],
     };
   }
 
@@ -157,6 +158,7 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
     if (args.a11Y) {
       this.enabled = true;
     }
+
     if (args.a11YReport) {
       this.reportPath = args.a11YReport;
     }

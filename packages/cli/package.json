@@ -25,11 +25,11 @@
     "@proof-ui/console-plugin": "link:../../plugins/console",
     "@proof-ui/core": "link:../core",
     "@proof-ui/logger": "link:../logger",
-    "chalk": "^2.4.2",
-    "command-line-application": "^0.1.8",
+    "chalk": "^3.0.0",
+    "command-line-application": "^0.9.6",
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "typescript": "3.5.3"
+    "typescript": "3.8.3"
   }
 }

@@ -9,6 +9,7 @@ export function normalizeBaseURL(url: string): string {
   if (!normalized.startsWith('http')) {
     normalized = urlJoin('http:', normalized);
   }
+
   const parsed = new URL(normalized);
   let path = '';
 
@@ -17,7 +18,7 @@ export function normalizeBaseURL(url: string): string {
     path = parsed.pathname;
     if (parsed.pathname.endsWith('.html')) {
       const splitPathname = path.split('/');
-      path = splitPathname.slice(0, splitPathname.length - 1).join('/');
+      path = splitPathname.slice(0, -1).join('/');
     }
   }
 

@@ -14,23 +14,23 @@ function getCallerFile(): string {
   const error = new Error();
 
   if (!error.stack) {
-    throw Error('Cannot get caller file: no stack to trace.');
+    throw new Error('Cannot get caller file: no stack to trace.');
   }
 
-  let stack: any = error.stack;
-  let currentFile = stack.shift().getFileName();
+  let { stack } = (error as any) as { stack: NodeJS.CallSite[] };
+  const currentFile = stack.shift()!.getFileName();
   let callerFile = currentFile;
 
   while (error.stack.length && currentFile === callerFile) {
-    stack = error.stack;
-    callerFile = stack.shift().getFileName();
+    stack = (error.stack as any) as NodeJS.CallSite[];
+    callerFile = stack.shift()!.getFileName();
   }
 
   Error.prepareStackTrace = original;
-  return callerFile;
+  return callerFile || '';
 }
 
-export function _setCallbackService(service: TestService) {
+export function setCallbackService(service: TestService) {
   callbackService = service;
 }
 
@@ -50,11 +50,11 @@ export function proofsOf(kind: string) {
         {
           kind,
           story,
-          skip: false
+          skip: false,
         },
         callback,
         getCallerFile()
       );
-    }
+    },
   };
 }

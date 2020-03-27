@@ -3,7 +3,7 @@ import Proof, {
   ProofPlugin,
   SuiteResult,
   FoundTest,
-  TestResult
+  TestResult,
 } from '@proof-ui/core';
 import { logger, createLogger } from '@proof-ui/logger';
 import { stats } from '@proof-ui/utils';
@@ -22,10 +22,10 @@ const formatTime = (time: number | undefined): string => {
 export default class ConsoleReporterPlugin implements ProofPlugin {
   getTimeStats(results: SuiteResult): string[] {
     const sortedTests = results.tests
-      .filter(t => t.time)
+      .filter((t) => t.time)
       .sort((t1, t2) => t2.time! - t1.time!);
 
-    const { mean, median } = stats(sortedTests, t => t.time || 0);
+    const { mean, median } = stats(sortedTests, (t) => t.time ?? 0);
     const fastest = sortedTests[0];
     const slowest = sortedTests[sortedTests.length - 1];
     const passing = results.total - results.skipped - results.failures;
@@ -45,7 +45,7 @@ export default class ConsoleReporterPlugin implements ProofPlugin {
       chalk.gray(`Fastest test: ${formatTime(fastest.time)} (${fastest.name})`),
       chalk.gray(`Slowest test: ${formatTime(slowest.time)} (${slowest.name})`),
       chalk.gray(`Mean time: ${formatTime(mean)}`),
-      chalk.gray(`Median time: ${formatTime(median)}`)
+      chalk.gray(`Median time: ${formatTime(median)}`),
     ];
   }
 
@@ -96,7 +96,7 @@ export default class ConsoleReporterPlugin implements ProofPlugin {
       if (results.failures > 0) {
         logger.error(chalk.red('Failures:'));
 
-        results.tests.forEach(t => {
+        results.tests.forEach((t) => {
           if (!t.error) {
             return;
           }
@@ -109,7 +109,7 @@ export default class ConsoleReporterPlugin implements ProofPlugin {
       logger.done(
         [
           chalk.blue(`Ran ${results.total} tests in ${duration}`),
-          ...this.getTimeStats(results)
+          ...this.getTimeStats(results),
         ].join('\n\t\t- ')
       );
     });

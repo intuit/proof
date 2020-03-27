@@ -24,10 +24,10 @@ export async function promiseRetry<T>(
 
   try {
     return await promiseGenerator();
-  } catch (err) {
-    onFail && (await onFail(err, retryCount));
+  } catch (error) {
+    onFail && (await onFail(error, retryCount));
     return promiseRetry(promiseGenerator, retryCount - 1, onFail);
   }
 }
 
-export { default as inflate } from './inflateTests';
+export { default as inflate } from './inflate-tests';

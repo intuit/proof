@@ -11,7 +11,7 @@ export class LocalGrid {
   constructor(options?: { install?: boolean }) {
     let progress: Progress;
 
-    if (options && options.install) {
+    if (options?.install) {
       this.install = new Promise((resolve, reject) => {
         selenium.install(
           {
@@ -22,11 +22,11 @@ export class LocalGrid {
                   total,
                   complete: '=',
                   incomplete: ' ',
-                  width: 20
+                  width: 20,
                 });
 
               progress.tick(chunk);
-            }
+            },
           },
           (err: any, paths: any) => {
             if (err) {
@@ -67,7 +67,7 @@ export class LocalGrid {
 
   end() {
     if (this.process) {
-      const end = this.process.then(child => {
+      const end = this.process.then((child) => {
         if (child) {
           child.kill();
         }
@@ -83,7 +83,7 @@ export class LocalGrid {
 
 let instance: LocalGrid;
 
-export default function getInstance(create: boolean = false) {
+export default function getInstance(create = false) {
   if (!instance && create) {
     instance = new LocalGrid({ install: true });
   }
