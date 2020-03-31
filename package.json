@@ -10,7 +10,7 @@
     "build": "lerna run build --stream",
     "build:watch": "lerna run build:watch --parallel",
     "test": "jest",
-    "lint": "eslint plugins/**/*.ts packages/**/*.ts --ignore-pattern dist ",
+    "lint": "eslint plugins/**/*.ts packages/**/*.ts --ignore-pattern dist --ignore-pattern node_modules ",
     "release": "auto shipit -w"
   },
   "publishConfig": {
