@@ -73,6 +73,13 @@ declare module '@applitools/eyes-webdriverio' {
   }
 
   export class Configuration {
-    addBrowser(width: number, height: number, type: BrowserType): void;
+    public stitchMode: 'CSS';
+    constructor();
+    setAppName(name: string): void;
+    setTestName(name: string): void;
+    setApiKey(key: string): void;
+    setForceFullPageScreenshot(force: boolean): void;
+    setHideScrollbars(hide: boolean): void;
+    addBrowser(width: number, height: number, browserType: BrowserType): void;
   }
 }
