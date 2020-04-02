@@ -98,11 +98,12 @@ export default class A11yPlugin implements ProofPlugin, CLIPlugin {
                 root,
                 axeConfig
               );
+
               if (result instanceof Error) {
                 throw result;
               }
 
-              return result.value;
+              return result;
             }
           );
         }
