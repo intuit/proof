@@ -35,6 +35,23 @@ const DefaultGridOptions: Record<Grid, any> = {
   },
 };
 
+function convertToBrowserLevel(logLevel: WebDriver.WebDriverLogTypes): string {
+  switch (logLevel) {
+    case 'warn':
+    case 'error':
+      return logLevel;
+
+    case 'trace':
+      return 'debug';
+
+    case 'debug':
+      return 'info';
+
+    default:
+      return 'warn';
+  }
+}
+
 export default class BrowserFactory {
   public hooks = {
     resolveOptions: new SyncWaterfallHook<
@@ -62,7 +79,7 @@ export default class BrowserFactory {
   }) {
     this.config = options.config;
     this.url = normalizeBaseURL(options.storybookBaseURL);
-    this.browserLogLevel = options.logLevel;
+    this.browserLogLevel = convertToBrowserLevel(options.logLevel);
     this.waitForRoot = options.waitForRoot ?? 1000;
   }
 
