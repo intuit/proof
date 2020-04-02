@@ -4,13 +4,12 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "postbuild": "cpy 'src/types/*.d.ts' dist"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "@applitools/eyes-selenium": "4.33.29",
-    "@applitools/eyes.webdriverio": "^2.12.6"
+    "@applitools/eyes-selenium": "4.33.31",
+    "@applitools/eyes-webdriverio": "5.9.23"
   },
   "peerDependencies": {
     "@proof-ui/core": "*",
@@ -23,7 +22,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.8.3"
+    "@proof-ui/core": "link:../../packages/core"
   }
 }

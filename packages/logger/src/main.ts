@@ -1,6 +1,6 @@
 import { Signale } from 'signale';
 
-export const logLevels = ['info', 'debug', 'trace', 'stupid'] as const;
+export const logLevels = ['info', 'debug', 'trace'] as const;
 export type LogLevel = typeof logLevels[number];
 
 let LOG_LENGTH = 10;

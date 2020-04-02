@@ -11,8 +11,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "publishConfig": {
     "access": "public",
@@ -29,7 +29,5 @@
     "command-line-application": "^0.9.6",
     "url": "^0.11.0"
   },
-  "devDependencies": {
-    "typescript": "3.8.3"
-  }
+  "devDependencies": {}
 }

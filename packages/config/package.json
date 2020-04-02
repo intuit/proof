@@ -4,8 +4,8 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
@@ -17,7 +17,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@types/cosmiconfig": "^6.0.0",
-    "typescript": "3.8.3"
+    "@types/cosmiconfig": "^6.0.0"
   }
 }

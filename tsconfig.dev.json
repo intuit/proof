@@ -1,0 +1,51 @@
+{
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "packages/browser"
+    },
+    {
+      "path": "packages/cli"
+    },
+    {
+      "path": "packages/cli-plugin"
+    },
+    {
+      "path": "packages/config"
+    },
+    {
+      "path": "packages/logger"
+    },
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/test"
+    },
+    {
+      "path": "packages/utils"
+    },
+    {
+      "path": "plugins/accessibility"
+    },
+    {
+      "path": "plugins/add-all"
+    },
+    {
+      "path": "plugins/applitools"
+    },
+    {
+      "path": "plugins/babel"
+    },
+    {
+      "path": "plugins/console"
+    },
+    {
+      "path": "plugins/junit"
+    },
+    {
+      "path": "plugins/skip-tests"
+    }
+  ]
+}

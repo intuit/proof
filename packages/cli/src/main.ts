@@ -137,8 +137,8 @@ export async function main(options?: { config: Config; args: ParsedCLIArgs }) {
 }
 
 export default function run() {
-  main().catch((error) => {
-    console.error(error);
+  main().catch((ex) => {
+    console.error(ex);
     process.exit(1);
   });
 }

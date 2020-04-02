@@ -55,7 +55,7 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
   private async createApplitoolsInstance(
     testArgs: TestHookArgs
   ): Promise<Eyes> {
-    const eyes = new Eyes(new VisualGridRunner(3));
+    const eyes = new Eyes(new VisualGridRunner(75));
     const configuration = new Configuration();
 
     configuration.setAppName('Proof');

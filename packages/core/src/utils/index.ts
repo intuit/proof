@@ -25,7 +25,10 @@ export async function promiseRetry<T>(
   try {
     return await promiseGenerator();
   } catch (error) {
-    onFail && (await onFail(error, retryCount));
+    if (onFail) {
+      await onFail(error, retryCount);
+    }
+
     return promiseRetry(promiseGenerator, retryCount - 1, onFail);
   }
 }

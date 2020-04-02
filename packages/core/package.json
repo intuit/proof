@@ -4,8 +4,8 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
@@ -20,7 +20,5 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "devDependencies": {
-    "typescript": "3.8.3"
-  }
+  "devDependencies": {}
 }

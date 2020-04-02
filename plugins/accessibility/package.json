@@ -4,8 +4,8 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
     "axe-core": "3.5.2"
@@ -17,8 +17,7 @@
     "@proof-ui/test": "*"
   },
   "devDependencies": {
-    "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.8.3"
+    "@proof-ui/core": "link:../../packages/core"
   },
   "publishConfig": {
     "access": "public",

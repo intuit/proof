@@ -57,7 +57,7 @@ export default class BrowserFactory {
   constructor(options: {
     config: BrowserConfig;
     storybookBaseURL: string;
-    logLevel: string;
+    logLevel: WebDriver.WebDriverLogTypes;
     waitForRoot?: number;
   }) {
     this.config = options.config;

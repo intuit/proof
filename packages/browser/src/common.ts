@@ -3,7 +3,7 @@ import * as webdriver from 'webdriverio';
 const grids = ['local', 'remote'] as const;
 export type Grid = typeof grids[number];
 
-export type Browser = webdriver.Browser;
+export type Browser = webdriver.BrowserObject;
 
 const browserNames = [
   'chrome',

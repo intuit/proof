@@ -6,11 +6,11 @@
   "repository": "https://github.com/intuit/proof",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf ./packages/*/dist/* && rm -rf ./plugins/*/dist/* && lerna clean -y",
-    "build": "lerna run build --stream",
-    "build:watch": "lerna run build:watch --parallel",
+    "clean": "rm -rf  ./packages/*/dist/* ./plugins/*/dist/* ./packages/*/tsconfig.tsbuildinfo ./plugins/*/tsconfig.tsbuildinfo && lerna clean -y",
+    "build": "tsc -b tsconfig.dev.json",
+    "build:watch": "yarn build --watch",
     "test": "jest",
-    "lint": "eslint plugins/**/*.ts packages/**/*.ts --ignore-pattern dist --ignore-pattern node_modules ",
+    "lint": "eslint packages plugins --ext .ts --cache",
     "release": "auto shipit -w"
   },
   "publishConfig": {
@@ -25,9 +25,12 @@
     "examples/*"
   ],
   "lint-staged": {
-    "*.{js,css,md,ts,tsx,jsx}": [
-      "prettier --write",
-      "eslint --ignore-pattern typings"
+    "*.{js,json,css,md}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "prettier --parser typescript --write",
+      "yarn lint"
     ]
   },
   "husky": {

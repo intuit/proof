@@ -63,6 +63,7 @@ const cmd: Command = {
       description:
         'The local port that a storybook is running on. A shorthand for --url http://localhost:<port>',
       type: Number,
+      defaultValue: 6006,
     },
     {
       name: 'url',

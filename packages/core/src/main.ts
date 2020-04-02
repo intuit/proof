@@ -1,12 +1,6 @@
 import { SyncHook, AsyncSeriesHook } from 'tapable';
 import { PromisePoolExecutor } from 'promise-pool-executor';
-import {
-  logger,
-  createLogger,
-  setLength,
-  setLogLevel,
-  LogLevel,
-} from '@proof-ui/logger';
+import { logger, createLogger, setLength, setLogLevel } from '@proof-ui/logger';
 import BrowserFactory from '@proof-ui/browser';
 import { TestConfig } from '@proof-ui/test';
 import { TestRunOptions, TestResult, SuiteResult } from './types';
@@ -33,18 +27,6 @@ export interface ProofConfig {
 
 export function createName(config: TestConfig) {
   return `${config.kind}--${config.story}`;
-}
-
-function browserLogLevel(logLevel?: LogLevel) {
-  if (!logLevel || logLevel === 'info' || logLevel === 'debug') {
-    return 'error';
-  }
-
-  if (logLevel === 'stupid') {
-    return 'verbose';
-  }
-
-  return 'command';
 }
 
 export default class Proof {
@@ -119,13 +101,14 @@ export default class Proof {
   }
 
   async run(options: TestRunOptions): Promise<SuiteResult> {
-    setLogLevel(options.logLevel ?? 'info');
+    const logLevel = options.logLevel ?? 'info';
+    setLogLevel(logLevel);
     this.hooks.start.call(options);
     logger.trace('Starting with options', options);
     const browserFactory = new BrowserFactory({
       config: options.browserConfig,
       storybookBaseURL: options.url,
-      logLevel: browserLogLevel(options.logLevel),
+      logLevel,
       waitForRoot: options.waitForRoot,
     });
     this.hooks.browserFactory.call(browserFactory);
