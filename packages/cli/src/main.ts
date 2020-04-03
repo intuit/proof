@@ -6,7 +6,7 @@ import BabelPlugin from '@proof-ui/babel-plugin';
 import url from 'url';
 import { LogLevel, logger, logLevels } from '@proof-ui/logger';
 import ConsoleReporterPlugin from '@proof-ui/console-plugin';
-import appDef from './args';
+import appDef, { CLIArguments } from './args';
 
 export type { CLIArguments } from './args';
 
@@ -123,7 +123,7 @@ export async function main(options?: { config: Config; args: ParsedCLIArgs }) {
 
   return proof.run({
     browserConfig: {
-      name: args.browserName,
+      name: (args.browserName ?? 'chrome') as any,
       platform: args.browserPlatform,
       version: args.browserVersion,
       headless: args.headless,
