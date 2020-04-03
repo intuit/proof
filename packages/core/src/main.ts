@@ -112,8 +112,14 @@ export default class Proof {
       waitForRoot: options.waitForRoot,
     });
     this.hooks.browserFactory.call(browserFactory);
+    let stories: Storybook;
+    try {
+      stories = await getStories(browserFactory, logger);
+    } catch (e) {
+      await browserFactory.close();
+      throw e;
+    }
 
-    const stories = await getStories(browserFactory, logger);
     this.hooks.stories.call(stories);
 
     logger.trace(`Found stories: \n ${printStories(stories)}`);

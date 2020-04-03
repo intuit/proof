@@ -23,20 +23,18 @@ export default function inflateStorybookTests(
     if (foundTest.config.kind) {
       // Filter the stories by the kind
       if (!storybook.has(foundTest.config.kind)) {
-        logger.warn(
+        throw new Error(
           `No storybook kind found for ${foundTest.config.kind} in ${foundTest.file}`
         );
-        return;
       }
 
       const availableStories = storybook.get(foundTest.config.kind)!;
 
       if (foundTest.config.story) {
         if (!availableStories.has(foundTest.config.story)) {
-          logger.warn(
+          throw new Error(
             `No story found for ${foundTest.config.kind} -- ${foundTest.config.story} in ${foundTest.file}`
           );
-          return;
         }
 
         stories.push({

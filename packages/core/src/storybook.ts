@@ -17,13 +17,14 @@ async function getBrowser(
   logger: Logger
 ): Promise<BrowserSession> {
   try {
-    return browserFactory.create({ name: 'storybook' }, logger);
-  } catch {
-    return browserFactory.create(
-      { name: 'storybook', path: 'index.html' },
-      logger
-    );
-  }
+    const browser = await browserFactory.create({ name: 'storybook' }, logger);
+    return browser;
+  } catch (e) {}
+
+  return browserFactory.create(
+    { name: 'storybook', path: 'index.html' },
+    logger
+  );
 }
 
 export async function getStories(
@@ -48,7 +49,6 @@ export async function getStories(
       () => new Promise((r) => setTimeout(() => r, 1000))
     );
   } catch (error) {
-    console.error(error);
     throw new Error(
       `Error getting stories from storybook. Make sure @proof-ui/storybook is an installed addon`
     );

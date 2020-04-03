@@ -71,6 +71,8 @@ export default class BrowserFactory {
 
   private readonly waitForRoot: number;
 
+  private openBrowsers = new Set<BrowserObject>();
+
   constructor(options: {
     config: BrowserConfig;
     storybookBaseURL: string;
@@ -163,11 +165,15 @@ export default class BrowserFactory {
         logLevel: this.browserLogLevel,
       });
 
-      logger.complete(chalk.gray('sessionId'), browser.sessionId);
+      this.openBrowsers.add(browser);
+
+      if (browser.sessionId) {
+        logger.complete(chalk.gray('sessionId'), browser.sessionId);
+      }
 
       logger.debug(`Going to url: ${url}`);
       await browser.url(url);
-
+      console.log(await browser.status());
       browser.getSession().then((capabilities) => {
         this.hooks.capabilities.call(capabilities);
       });
@@ -192,17 +198,31 @@ export default class BrowserFactory {
       }
 
       logger.debug('title', await browser.getTitle());
+
       return session;
     } catch (error) {
       if (browser) {
         await browser.deleteSession();
+        this.openBrowsers.delete(browser);
       }
 
       throw error;
     }
   }
 
+  async endAllSessions() {
+    const deleted: Array<Promise<void>> = [];
+
+    this.openBrowsers.forEach((b) => {
+      console.log('Ending session');
+      deleted.push(b.deleteSession());
+    });
+
+    return Promise.all(deleted);
+  }
+
   async close() {
+    await this.endAllSessions();
     const lg = localGrid();
     if (lg) {
       await lg.end();
