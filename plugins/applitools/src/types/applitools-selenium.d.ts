@@ -4,6 +4,7 @@ declare module '@applitools/eyes-selenium' {
     constructor();
     setAppName(name: string): void;
     setTestName(name: string): void;
+    setParentBranchName(name: string): void;
     setApiKey(key: string): void;
     setForceFullPageScreenshot(force: boolean): void;
     setHideScrollbars(hide: boolean): void;
