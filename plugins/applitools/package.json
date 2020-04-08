@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build:watch": "tsc --watch",
+    "prepublishOnly": "cp -r src/types/ dist/"
   },
   "dependencies": {
     "@applitools/eyes-selenium": "4.28.1",
