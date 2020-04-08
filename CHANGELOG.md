@@ -1,3 +1,22 @@
+# v0.0.13 (Wed Apr 08 2020)
+
+#### 🐛  Bug Fix
+
+- Publish docs on merge to master [#34](https://github.com/intuit/proof/pull/34) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/applitools-plugin`
+  - copy extra types to dist during publish [#37](https://github.com/intuit/proof/pull/37) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### ⚠️  Pushed to master
+
+- Fix indentation  ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.12 (Wed Jan 08 2020)
 
 #### 🐛  Bug Fix
