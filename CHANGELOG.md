@@ -1,3 +1,16 @@
+# v0.0.14 (Thu Apr 09 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/applitools-plugin`
+  - add more types [#38](https://github.com/intuit/proof/pull/38) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.0.13 (Wed Apr 08 2020)
 
 #### 🐛  Bug Fix
