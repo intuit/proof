@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "postbuild": "cp -r src/types/ dist/"
+    "postbuild": "cpy 'src/types/*.d.ts' dist"
   },
   "dependencies": {
     "@applitools/eyes-selenium": "4.28.1",
@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@proof-ui/core": "link:../../packages/core",
+    "cpy-cli": "3.1.0",
     "typescript": "3.5.3"
   }
 }
