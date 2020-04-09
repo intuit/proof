@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/storybook",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
