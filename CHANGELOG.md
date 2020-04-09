@@ -1,3 +1,16 @@
+# v0.0.16 (Thu Apr 09 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/applitools-plugin`
+  - use cpy-cli for consistency across platforms [#40](https://github.com/intuit/proof/pull/40) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.0.15 (Thu Apr 09 2020)
 
 #### 🐛  Bug Fix
