@@ -1,3 +1,16 @@
+# v0.0.17 (Wed Apr 15 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/applitools-plugin`
+  - Use Configuration object from eyes.webdriver [#43](https://github.com/intuit/proof/pull/43) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.16 (Thu Apr 09 2020)
 
 #### 🐛  Bug Fix
