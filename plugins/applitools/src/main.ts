@@ -3,14 +3,14 @@ import {
   BatchInfo,
   VisualGridRunner,
   Target,
-  Configuration
-} from '@applitools/eyes.webdriverio';
+  Configuration,
+} from '@applitools/eyes-webdriverio';
 import { BrowserType } from '@applitools/eyes-selenium';
 import Proof, {
   ProofPlugin,
   TestHookArgs,
   TestHookBaseArgs,
-  ProofTest
+  ProofTest,
 } from '@proof-ui/core';
 import { TestCallback } from '@proof-ui/test';
 import CLIPlugin, { CLIOption, Arguments } from '@proof-ui/cli-plugin';
@@ -90,7 +90,7 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
   private async runVisualCheck(eyes: Eyes, logger: Logger, name: string) {
     logger.trace(`Taking screenshot for ${name}`);
     if (this.delay > 0) {
-      await new Promise(r => setTimeout(r, this.delay));
+      await new Promise((r) => setTimeout(r, this.delay));
     }
 
     await eyes.check(`${name ? `${name}-` : ''}`, Target.window());
@@ -144,16 +144,16 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
           name: 'visual',
           description: 'Run visual tests using applitools against your stories',
           type: Boolean,
-          defaultValue: false
+          defaultValue: false,
         },
         {
           name: 'visual-batch-name',
           description:
             'Change the batch name to use when reporting in applitools',
           type: String,
-          defaultValue: `Local (${process.env.USER})`
-        }
-      ]
+          defaultValue: `Local (${process.env.USER})`,
+        },
+      ],
     };
   }
 
