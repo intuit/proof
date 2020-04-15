@@ -154,7 +154,7 @@ export default class BrowserFactory {
         config,
         options
       );
-      logger.trace('Using options', remoteOptions);
+      logger.trace('Using options', JSON.stringify(remoteOptions, null, 2));
       const url = urlJoin(
         getStoryURL(this.url, options.kind, options.story),
         options.path ?? ''
