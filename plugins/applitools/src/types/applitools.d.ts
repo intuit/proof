@@ -1,4 +1,26 @@
 declare module '@applitools/eyes.webdriverio' {
+  import { BrowserType } from '@applitools/eyes-selenium';
+
+  export class Configuration {
+    public stitchMode: 'CSS';
+
+    constructor();
+
+    getBranchName(): string;
+    setBranchName(name: string): void;
+    getBaselineBranchName(): string;
+    setBaselineBranchName(name: string): void;
+    getParentBranchName(): string;
+    setParentBranchName(name: string): void;
+    setAppName(name: string): void;
+    setTestName(name: string): void;
+    setApiKey(key: string): void;
+    setForceFullPageScreenshot(force: boolean): void;
+    setHideScrollbars(hide: boolean): void;
+
+    addBrowser(width: number, height: number, browserType: BrowserType): void;
+  }
+
   export interface ViewportSize {
     width: number;
     height: number;

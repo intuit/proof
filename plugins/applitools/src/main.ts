@@ -3,9 +3,10 @@ import {
   Eyes,
   BatchInfo,
   VisualGridRunner,
-  Target
+  Target,
+  Configuration
 } from '@applitools/eyes.webdriverio';
-import { BrowserType, Configuration } from '@applitools/eyes-selenium';
+import { BrowserType } from '@applitools/eyes-selenium';
 import Proof, {
   ProofPlugin,
   TestHookArgs,
