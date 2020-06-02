@@ -8,7 +8,7 @@ export class LocalGrid {
 
   process?: Promise<ChildProcess>;
 
-  constructor(options?: { port?: number; install?: boolean }) {
+  constructor(options?: { install?: boolean }) {
     let progress: Progress;
 
     if (options && options.install) {
@@ -42,20 +42,23 @@ export class LocalGrid {
     }
   }
 
-  start(): Promise<ChildProcess> {
+  start(port: number = 4444): Promise<ChildProcess> {
     if (this.process) {
       return this.process;
     }
 
     this.process = this.install.then(() => {
       return new Promise((resolve, reject) => {
-        selenium.start((err: any, child: ChildProcess) => {
-          if (err) {
-            // return reject(err);
-          }
+        selenium.start(
+          { seleniumArgs: ['-port', `${port}`] },
+          (err: any, child: ChildProcess) => {
+            if (err) {
+              // return reject(err);
+            }
 
-          return resolve(child);
-        });
+            return resolve(child);
+          }
+        );
       });
     });
 

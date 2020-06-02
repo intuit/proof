@@ -120,15 +120,16 @@ export default class BrowserFactory {
     const { config } = this;
     logger.trace('Creating browser session', config);
     const grid = this.config.grid || 'local';
+    const browserOptions = this.getOptions(options);
     let browser;
 
     try {
       if (grid === 'local') {
-        await localGrid(true).start();
+        await localGrid(true).start(browserOptions.port);
       }
 
       const remoteOptions = this.hooks.resolveOptions.call(
-        this.getOptions(options),
+        browserOptions,
         config,
         options
       );
