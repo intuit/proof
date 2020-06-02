@@ -9,7 +9,7 @@
     "clean": "rm -rf ./packages/*/dist/* && rm -rf ./plugins/*/dist/* && lerna clean -y",
     "build": "lerna run build --stream",
     "build:watch": "lerna run build:watch --parallel",
-    "test": "jest",
+    "test": "jest --runInBand",
     "lint": "xo",
     "release": "auto shipit -w"
   },
