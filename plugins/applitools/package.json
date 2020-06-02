@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/applitools-plugin",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
