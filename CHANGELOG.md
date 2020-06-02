@@ -1,3 +1,22 @@
+# v0.0.18 (Tue Jun 02 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/browser`
+  - pass port to localgrid.start [#45](https://github.com/intuit/proof/pull/45) ([@hainessss](https://github.com/hainessss))
+
+#### ⚠️  Pushed to master
+
+- run tests serially  (Adam_Dierkens@intuit.com)
+- remove codecov line  (Adam_Dierkens@intuit.com)
+
+#### Authors: 2
+
+- [@hainessss](https://github.com/hainessss)
+- Adam Dierkens (Adam_Dierkens@intuit.com)
+
+---
+
 # v0.0.17 (Wed Apr 15 2020)
 
 #### 🐛  Bug Fix
