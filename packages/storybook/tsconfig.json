@@ -3,6 +3,7 @@
   "include": ["src/**/*.ts", "../../typings/**/*"],
 
   "compilerOptions": {
+    "target": "es5",
     "outDir": "./dist",
     "rootDir": "./src"
   }
