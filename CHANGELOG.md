@@ -1,3 +1,16 @@
+# v0.0.19 (Wed Jun 03 2020)
+
+#### 🐛  Bug Fix
+
+- `@proof-ui/storybook`
+  - Use ES5 as target for storybook plugin [#46](https://github.com/intuit/proof/pull/46) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.18 (Tue Jun 02 2020)
 
 #### 🐛  Bug Fix
