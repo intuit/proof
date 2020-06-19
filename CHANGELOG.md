@@ -1,3 +1,16 @@
+# v0.0.20-0 (Fri Jun 19 2020)
+
+#### 🚧 Prerelease
+
+- `@proof-ui/applitools-plugin`
+  - Update applitools version [#47](https://github.com/intuit/proof/pull/47) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.0.19 (Wed Jun 03 2020)
 
 #### 🐛  Bug Fix
