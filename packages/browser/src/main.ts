@@ -190,7 +190,7 @@ export default class BrowserFactory {
       const root = options.story ? '#root' : '#storybook-preview-iframe';
       logger.debug(`Using root element: ${root}`);
       logger.debug(`Waiting ${this.waitForRoot}ms for root element to exist`);
-      await (await browser.$(root)).waitForExist(this.waitForRoot);
+      await (await browser.$(root)).waitForExist({ timeout: this.waitForRoot });
 
       if (!options.story) {
         logger.trace('Swapping to storybook iframe');

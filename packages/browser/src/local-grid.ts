@@ -1,7 +1,7 @@
 import { ChildProcess } from 'child_process';
 
-import selenium = require('selenium-standalone');
-import Progress = require('progress');
+import selenium from 'selenium-standalone';
+import Progress from 'progress';
 
 export class LocalGrid {
   install: Promise<void>;
@@ -15,7 +15,7 @@ export class LocalGrid {
       this.install = new Promise((resolve, reject) => {
         selenium.install(
           {
-            progressCb(total, progressLength, chunk) {
+            progressCb(total: number, progressLength: number, chunk: number) {
               progress =
                 progress ||
                 new Progress('Selenium installation [:bar] :percent :etas', {
@@ -42,7 +42,7 @@ export class LocalGrid {
     }
   }
 
-  start(port: number = 4444): Promise<ChildProcess> {
+  start(port = 4444): Promise<ChildProcess> {
     if (this.process) {
       return this.process;
     }
