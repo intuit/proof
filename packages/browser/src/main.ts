@@ -89,7 +89,7 @@ export default class BrowserFactory {
             '--window-size=1280,800'
           ]
         }
-      : {};
+      : undefined;
 
     const base =
       gridOptions && gridOptions[normalGrid]
@@ -100,6 +100,7 @@ export default class BrowserFactory {
       ...base,
       sync: false,
       desiredCapabilities: {
+        acceptSslCerts: true,
         browserName: name,
         platform,
         version,
