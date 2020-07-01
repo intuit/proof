@@ -3,6 +3,7 @@ import { LogLevel } from '@proof-ui/logger';
 
 export interface Config {
   plugins: any[];
+  port?: number;
   url?: string;
   logLevel?: LogLevel;
   testMatch?: string;

@@ -15,10 +15,10 @@ export async function getConfig(): Promise<Config> {
   const result = await explorer.search();
 
   if (!result) {
-    logger.debug('Unable to locate config file. Using default');
+    logger.info('Unable to locate config file. Using default');
     return defaultConfig;
   }
 
-  logger.debug(`Using config from: ${result.filepath}`);
+  logger.info(`Using config from: ${result.filepath}`);
   return result.config || {};
 }

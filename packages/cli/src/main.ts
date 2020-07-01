@@ -19,28 +19,23 @@ const defaultPlugins = [
 ];
 
 function getUrl(args: any, conf: Config): string {
-  if (args.url) {
-    const parsed = url.parse(args.url);
-    if (!args.port || parsed.port) {
-      return args.url;
-    }
+  const optUrl = args.url ?? conf.url ?? 'http://localhost';
+  const port = args.port ?? conf.port;
 
-    if (args.port) {
-      return url.format({
-        port: args.port,
-        hostname: parsed.hostname,
-        protocol: parsed.protocol,
-      });
-    }
-  } else if (args.port) {
+  const parsed = url.parse(optUrl);
+  if (!port || parsed.port) {
+    return optUrl;
+  }
+
+  if (port) {
     return url.format({
-      port: args.port,
-      hostname: 'localhost',
-      protocol: 'http',
+      port,
+      hostname: parsed.hostname,
+      protocol: parsed.protocol,
     });
   }
 
-  return conf.url ?? 'http://localhost:6060';
+  return optUrl;
 }
 
 function getLogLevel(args: any, conf: Config): LogLevel {
