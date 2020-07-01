@@ -31,7 +31,7 @@ jobs:
             - proof-master
             - proof-
 
-      - run: yarn
+      - run: yarn install --frozen-lockfile
 
       - run: yarn build
 
