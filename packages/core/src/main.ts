@@ -52,7 +52,9 @@ export default class Proof {
     testConfig: FoundTest,
     browserFactory: BrowserFactory
   ): Test {
-    const name = `${testConfig.config.kind}--${testConfig.config.story}`;
+    const name =
+      testConfig.config.name ??
+      `${testConfig.config.kind}--${testConfig.config.story}`;
     const scoppedLogger = createLogger({ scope: name });
 
     return new Test({

@@ -25,7 +25,7 @@ const babelConfig = {
 module.exports = {
   url: 'localhost:6006',
   logLevel: 'info',
-  testMatch: '__automation__/**/*test.ts',
+  testMatch: '__automation__/**/*.proof.ts',
   plugins: [
     new AddAllPlugin(),
     new JunitPlugin(),

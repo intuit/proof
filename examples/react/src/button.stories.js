@@ -1,21 +1,17 @@
 import React from 'react';
 
-import { storiesOf } from '@storybook/react';
+export default {
+  title: 'Components|Button',
+};
 
-const stories = storiesOf('Components|Button', module);
+export const Basic = () => (
+  <div>
+    <button id="clicky-button">Click Me</button>
+  </div>
+);
 
-stories.add('Basic', () => {
-  return (
-    <div>
-      <span id="clicky-button">Click Me</span>
-    </div>
-  );
-});
+export const Complicated = () => <button type="submit">Click me too</button>;
 
-stories.add('Complicated', () => {
-  return <button type="submit">Click me too</button>;
-});
-
-stories.add('Image without alt', () => (
+export const ImageWithoutAlt = () => (
   <img src="https://github.com/intuit/proof/raw/master/packages/docs/src/media/proof.color.text.svg?sanitize=true" />
-));
+);

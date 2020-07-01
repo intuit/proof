@@ -15,7 +15,8 @@ export interface TestArgs {
 export interface TestConfig {
   kind: string;
   story: string;
-  skip: boolean;
+  name?: string;
+  skip?: boolean;
 }
 
 export type TestCallback = (args: TestArgs) => Promise<void>;
