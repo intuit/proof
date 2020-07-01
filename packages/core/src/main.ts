@@ -125,7 +125,7 @@ export default class Proof {
     logger.trace(`Found stories: \n ${printStories(stories)}`);
 
     const testRunner = new TestRunner({
-      glob: options.testMatch ?? `__automation/**/*.js`,
+      glob: options.testMatch ?? `__automation__/**/*.js`,
       logger,
     });
 

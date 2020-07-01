@@ -6,6 +6,24 @@ import urlJoin from 'url-join';
 import { normalizeBaseURL, getStoryURL } from './url';
 import { BrowserConfig, Grid } from './common';
 import localGrid from './local-grid';
+import getWDLogger from '@wdio/logger';
+
+const loggers = ['webdriver', 'webdriverio', 'devtools'];
+loggers.forEach((name) => {
+  const logger = getWDLogger(name);
+  logger.methodFactory = (methodName, logLevel, loggerName) => {
+    const proofLogger = createLogger({ scope: loggerName });
+
+    switch (methodName) {
+      case 'error':
+        return proofLogger.error;
+      case 'warn':
+        return proofLogger.log;
+      default:
+        return proofLogger.trace;
+    }
+  };
+});
 
 export * from './common';
 
@@ -70,8 +88,6 @@ export default class BrowserFactory {
   private readonly browserLogLevel: string;
 
   private readonly waitForRoot: number;
-
-  private openBrowsers = new Set<BrowserObject>();
 
   constructor(options: {
     config: BrowserConfig;
@@ -165,15 +181,12 @@ export default class BrowserFactory {
         logLevel: this.browserLogLevel,
       });
 
-      this.openBrowsers.add(browser);
-
       if (browser.sessionId) {
         logger.complete(chalk.gray('sessionId'), browser.sessionId);
       }
 
       logger.debug(`Going to url: ${url}`);
       await browser.url(url);
-      console.log(await browser.status());
       browser.getSession().then((capabilities) => {
         this.hooks.capabilities.call(capabilities);
       });
@@ -203,26 +216,13 @@ export default class BrowserFactory {
     } catch (error) {
       if (browser) {
         await browser.deleteSession();
-        this.openBrowsers.delete(browser);
       }
 
       throw error;
     }
   }
 
-  async endAllSessions() {
-    const deleted: Array<Promise<void>> = [];
-
-    this.openBrowsers.forEach((b) => {
-      console.log('Ending session');
-      deleted.push(b.deleteSession());
-    });
-
-    return Promise.all(deleted);
-  }
-
   async close() {
-    await this.endAllSessions();
     const lg = localGrid();
     if (lg) {
       await lg.end();

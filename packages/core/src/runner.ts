@@ -69,6 +69,8 @@ export default class Runner {
 
     setCallbackService(testAggregationService);
 
+    this.logger.trace(`Looking for files using glob: ${this.glob}`);
+
     this.hooks.files.call(files);
 
     this.logger.trace(`Looking for tests in ${files.length} files.`);
