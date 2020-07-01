@@ -100,5 +100,11 @@ const cmd: Command = {
       type: String,
     },
   ],
+  footer: [
+    {
+      header: 'Version',
+      content: require('../package.json').version,
+    },
+  ],
 };
 export default cmd;
