@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/a11y-plugin",
-  "version": "0.0.20-0",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -11,9 +11,9 @@
     "axe-core": "3.5.2"
   },
   "peerDependencies": {
-    "@proof-ui/core": "*",
     "@proof-ui/browser": "*",
     "@proof-ui/cli-plugin": "*",
+    "@proof-ui/core": "*",
     "@proof-ui/test": "*"
   },
   "devDependencies": {

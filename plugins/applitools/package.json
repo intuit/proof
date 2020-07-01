@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/applitools-plugin",
-  "version": "0.0.20-0",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -12,10 +12,10 @@
     "@applitools/eyes-webdriverio": "5.9.23"
   },
   "peerDependencies": {
-    "@proof-ui/core": "*",
-    "@proof-ui/test": "*",
     "@proof-ui/cli-plugin": "*",
-    "@proof-ui/logger": "*"
+    "@proof-ui/core": "*",
+    "@proof-ui/logger": "*",
+    "@proof-ui/test": "*"
   },
   "publishConfig": {
     "access": "public",

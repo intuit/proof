@@ -1,13 +1,12 @@
 {
   "name": "@proof-ui/utils",
-  "version": "0.0.20-0",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
     "build": "tsc -b",
     "build:watch": "npm run build -- -w"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"

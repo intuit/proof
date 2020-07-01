@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/cli",
-  "version": "0.0.20-0",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "license": "MIT",
   "bin": {
@@ -28,6 +28,5 @@
     "chalk": "^3.0.0",
     "command-line-application": "^0.9.6",
     "url": "^0.11.0"
-  },
-  "devDependencies": {}
+  }
 }

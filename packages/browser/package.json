@@ -1,6 +1,6 @@
 {
   "name": "@proof-ui/browser",
-  "version": "0.0.20-0",
+  "version": "0.1.0",
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -24,6 +24,5 @@
     "url-join": "4.0.1",
     "url-parse": "1.4.7",
     "webdriverio": "6.1.22"
-  },
-  "devDependencies": {}
+  }
 }
