@@ -69,7 +69,6 @@ const cmd: Command = {
       alias: 'u',
       description: 'The url that storybook is running at. ',
       type: String,
-      defaultValue: 'http://localhost',
     },
     {
       name: 'remote',

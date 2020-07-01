@@ -1,4 +1,5 @@
-import { proofsOf, assert } from '@proof-ui/test';
+import { proofsOf } from '@proof-ui/test';
+import assert from 'power-assert';
 
 const proofs = proofsOf('Components|Button');
 

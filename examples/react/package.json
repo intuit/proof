@@ -14,11 +14,14 @@
     "@proof-ui/applitools-plugin": "link:../../plugins/applitools",
     "@proof-ui/babel-plugin": "link:../../plugins/babel",
     "@proof-ui/cli": "link:../../packages/cli",
-    "@proof-ui/test": "link:../../packages/test",
     "@proof-ui/junit-plugin": "link:../../plugins/junit",
     "@proof-ui/skip-tests-plugin": "link:../../plugins/skip-tests",
     "@proof-ui/storybook": "link:../../packages/storybook",
-    "power-assert": "^1.6.1"
+    "@proof-ui/test": "link:../../packages/test",
+    "expect": "26.1.0",
+    "jest-image-snapshot": "4.0.2",
+    "power-assert": "^1.6.1",
+    "tmp": "0.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
