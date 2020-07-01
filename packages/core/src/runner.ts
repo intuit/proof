@@ -54,6 +54,7 @@ export default class Runner {
   }
 
   public async findTests(): Promise<FoundTest[]> {
+    this.logger.debug(`Looking for tests using: ${this.glob}`);
     const files = await fg(this.glob);
     this.logger.trace('Found test files');
     const tests: FoundTest[] = [];
