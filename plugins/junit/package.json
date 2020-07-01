@@ -4,12 +4,12 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "junit-report-builder": "^1.3.2",
-    "xmlbuilder": "^13.0.2"
+    "junit-report-builder": "^1.3.3",
+    "xmlbuilder": "^15.1.0"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "*",
@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@proof-ui/cli-plugin": "link:../../packages/cli-plugin",
-    "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "@proof-ui/core": "link:../../packages/core"
   }
 }

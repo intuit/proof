@@ -12,18 +12,18 @@ export interface JunitPluginConfig {
 
 function writeReportToFile(report: Builder, file: string) {
   const tree = XMLBuilder.create('testsuites', {
-    encoding: 'UTF-8'
+    encoding: 'UTF-8',
   });
-  report._testSuitesAndCases.forEach(suiteOrCase => {
+  report._testSuitesAndCases.forEach((suiteOrCase) => {
     suiteOrCase.build(tree);
   });
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const fileWriteStream = fs.createWriteStream(file, 'utf8');
     fileWriteStream.on('open', () => {
       tree.end(
         XMLBuilder.streamWriter(fileWriteStream, {
-          pretty: true
+          pretty: true,
         })
       );
       fileWriteStream.on('close', () => {
@@ -35,13 +35,13 @@ function writeReportToFile(report: Builder, file: string) {
 }
 
 export default class JunitPlugin implements ProofPlugin, CLIPlugin {
-  private options: JunitPluginConfig;
+  private readonly options: JunitPluginConfig;
   private disable = false;
 
   constructor(options?: JunitPluginConfig) {
-    this.options = options || {
+    this.options = options ?? {
       reportPath: path.join('.', 'proof-junit.xml'),
-      contextDir: '__automation__'
+      contextDir: '__automation__',
     };
   }
 
@@ -52,10 +52,9 @@ export default class JunitPlugin implements ProofPlugin, CLIPlugin {
 
     const suites: Map<string, TestSuite> = new Map();
 
-    proof.hooks.start.tap('junit', () => {});
     proof.hooks.end.tapPromise('junit', async (results: SuiteResult) => {
       const reportBuilder = newBuilder();
-      results.tests.forEach(t => {
+      results.tests.forEach((t) => {
         if (!suites.has(t.story.kind)) {
           suites.set(
             t.story.kind,
@@ -91,9 +90,9 @@ export default class JunitPlugin implements ProofPlugin, CLIPlugin {
           name: 'disable-junit',
           description: 'Disable writing the report to disk',
           type: Boolean,
-          defaultValue: false
-        }
-      ]
+          defaultValue: false,
+        },
+      ],
     };
   }
 

@@ -1,7 +1,7 @@
 import fg from 'fast-glob';
 import path from 'path';
 import { Logger, logger } from '@proof-ui/logger';
-import { TestConfig, TestCallback, _setCallbackService } from '@proof-ui/test';
+import { TestConfig, TestCallback, setCallbackService } from '@proof-ui/test';
 import { SyncHook, SyncWaterfallHook } from 'tapable';
 import { TestMatcherFunction, createMatcher } from './utils';
 
@@ -14,18 +14,18 @@ export interface FoundTest {
 export default class Runner {
   public hooks = {
     files: new SyncHook<string[]>(['files']),
-    tests: new SyncWaterfallHook<FoundTest[]>(['tests'])
+    tests: new SyncWaterfallHook<FoundTest[]>(['tests']),
   };
 
-  private glob: string;
+  private readonly glob: string;
 
-  private includeMatcher: TestMatcherFunction;
+  private readonly includeMatcher: TestMatcherFunction;
 
-  private excludeMatcher: TestMatcherFunction;
+  private readonly excludeMatcher: TestMatcherFunction;
 
-  private tag?: string;
+  private readonly tag?: string;
 
-  private logger: Logger;
+  private readonly logger: Logger;
 
   constructor(options: {
     glob: string;
@@ -42,7 +42,7 @@ export default class Runner {
       ? createMatcher(options.exclude)
       : () => false;
     this.tag = options.tag;
-    this.logger = options.logger || logger;
+    this.logger = options.logger ?? logger;
   }
 
   shouldSkip(config: TestConfig): boolean {
@@ -54,9 +54,8 @@ export default class Runner {
   }
 
   public async findTests(): Promise<FoundTest[]> {
-    const files = (await fg(this.glob)).map(entryItem =>
-      typeof entryItem === 'string' ? entryItem : entryItem.path
-    );
+    this.logger.debug(`Looking for tests using: ${this.glob}`);
+    const files = await fg(this.glob);
     this.logger.trace('Found test files');
     const tests: FoundTest[] = [];
     const testAggregationService = (
@@ -69,13 +68,17 @@ export default class Runner {
       }
     };
 
-    _setCallbackService(testAggregationService);
+    setCallbackService(testAggregationService);
+
+    this.logger.trace(`Looking for files using glob: ${this.glob}`);
 
     this.hooks.files.call(files);
 
     this.logger.trace(`Looking for tests in ${files.length} files.`);
-    files.forEach(f => {
+    files.forEach((f) => {
       const resolved = path.resolve(f);
+
+      // eslint-disable-next-line
       require(resolved);
     });
 

@@ -10,22 +10,22 @@ const babelConfig = {
   presets: [
     '@babel/preset-env',
     '@babel/preset-typescript',
-    'babel-preset-power-assert'
+    'babel-preset-power-assert',
   ],
   plugins: [
     [
       '@babel/plugin-transform-runtime',
       {
-        regenerator: true
-      }
-    ]
-  ]
+        regenerator: true,
+      },
+    ],
+  ],
 };
 
 module.exports = {
   url: 'localhost:6006',
   logLevel: 'info',
-  testMatch: '__automation__/**/*test.ts',
+  testMatch: '__automation__/**/*.proof.ts',
   plugins: [
     new AddAllPlugin(),
     new JunitPlugin(),
@@ -33,8 +33,8 @@ module.exports = {
     new ApplitoolsPlugin(),
     new A11yPlugin(),
     new BabelPlugin({
-      config: babelConfig
-    })
+      config: babelConfig,
+    }),
   ],
-  waitForRoot: 3333
+  waitForRoot: 10000,
 };

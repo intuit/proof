@@ -1,5 +1,5 @@
 <h1 align="center">
-<img width="400" alt="proof" src="./packages/docs/src/media/proof.color.text.svg">
+  <img width="400" alt="proof" src="./packages/docs/src/media/proof.color.text.svg"/>
 </h1>
 
 Storybook is a great tool for developing components -- and while simulated and snapshot based testing can get you _pretty_ far, there's no substitution for the real thing. `proof` is a tapable integration testing library for your stories.
@@ -9,18 +9,8 @@ Storybook is a great tool for developing components -- and while simulated and s
 The quickest way to get started is to use the proof-cli.
 
 ```
-npm i --save-dev @proof-ui/cli @proof-ui/storybook
+npm i --save-dev @proof-ui/cli
 ```
-
-Next, make sure to configure the `@proof-ui/storybook` addon in your storybook's `config.js` file.
-
-```javascript
-// .storybook/config.js
-import configureProof from '@proof-ui/storybook';
-configureProof();
-```
-
-Now you're ready to start writing tests!
 
 Inspired by [ava](https://github.com/avajs/ava) proof exposes a concise API for authoring tests:
 
@@ -36,7 +26,8 @@ test({ kind: 'Components|Button', story: 'Basic' }, async ({ browser }) => {
 Or mirror storybook to make it easy to cross-reference tests between files.
 
 ```javascript
-import { proofsOf, assert } from '@proof-ui/test';
+import { proofsOf } from '@proof-ui/test';
+import assert from 'power-assert';
 
 const proofs = proofsOf('Components|Button');
 
@@ -45,8 +36,6 @@ proofs.add('Basic', async ({ browser }) => {
   assert(true === true);
 });
 ```
-
-Proof ships with [power-assert](https://github.com/power-assert-js/power-assert) out of the box -- but feel free to bring your own assertion library to the mix.
 
 ### Running your tests
 

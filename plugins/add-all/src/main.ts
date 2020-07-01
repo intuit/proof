@@ -17,9 +17,9 @@ export function createMissingTests(
   const coveredStories = new Set<string>();
   let allGood = false;
 
-  existingTests.forEach(t => {
+  existingTests.forEach((t) => {
     const {
-      config: { story, kind }
+      config: { story, kind },
     } = t;
 
     if (allGood || (!kind && !story)) {
@@ -29,7 +29,7 @@ export function createMissingTests(
     }
 
     if (kind) {
-      let stories = storybook.get(kind) || new Set();
+      let stories = storybook.get(kind) ?? new Set();
       if (!stories) {
         return;
       }
@@ -38,12 +38,12 @@ export function createMissingTests(
         stories = new Set([story]);
       }
 
-      stories.forEach(coveredStory => {
+      stories.forEach((coveredStory) => {
         coveredStories.add(toId(kind, coveredStory));
       });
     } else {
-      storybook.forEach((_value, kind) => {
-        coveredStories.add(toId(kind, story));
+      storybook.forEach((_value, storyKind) => {
+        coveredStories.add(toId(storyKind, story));
       });
     }
   });
@@ -55,16 +55,16 @@ export function createMissingTests(
   const newTests: FoundTest[] = [];
 
   storybook.forEach((stories, kind) => {
-    stories.forEach(story => {
+    stories.forEach((story) => {
       if (!coveredStories.has(toId(kind, story)) && filter(kind, story)) {
         newTests.push({
           config: {
             kind,
             story,
-            skip: false
+            skip: false,
           },
           callback: () => Promise.resolve(),
-          file: `add-all-generated/${toId(kind, story)}`
+          file: `add-all-generated/${toId(kind, story)}`,
         });
       }
     });
@@ -75,10 +75,10 @@ export function createMissingTests(
 
 export default class AddAllPlugin implements ProofPlugin, CLIPlugin {
   private enabled = false;
-  private filter: FilterFn;
+  private readonly filter: FilterFn;
 
   constructor(options?: AddAllPluginConfig) {
-    this.filter = options && options.filter ? options.filter : () => true;
+    this.filter = options?.filter ? options.filter : () => true;
   }
 
   apply(proof: Proof) {
@@ -92,11 +92,11 @@ export default class AddAllPlugin implements ProofPlugin, CLIPlugin {
       stories = actualStories;
     });
 
-    proof.hooks.testRunner.tap('add-all', runner => {
+    proof.hooks.testRunner.tap('add-all', (runner) => {
       runner.hooks.tests.tap('add-all', (foundTests: FoundTest[]) => {
         return [
           ...foundTests,
-          ...createMissingTests(stories, foundTests, this.filter)
+          ...createMissingTests(stories, foundTests, this.filter),
         ];
       });
     });
@@ -109,9 +109,9 @@ export default class AddAllPlugin implements ProofPlugin, CLIPlugin {
           name: 'add-all',
           description: 'Add an empty test for all stories missing one',
           type: Boolean,
-          defaultValue: false
-        }
-      ]
+          defaultValue: false,
+        },
+      ],
     };
   }
 

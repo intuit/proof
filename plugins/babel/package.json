@@ -4,13 +4,12 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/register": "^7.4.4",
-    "babel-preset-power-assert": "^3.0.0"
+    "@babel/core": "^7.9.0",
+    "@babel/register": "^7.9.0"
   },
   "peerDependencies": {
     "@proof-ui/core": "*"
@@ -20,7 +19,6 @@
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@proof-ui/core": "link:../../packages/core",
-    "typescript": "3.5.3"
+    "@proof-ui/core": "link:../../packages/core"
   }
 }

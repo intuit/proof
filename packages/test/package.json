@@ -4,19 +4,16 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
-    "@types/power-assert": "^1.5.0",
-    "power-assert": "^1.6.1"
+    "webdriverio": "6.1.22"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "devDependencies": {
-    "typescript": "3.5.3"
-  }
+  "devDependencies": {}
 }

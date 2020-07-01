@@ -3,13 +3,17 @@
     "npm",
     "released"
   ],
-  "labels": {
-    "dependency-update": {
+  "labels": [
+    {
+      "name": "breaking-minor",
+      "description": "Major version zero (0.y.z) is for initial development. Anything MAY change at any time.",
+      "changelogTitle": "🔨 Breaking Minor Change",
+      "releaseType": "minor"
+    },
+    {
       "name": "dependency-update",
-      "title": "Dependency Updates"
+      "changelogTitle": "🔩 Dependency Updates",
+      "releaseType": "none"
     }
-  },
-  "skipReleaseLabels": [
-    "dependency-update"
   ]
 }

@@ -4,18 +4,16 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "@types/signale": "^1.2.1",
+    "@types/signale": "^1.4.0",
     "signale": "^1.4.0"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "devDependencies": {
-    "typescript": "3.5.3"
-  }
+  "devDependencies": {}
 }

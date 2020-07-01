@@ -7,39 +7,35 @@ import url from 'url';
 import { LogLevel, logger, logLevels } from '@proof-ui/logger';
 import ConsoleReporterPlugin from '@proof-ui/console-plugin';
 import appDef, { CLIArguments } from './args';
-export { CLIArguments } from './args';
+
+export type { CLIArguments } from './args';
 
 const defaultPlugins = [
   new BabelPlugin({
     config: {
-      presets: ['@babel/preset-env']
-    }
-  })
+      presets: ['@babel/preset-env'],
+    },
+  }),
 ];
 
 function getUrl(args: any, conf: Config): string {
-  if (args.url) {
-    const parsed = url.parse(args.url);
-    if (!args.port || parsed.port) {
-      return args.url;
-    }
+  const optUrl = args.url ?? conf.url ?? 'http://localhost';
+  const port = args.port ?? conf.port;
 
-    if (args.port) {
-      return url.format({
-        port: args.port,
-        hostname: parsed.hostname,
-        protocol: parsed.protocol
-      });
-    }
-  } else if (args.port) {
+  const parsed = url.parse(optUrl);
+  if (!port || parsed.port) {
+    return optUrl;
+  }
+
+  if (port) {
     return url.format({
-      port: args.port,
-      hostname: 'localhost',
-      protocol: 'http'
+      port,
+      hostname: parsed.hostname,
+      protocol: parsed.protocol,
     });
   }
 
-  return conf.url || 'http://localhost:6060';
+  return optUrl;
 }
 
 function getLogLevel(args: any, conf: Config): LogLevel {
@@ -70,10 +66,10 @@ export async function getAppDefinition(conf: Config) {
 
       fullAppDef = {
         ...fullAppDef,
-        options: [...(fullAppDef.options || []), ...options],
+        options: [...(fullAppDef.options ?? []), ...options],
         examples: examples
-          ? [...(fullAppDef.examples || []), ...examples]
-          : fullAppDef.examples
+          ? [...(fullAppDef.examples ?? []), ...examples]
+          : fullAppDef.examples,
       };
     }
   });
@@ -95,11 +91,11 @@ async function getOptions() {
 }
 
 export async function main(options?: { config: Config; args: ParsedCLIArgs }) {
-  const { config, args } = options ? options : await getOptions();
+  const { config, args } = options || (await getOptions());
 
-  const plugins: (CLIPlugin & ProofPlugin)[] = [
+  const plugins: Array<CLIPlugin & ProofPlugin> = [
     new ConsoleReporterPlugin(),
-    ...(config.plugins || defaultPlugins)
+    ...(config.plugins || defaultPlugins),
   ];
 
   if (!args) {
@@ -117,29 +113,29 @@ export async function main(options?: { config: Config; args: ParsedCLIArgs }) {
   });
 
   const proof = new Proof({
-    plugins
+    plugins,
   });
 
   return proof.run({
     browserConfig: {
-      name: args.browserName as any,
+      name: (args.browserName ?? 'chrome') as any,
       platform: args.browserPlatform,
       version: args.browserVersion,
       headless: args.headless,
       grid: args.remote ? 'remote' : 'local',
-      gridOptions: config.gridOptions
+      gridOptions: config.gridOptions,
     },
     ...config,
     url: getUrl(args, config),
     logLevel: getLogLevel(args, config),
-    concurrency: args.concurrency || config.concurrency,
-    retryCount: args.retryCount || config.retryCount
+    concurrency: args.concurrency ?? config.concurrency,
+    retryCount: args.retryCount ?? config.retryCount,
   });
 }
 
 export default function run() {
-  main().catch(e => {
-    console.error(e);
+  main().catch((ex) => {
+    console.error(ex);
     process.exit(1);
   });
 }

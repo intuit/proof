@@ -4,17 +4,15 @@
   "main": "dist/main.js",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "tsc --watch"
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
   },
   "peerDependencies": {
-    "command-line-application": "^0.1.8"
+    "command-line-application": "^0.9.6"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "devDependencies": {
-    "typescript": "3.5.3"
-  }
+  "devDependencies": {}
 }

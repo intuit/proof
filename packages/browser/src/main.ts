@@ -1,15 +1,34 @@
 import chalk from 'chalk';
-import * as webdriverio from 'webdriverio';
+import { remote, BrowserObject } from 'webdriverio';
 import { AsyncSeriesHook, SyncWaterfallHook, SyncHook } from 'tapable';
 import { createLogger } from '@proof-ui/logger';
 import urlJoin from 'url-join';
 import { normalizeBaseURL, getStoryURL } from './url';
-import { BrowserConfig, Browser, Grid } from './common';
+import { BrowserConfig, Grid } from './common';
 import localGrid from './local-grid';
+import getWDLogger from '@wdio/logger';
+
+const loggers = ['webdriver', 'webdriverio', 'devtools'];
+loggers.forEach((name) => {
+  const logger = getWDLogger(name);
+  logger.methodFactory = (methodName, logLevel, loggerName) => {
+    const proofLogger = createLogger({ scope: loggerName });
+
+    switch (methodName) {
+      case 'error':
+        return proofLogger.error;
+      case 'warn':
+        return proofLogger.log;
+      default:
+        return proofLogger.trace;
+    }
+  };
+});
+
 export * from './common';
 
 export interface BrowserSession extends BrowserSessionOptions {
-  browser: Browser;
+  browser: BrowserObject;
   config: BrowserConfig;
   url: string;
 }
@@ -26,13 +45,30 @@ const DefaultGridOptions: Record<Grid, any> = {
     host: 'localhost',
     port: 4444,
     path: '/wd/hub',
-    protocol: 'http'
+    protocol: 'http',
   },
   remote: {
     port: 443,
-    protocol: 'https'
-  }
+    protocol: 'https',
+  },
 };
+
+function convertToBrowserLevel(logLevel: WebDriver.WebDriverLogTypes): string {
+  switch (logLevel) {
+    case 'warn':
+    case 'error':
+      return logLevel;
+
+    case 'trace':
+      return 'debug';
+
+    case 'debug':
+      return 'info';
+
+    default:
+      return 'warn';
+  }
+}
 
 export default class BrowserFactory {
   public hooks = {
@@ -42,27 +78,27 @@ export default class BrowserFactory {
       BrowserSessionOptions
     >(['wdioOptions', 'config', 'options']),
     create: new AsyncSeriesHook<BrowserSession>(['session']),
-    capabilities: new SyncHook<Record<string, any>>(['capabilities'])
+    capabilities: new SyncHook<Record<string, any>>(['capabilities']),
   };
 
-  private url: string;
+  private readonly url: string;
 
-  private config: BrowserConfig;
+  private readonly config: BrowserConfig;
 
-  private browserLogLevel: string;
+  private readonly browserLogLevel: string;
 
-  private waitForRoot: number;
+  private readonly waitForRoot: number;
 
   constructor(options: {
     config: BrowserConfig;
     storybookBaseURL: string;
-    logLevel: string;
+    logLevel: WebDriver.WebDriverLogTypes;
     waitForRoot?: number;
   }) {
     this.config = options.config;
     this.url = normalizeBaseURL(options.storybookBaseURL);
-    this.browserLogLevel = options.logLevel;
-    this.waitForRoot = options.waitForRoot || 1000;
+    this.browserLogLevel = convertToBrowserLevel(options.logLevel);
+    this.waitForRoot = options.waitForRoot ?? 1000;
   }
 
   private getOptions(options: BrowserSessionOptions) {
@@ -72,11 +108,11 @@ export default class BrowserFactory {
       headless,
       platform,
       version,
-      gridOptions
+      gridOptions,
     } = this.config;
     const { name: testName } = options;
 
-    const normalGrid = grid || 'local';
+    const normalGrid = grid ?? 'local';
 
     const chromeOptions = headless
       ? {
@@ -86,28 +122,29 @@ export default class BrowserFactory {
             '--disable-extensions',
             '--no-sandbox',
             '--disable-dev-shm-usage',
-            '--window-size=1280,800'
-          ]
+            '--window-size=1280,800',
+          ],
         }
       : {};
 
-    const base =
-      gridOptions && gridOptions[normalGrid]
-        ? gridOptions[normalGrid]
-        : DefaultGridOptions[normalGrid];
+    const base = gridOptions?.[normalGrid]
+      ? gridOptions[normalGrid]
+      : DefaultGridOptions[normalGrid];
 
     const browserOptions = {
       ...base,
-      sync: false,
+      sync: true,
       desiredCapabilities: {
-        browserName: name,
-        platform,
-        version,
         chromeOptions,
         overlappingCheckDisabled: true,
         name: `${testName} - ${platform} - ${name}`,
-        ...base.desiredCapabilities
-      }
+      },
+      capabilities: {
+        browserName: name,
+        platform,
+        version,
+        ...base.desiredCapabilities,
+      },
     };
 
     return browserOptions;
@@ -133,34 +170,32 @@ export default class BrowserFactory {
         config,
         options
       );
-      logger.trace('Using options', remoteOptions);
-
-      const remoteClient = webdriverio.remote({
-        ...remoteOptions,
-        logLevel: this.browserLogLevel
-      });
-
-      const remoteSession = remoteClient.init();
-      remoteSession.then(capabilities => {
-        logger.complete(chalk.gray('sessionId'), capabilities.sessionId);
-        const value = capabilities.value as any;
-        if (value) {
-          this.hooks.capabilities.call(value);
-        }
-      });
-
+      logger.trace('Using options', JSON.stringify(remoteOptions, null, 2));
       const url = urlJoin(
         getStoryURL(this.url, options.kind, options.story),
-        options.path || ''
+        options.path ?? ''
       );
+
+      browser = await remote({
+        ...remoteOptions,
+        logLevel: this.browserLogLevel,
+      });
+
+      if (browser.sessionId) {
+        logger.complete(chalk.gray('sessionId'), browser.sessionId);
+      }
+
       logger.debug(`Going to url: ${url}`);
-      browser = (remoteSession.url(url) as any) as Browser;
+      await browser.url(url);
+      browser.getSession().then((capabilities) => {
+        this.hooks.capabilities.call(capabilities);
+      });
 
       const session = {
         browser,
         config,
         ...options,
-        url: this.url
+        url: this.url,
       };
 
       await this.hooks.create.promise(session);
@@ -168,19 +203,22 @@ export default class BrowserFactory {
       const root = options.story ? '#root' : '#storybook-preview-iframe';
       logger.debug(`Using root element: ${root}`);
       logger.debug(`Waiting ${this.waitForRoot}ms for root element to exist`);
-      await browser.waitForExist(root, this.waitForRoot);
+      await (await browser.$(root)).waitForExist({ timeout: this.waitForRoot });
 
       if (!options.story) {
         logger.trace('Swapping to storybook iframe');
-        await browser.frame('storybook-preview-iframe');
+        await browser.switchToFrame('storybook-preview-iframe');
       }
 
+      logger.debug('title', await browser.getTitle());
+
       return session;
-    } catch (e) {
+    } catch (error) {
       if (browser) {
-        await browser.end();
+        await browser.deleteSession();
       }
-      throw e;
+
+      throw error;
     }
   }
 

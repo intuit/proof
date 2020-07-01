@@ -1,9 +1,30 @@
 {
-  "extends": "../../tsconfig.build.json",
-  "include": ["src/**/*.ts", "../../typings/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*", "../../typings/**/*"],
 
   "compilerOptions": {
     "outDir": "./dist",
-    "rootDir": "./src"
-  }
+    "rootDir": "./src",
+    "composite": true
+  },
+  "references": [
+    {
+      "path": "../../plugins/babel"
+    },
+    {
+      "path": "../cli-plugin"
+    },
+    {
+      "path": "../config"
+    },
+    {
+      "path": "../../plugins/console"
+    },
+    {
+      "path": "../core"
+    },
+    {
+      "path": "../logger"
+    }
+  ]
 }

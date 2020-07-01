@@ -2,24 +2,22 @@
 
 // Remove punctuation https://gist.github.com/davidjrice/9d2af51100e41c6c4b4a
 export const sanitize = (string: string) => {
-  return (
-    string
-      .toLowerCase()
-      // eslint-disable-next-line no-useless-escape
-      .replace(/[ ’–—―′¿'`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-')
-      .replace(/-+/g, '-')
-      .replace(/^-+/, '')
-      .replace(/-+$/, '')
-  );
+  return string
+    .toLowerCase()
+    .replace(/[ ’–—―′¿'`~!@#$%^&*()_|+\-=?;:",.<>{}[\]\\/]/gi, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
 };
 
 const sanitizeSafe = (string: string, part: string) => {
   const sanitized = sanitize(string);
   if (sanitized === '') {
     throw new Error(
-      `Invalid ${part} '${string}', must include alphanumeric characters`
+      `Invalid ${part} ’${string}’, must include alphanumeric characters`
     );
   }
+
   return sanitized;
 };
 

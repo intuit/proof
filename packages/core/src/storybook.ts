@@ -1,18 +1,30 @@
-import BrowserFactory from '@proof-ui/browser';
+import BrowserFactory, { BrowserSession } from '@proof-ui/browser';
 import { logger as baseLogger, Logger } from '@proof-ui/logger';
 import { promiseRetry } from './utils';
 
+type StoryboookAPI = Array<{
+  fileName: string;
+  kind: string;
+  stories: Array<{
+    name: string;
+  }>;
+}>;
+
 export type Storybook = Map<string, Set<string>>;
 
-async function getBrowser(browserFactory: BrowserFactory, logger: Logger) {
+async function getBrowser(
+  browserFactory: BrowserFactory,
+  logger: Logger
+): Promise<BrowserSession> {
   try {
-    return await browserFactory.create({ name: 'storybook' }, logger);
-  } catch {
-    return await browserFactory.create(
-      { name: 'storybook', path: 'index.html' },
-      logger
-    );
-  }
+    const browser = await browserFactory.create({ name: 'storybook' }, logger);
+    return browser;
+  } catch (e) {}
+
+  return browserFactory.create(
+    { name: 'storybook', path: 'index.html' },
+    logger
+  );
 }
 
 export async function getStories(
@@ -25,23 +37,23 @@ export async function getStories(
 
   let stories;
 
-  const getStories = async () =>
-    (await browser.execute(() => eval('window.__proof__.getStorybook()')))
-      .value;
+  const getStoriesFromBrowser = () =>
+    browser.execute<StoryboookAPI>(
+      'return __STORYBOOK_CLIENT_API__.getStorybook()'
+    );
 
   try {
     stories = await promiseRetry(
-      getStories,
+      getStoriesFromBrowser,
       3,
-      () => new Promise(r => setTimeout(() => r, 1000))
+      () => new Promise((r) => setTimeout(() => r, 1000))
     );
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
     throw new Error(
       `Error getting stories from storybook. Make sure @proof-ui/storybook is an installed addon`
     );
   } finally {
-    await browser.end();
+    await browser.deleteSession();
   }
 
   const storybook: Storybook = new Map();
@@ -62,7 +74,7 @@ export function printStories(book: Storybook): string {
 
   book.forEach((stories, kind) => {
     lines.push(`${kind} ----`);
-    stories.forEach(story => {
+    stories.forEach((story) => {
       lines.push(`\t${story}`);
     });
   });

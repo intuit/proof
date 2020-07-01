@@ -1,4 +1,4 @@
-import { Browser } from '@proof-ui/browser';
+import { Browser } from 'webdriverio';
 
 export type TestService = (
   config: TestConfig,
@@ -15,7 +15,8 @@ export interface TestArgs {
 export interface TestConfig {
   kind: string;
   story: string;
-  skip: boolean;
+  name?: string;
+  skip?: boolean;
 }
 
 export type TestCallback = (args: TestArgs) => Promise<void>;

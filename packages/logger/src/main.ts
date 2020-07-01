@@ -1,6 +1,6 @@
 import { Signale } from 'signale';
 
-export const logLevels = ['info', 'debug', 'trace', 'stupid'] as const;
+export const logLevels = ['info', 'debug', 'trace'] as const;
 export type LogLevel = typeof logLevels[number];
 
 let LOG_LENGTH = 10;
@@ -21,7 +21,7 @@ export function padScope(s: string, size = LOG_LENGTH) {
   }
 
   if (s.length > size) {
-    return `${s.substr(0, size - 3)}...`;
+    return `${s.slice(0, size - 3)}…`;
   }
 
   if (s.length < size) {
@@ -46,54 +46,54 @@ const baseLogger = new Signale({
     debug: {
       badge: '🦄',
       color: 'magenta',
-      label: 'debug'
+      label: 'debug',
     },
     skip: {
       badge: '🤷',
       color: 'yellow',
-      label: 'Skipping...'
+      label: 'Skipping…',
     },
     trace: {
       badge: '🔊',
       color: 'gray',
-      label: 'trace'
+      label: 'trace',
     },
     info: {
       badge: '💾',
       color: 'cyan',
-      label: 'info'
+      label: 'info',
     },
     note: {
       badge: '📝',
       color: 'blueBright',
-      label: 'note'
+      label: 'note',
     },
     complete: {
       badge: '🌟',
       color: 'green',
-      label: 'complete'
+      label: 'complete',
     },
     await: {
       badge: '⏳',
       color: 'cyan',
-      label: 'awaiting'
+      label: 'awaiting',
     },
     done: {
       badge: '🎉',
       color: 'greenBright',
-      label: 'done'
+      label: 'done',
     },
     error: {
       badge: '🚒',
       color: 'red',
-      label: 'error'
+      label: 'error',
     },
     pending: {
       badge: '🤞',
       color: 'magenta',
-      label: 'pending'
-    }
-  }
+      label: 'pending',
+    },
+  },
 });
 
 export type Logger = typeof baseLogger;

@@ -10,7 +10,7 @@ export default function inflateStorybookTests(
 ): FoundTest[] {
   const inflatedTests: FoundTest[] = [];
 
-  foundTests.forEach(foundTest => {
+  foundTests.forEach((foundTest) => {
     if (foundTest.config.skip) {
       logger.skip(
         `Skipping test ${foundTest.config.kind} -- ${foundTest.config.story} in ${foundTest.file}`
@@ -18,37 +18,35 @@ export default function inflateStorybookTests(
       return;
     }
 
-    const stories: { story: string; kind: string }[] = [];
+    const stories: Array<{ story: string; kind: string }> = [];
 
     if (foundTest.config.kind) {
       // Filter the stories by the kind
       if (!storybook.has(foundTest.config.kind)) {
-        logger.warn(
+        throw new Error(
           `No storybook kind found for ${foundTest.config.kind} in ${foundTest.file}`
         );
-        return;
       }
 
       const availableStories = storybook.get(foundTest.config.kind)!;
 
       if (foundTest.config.story) {
         if (!availableStories.has(foundTest.config.story)) {
-          logger.warn(
+          throw new Error(
             `No story found for ${foundTest.config.kind} -- ${foundTest.config.story} in ${foundTest.file}`
           );
-          return;
         }
 
         stories.push({
           story: foundTest.config.story,
-          kind: foundTest.config.kind
+          kind: foundTest.config.kind,
         });
       } else {
         // Add all the stories under this category
-        availableStories.forEach(story => {
+        availableStories.forEach((story) => {
           stories.push({
             story,
-            kind: foundTest.config.kind
+            kind: foundTest.config.kind,
           });
         });
       }
@@ -59,27 +57,27 @@ export default function inflateStorybookTests(
           if (storySet.has(foundTest.config.story)) {
             stories.push({
               story: foundTest.config.story,
-              kind
+              kind,
             });
           }
         } else {
-          storySet.forEach(story => {
+          storySet.forEach((story) => {
             stories.push({
               story,
-              kind
+              kind,
             });
           });
         }
       });
     }
 
-    stories.forEach(expandedConf => {
+    stories.forEach((expandedConf) => {
       inflatedTests.push({
         ...foundTest,
         config: {
           ...foundTest.config,
-          ...expandedConf
-        }
+          ...expandedConf,
+        },
       });
     });
   });
