@@ -12,7 +12,7 @@
     "build:watch": "yarn build --watch",
     "test": "jest",
     "lint": "eslint packages plugins --ext .ts --cache",
-    "release": "auto shipit -w"
+    "release": "auto shipit"
   },
   "publishConfig": {
     "access": "public",
