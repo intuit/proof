@@ -26,7 +26,8 @@ test({ kind: 'Components|Button', story: 'Basic' }, async ({ browser }) => {
 Or mirror storybook to make it easy to cross-reference tests between files.
 
 ```javascript
-import { proofsOf, assert } from '@proof-ui/test';
+import { proofsOf } from '@proof-ui/test';
+import assert from 'power-assert';
 
 const proofs = proofsOf('Components|Button');
 
@@ -35,8 +36,6 @@ proofs.add('Basic', async ({ browser }) => {
   assert(true === true);
 });
 ```
-
-Proof ships with [power-assert](https://github.com/power-assert-js/power-assert) out of the box -- but feel free to bring your own assertion library to the mix.
 
 ### Running your tests
 

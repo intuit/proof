@@ -1,6 +1,5 @@
 import { Test, TestService, TestCallback } from './types';
 
-export { default as assert } from 'power-assert';
 export * from './types';
 
 let callbackService: TestService = () => {

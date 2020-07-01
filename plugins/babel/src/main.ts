@@ -14,7 +14,7 @@ export default class BabelPlugin implements ProofPlugin {
   constructor(options?: BabelPluginConfig) {
     this.options = options ?? {
       config: {
-        presets: ['@babel/preset-env', 'babel-preset-power-assert'],
+        presets: ['@babel/preset-env'],
       },
     };
   }

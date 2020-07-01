@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
-    "@types/power-assert": "^1.5.3",
-    "power-assert": "^1.6.1",
     "webdriverio": "6.1.22"
   },
   "publishConfig": {
