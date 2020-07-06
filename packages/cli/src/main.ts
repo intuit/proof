@@ -19,7 +19,11 @@ const defaultPlugins = [
 ];
 
 function getUrl(args: any, conf: Config): string {
-  const optUrl = args.url ?? conf.url ?? 'http://localhost';
+  if (args.url) {
+    return args.url;
+  }
+
+  const optUrl = conf.url ?? 'http://localhost';
   const port = args.port ?? conf.port;
 
   const parsed = url.parse(optUrl);

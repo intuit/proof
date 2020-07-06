@@ -141,8 +141,8 @@ export default class BrowserFactory {
       },
       capabilities: {
         browserName: name,
-        platform,
-        version,
+        platformName: platform,
+        browserVersion: version,
         ...base.desiredCapabilities,
       },
     };
@@ -187,9 +187,8 @@ export default class BrowserFactory {
 
       logger.debug(`Going to url: ${url}`);
       await browser.url(url);
-      browser.getSession().then((capabilities) => {
-        this.hooks.capabilities.call(capabilities);
-      });
+      // const capabilities = await browser.getSession();
+      // this.hooks.capabilities.call(capabilities);
 
       const session = {
         browser,
@@ -207,7 +206,9 @@ export default class BrowserFactory {
 
       if (!options.story) {
         logger.trace('Swapping to storybook iframe');
-        await browser.switchToFrame('storybook-preview-iframe');
+        await browser.switchToFrame(
+          await browser.$('#storybook-preview-iframe')
+        );
       }
 
       logger.debug('title', await browser.getTitle());
