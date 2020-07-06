@@ -141,8 +141,8 @@ export default class BrowserFactory {
       },
       capabilities: {
         browserName: name,
-        platform,
-        version,
+        platformName: platform,
+        browserVersion: version,
         ...base.desiredCapabilities,
       },
     };
