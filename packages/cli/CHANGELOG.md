@@ -1,3 +1,16 @@
+# v0.1.1 (Mon Jul 06 2020)
+
+#### 🐛 Bug Fix
+
+- WDIO 6.0 Fixes [#50](https://github.com/intuit/proof/pull/50) ([@adierkens](https://github.com/adierkens))
+- Use arg url if passed in ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.0 (Wed Jul 01 2020)
 
 ### Release Notes
