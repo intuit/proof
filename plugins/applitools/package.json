@@ -9,7 +9,8 @@
   },
   "dependencies": {
     "@applitools/eyes-selenium": "4.44.0",
-    "@applitools/eyes-webdriverio": "5.21.0"
+    "@applitools/eyes-webdriverio": "5.21.0",
+    "selenium-webdriver": "4.0.0-alpha.7"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "*",
