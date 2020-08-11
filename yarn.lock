@@ -2,80 +2,79 @@
 # yarn lockfile v1
 
 
-"@applitools/dom-capture@7.1.4":
-  version "7.1.4"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-capture/-/dom-capture-7.1.4.tgz#a4ec1b19e497bae43de83d303c2855aabfd98af1"
-  integrity sha512-GJhUHUa/nNVKKp7R8i8FPWKr8shdvZuYhK4omKGtwFYJTNhzDDZdRQvC5fabWT3yTJTdPgnwQ7qYNJm/ZnnAkQ==
+"@applitools/dom-capture@7.2.6":
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/@applitools/dom-capture/-/dom-capture-7.2.6.tgz#351e65db255cbb7524f98820836c4aae6a44bc82"
+  integrity sha512-3at+08vNQSMJGHXPbs5xolElatSH9k0bvMt2m5GTeuQr6zU7TDGNfHzfxU+kORQiwxr1x+vP1HKEpIgDE6qoXQ==
   dependencies:
-    "@applitools/functional-commons" "^1.5.4"
+    "@applitools/functional-commons" "1.5.4"
 
-"@applitools/dom-snapshot@3.4.2":
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-3.4.2.tgz#6e6d1ff50a194de8e0156509c0592cdb66291af7"
-  integrity sha512-j5lxX+H/SNcYZR769baL5fN3TEjDlHiAWY2MohlVwDpafGAHUflVjthzbkdmRTxtvjQZ4ht8jlRkRtm4C9cQdA==
+"@applitools/dom-snapshot@4.0.3":
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/@applitools/dom-snapshot/-/dom-snapshot-4.0.3.tgz#a12ae2fceb551b5a1a7d2e7a6118569768464a21"
+  integrity sha512-es9yN7BZVGtn9u35qjT5ic73OHJQB4epSS7Fy0d+Rws7Nw7mJhPIZsK9zGXDw3orwBZAKAhorrfZ8tjOtUnnmQ==
   dependencies:
-    "@applitools/functional-commons" "^1.5.4"
+    "@applitools/functional-commons" "1.5.4"
     css-tree "^1.0.0-alpha.39"
 
-"@applitools/dom-utils@4.7.10":
-  version "4.7.10"
-  resolved "https://registry.yarnpkg.com/@applitools/dom-utils/-/dom-utils-4.7.10.tgz#bacea31791aaea8f843baa303a3bd2d5890bba72"
-  integrity sha512-WPK9TkFvxXbJR6j5UpODwgFadb3Ptri0F/whMB6fxPz88IA1wTTgWxpEQUfFeQ/amCu6JICufOAzAN7RGHnCcw==
+"@applitools/eyes-sdk-core@12.1.1":
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-12.1.1.tgz#5eb90ce449fb9c9eb76dd8fda2977da53f4ded9d"
+  integrity sha512-4CN1PZx3ESfJ66WSCV4x0HfsfBlskbfkZ6GSp7EczxnSf17hZ4HVEq0m6HmnfwZ8tAXSK2VMJ35A92AVsz+Vhg==
   dependencies:
-    "@applitools/dom-capture" "7.1.4"
-    "@applitools/eyes-common" "3.20.2"
-    axios "^0.19.0"
-
-"@applitools/eyes-common@3.20.2":
-  version "3.20.2"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-common/-/eyes-common-3.20.2.tgz#435c3c05a2509952b242031cc276d5004bd1b9d3"
-  integrity sha512-UwpZB99bXn+cYC4IRcfQzS/SFmbSIJO0Qh5DaLO59NphzIcvLEEWND9o8t2o3dF3l9Qpd0ir3YXLamQDopqA5Q==
-  dependencies:
+    "@applitools/dom-capture" "7.2.6"
+    "@applitools/isomorphic-fetch" "3.0.0"
+    "@applitools/snippets" "1.0.2"
+    axios "0.19.2"
+    chalk "3.0.0"
     cosmiconfig "^6.0.0"
     dateformat "^3.0.3"
     debug "^4.1.1"
     deepmerge "^4.2.2"
     png-async "^0.9.4"
     stack-trace "^0.0.10"
-
-"@applitools/eyes-sdk-core@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-9.0.3.tgz#bff1857dc369d2185ebd863e96608f838d5c6c25"
-  integrity sha512-urqAGiY8j4N+jHrj0nn+mo/89BW5bYjo5v9BWOpfOgHKgZuKd9GHWkT7OG/TXL8xDdCcFhFmYMwlZ4sxGYG28A==
-  dependencies:
-    "@applitools/eyes-common" "3.20.2"
-    "@applitools/isomorphic-fetch" "3.0.0"
-    axios "0.19.2"
-    chalk "3.0.0"
-    es6-promise-pool "2.5.0"
     tunnel "0.0.6"
 
-"@applitools/eyes-selenium@4.33.31":
-  version "4.33.31"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-selenium/-/eyes-selenium-4.33.31.tgz#c98edb3414de9b64f03a4287450e1e388d03d1d0"
-  integrity sha512-onenhOvA4q3jrMESY8lHl1OBAhDc8X0/xAYWG5d7KcTCi/Gbu5LBmrYgeymdWcbKMjtRe9gGbU8/zjY47dVvLg==
+"@applitools/eyes-sdk-core@12.1.2":
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-sdk-core/-/eyes-sdk-core-12.1.2.tgz#6b5ea7a77a16ecd3892939cb82de62f7e55ff70d"
+  integrity sha512-f1ZUxbEcS7ANnXrWRs8ExyJN6pquVIeN/f8D5z6YyNetz1ZN8mrZ4oKBwuTquaYOfZRqDVF9G/152+gzBzik4g==
   dependencies:
-    "@applitools/dom-utils" "4.7.10"
-    "@applitools/eyes-sdk-core" "9.0.3"
-    "@applitools/visual-grid-client" "13.6.12"
+    "@applitools/dom-capture" "7.2.6"
+    "@applitools/isomorphic-fetch" "3.0.0"
+    "@applitools/snippets" "1.0.3"
+    axios "0.19.2"
+    chalk "3.0.0"
+    cosmiconfig "^6.0.0"
+    dateformat "^3.0.3"
+    debug "^4.1.1"
+    deepmerge "^4.2.2"
+    png-async "^0.9.4"
+    stack-trace "^0.0.10"
+    tunnel "0.0.6"
 
-"@applitools/eyes-webdriverio@5.9.23":
-  version "5.9.23"
-  resolved "https://registry.yarnpkg.com/@applitools/eyes-webdriverio/-/eyes-webdriverio-5.9.23.tgz#e26433c047e6ddd7047fefdb0303e7c97ce341a3"
-  integrity sha512-0qLNNldnVoSykWg4fhuF6hBbcNQ9nSZ9D/43ucXPjWzZuMI2MM5WFqm34okG7H8hhzmRNvbKweTqv8uphh5uSQ==
+"@applitools/eyes-selenium@4.44.0":
+  version "4.44.0"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-selenium/-/eyes-selenium-4.44.0.tgz#5ec1ca03ba0c0e83d18f9afeee9789cfdfb2fe27"
+  integrity sha512-SVu2ZafSlzPIDqOfWbWLJ6P8abe58/H9EbANNsGmtDep6dU09EnJBr0x0t8J6+Lv9Z1SjztG1yFS2A9F6N9izQ==
   dependencies:
-    "@applitools/dom-utils" "4.7.10"
-    "@applitools/eyes-sdk-core" "9.0.3"
-    "@applitools/visual-grid-client" "13.6.12"
-    selenium-webdriver "^4.0.0-alpha.5"
-    webdriverio "^5.18.6"
+    "@applitools/eyes-sdk-core" "12.1.1"
+    "@applitools/visual-grid-client" "14.7.2"
+
+"@applitools/eyes-webdriverio@5.21.0":
+  version "5.21.0"
+  resolved "https://registry.yarnpkg.com/@applitools/eyes-webdriverio/-/eyes-webdriverio-5.21.0.tgz#14ee6c0a84bf2c4289f7539964360e35fd27d707"
+  integrity sha512-L/r288H20MZSepgoEGazrcbTn/G2gBZG1bQ/aiI89eowGqUabqZt30bqvYu7UjhscsXhysxVebTWXaKa9/rqLQ==
+  dependencies:
+    "@applitools/eyes-sdk-core" "12.1.2"
+    "@applitools/visual-grid-client" "14.7.3"
 
 "@applitools/functional-commons@1.5.4":
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@applitools/functional-commons/-/functional-commons-1.5.4.tgz#d32f2bbc6a2598872b3a385d054fcf8e40c30a40"
   integrity sha512-R+p4fliS8j6YlZNSLgsx6cBpjlmZaec67v9PpophPW5vXnOJFVcELnoeO21AVG1kbHu0FeAk025xr99EUTppFw==
 
-"@applitools/functional-commons@^1.5.2", "@applitools/functional-commons@^1.5.4":
+"@applitools/functional-commons@^1.5.2":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@applitools/functional-commons/-/functional-commons-1.6.0.tgz#ea850c4f7832fcb6396b79b35faccac69f6482a9"
   integrity sha512-fwiF0CbeYHDEOTD/NKaFgaI8LvRcGYG2GaJJiRwcedKko16sQ8F3TK5wXfj2Ytjf+8gjwHwsEEX550z3yvDWxA==
@@ -139,17 +138,47 @@
   dependencies:
     debug "^4.1.0"
 
-"@applitools/visual-grid-client@13.6.12":
-  version "13.6.12"
-  resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-13.6.12.tgz#1cba580b698d82759c636a5ad672d3bf54dbc3f9"
-  integrity sha512-tOBEXi6h9aimhNE3qTU0dbJ0z/cZtm6Zuf9VkVqSZZZ/JpC7ShYqkL9MxBS+G+M6O9QLikGAPG4GTeoV8PI3cw==
+"@applitools/snippets@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@applitools/snippets/-/snippets-1.0.2.tgz#4b0a8614be0655a692e9b1a0fe723446bd7a4250"
+  integrity sha512-m/DOToq3eADLJtmi2B5ooaYSu0Ibznx2lNKbKGEKGb0vwScL99gx5ck7g5Y+pmcvVSDvbBxrsqAeUroHBOC0TA==
+
+"@applitools/snippets@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@applitools/snippets/-/snippets-1.0.3.tgz#8aa39b51494f4d04c8854c41a28db5832fc96084"
+  integrity sha512-VhFTknmcOptA346emHfkko3Ac4Y0H4GFBzOuv98mi3FtECFeTG8YkVbZTQmtERHYppy8ZVaryhbTFBulLwHofw==
+
+"@applitools/visual-grid-client@14.7.2":
+  version "14.7.2"
+  resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-14.7.2.tgz#8e406d11b3c130063ef10d8928169c60bffe4541"
+  integrity sha512-eFCfKjC5NACXpMUE9BYIU1u7OaVf5bRp8Gel8SJgxteodRg6ChXCHSR8/MUYsvXxwcLmkoxtLbCYiezG8SFMCw==
   dependencies:
-    "@applitools/dom-snapshot" "3.4.2"
-    "@applitools/eyes-sdk-core" "9.0.3"
+    "@applitools/dom-snapshot" "4.0.3"
+    "@applitools/eyes-sdk-core" "12.1.1"
     "@applitools/functional-commons" "1.5.4"
     "@applitools/http-commons" "2.3.12"
     "@applitools/isomorphic-fetch" "3.0.0"
     "@applitools/jsdom" "1.0.2"
+    chalk "3.0.0"
+    he "1.2.0"
+    lodash.mapvalues "^4.6.0"
+    mime-types "^2.1.24"
+    mkdirp "^0.5.1"
+    postcss-value-parser "^4.0.2"
+    throat "^5.0.0"
+
+"@applitools/visual-grid-client@14.7.3":
+  version "14.7.3"
+  resolved "https://registry.yarnpkg.com/@applitools/visual-grid-client/-/visual-grid-client-14.7.3.tgz#c7f6fd5a8b7d0db514d1401631edc974b0739e8d"
+  integrity sha512-rQnA7aBTxqiQMujC/Pedddd31pYe8HPvpMkzFBBMJEE3FwYj2DEpzKmSA727RlKOjCDJZEJW2e1lmcwGEhZb4Q==
+  dependencies:
+    "@applitools/dom-snapshot" "4.0.3"
+    "@applitools/eyes-sdk-core" "12.1.2"
+    "@applitools/functional-commons" "1.5.4"
+    "@applitools/http-commons" "2.3.12"
+    "@applitools/isomorphic-fetch" "3.0.0"
+    "@applitools/jsdom" "1.0.2"
+    chalk "3.0.0"
     he "1.2.0"
     lodash.mapvalues "^4.6.0"
     mime-types "^2.1.24"
@@ -2546,27 +2575,27 @@
     "@types/node" ">= 8"
 
 "@proof-ui/a11y-plugin@link:plugins/accessibility":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     axe-core "3.5.2"
 
 "@proof-ui/add-all-plugin@link:plugins/add-all":
-  version "0.0.20-0"
+  version "0.1.2"
 
 "@proof-ui/applitools-plugin@link:plugins/applitools":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
-    "@applitools/eyes-selenium" "4.33.31"
-    "@applitools/eyes-webdriverio" "5.9.23"
+    "@applitools/eyes-selenium" "4.44.0"
+    "@applitools/eyes-webdriverio" "5.21.0"
 
 "@proof-ui/babel-plugin@link:plugins/babel":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@babel/core" "^7.9.0"
     "@babel/register" "^7.9.0"
 
 "@proof-ui/browser@link:packages/browser":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@proof-ui/logger" "link:packages/logger"
     "@proof-ui/utils" "link:packages/utils"
@@ -2582,10 +2611,10 @@
     webdriverio "6.1.22"
 
 "@proof-ui/cli-plugin@link:packages/cli-plugin":
-  version "0.0.20-0"
+  version "0.1.2"
 
 "@proof-ui/cli@link:packages/cli":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@proof-ui/babel-plugin" "link:plugins/babel"
     "@proof-ui/cli-plugin" "link:packages/cli-plugin"
@@ -2598,19 +2627,19 @@
     url "^0.11.0"
 
 "@proof-ui/config@link:packages/config":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@proof-ui/browser" "link:packages/browser"
     "@proof-ui/logger" "link:packages/logger"
     cosmiconfig "^6.0.0"
 
 "@proof-ui/console-plugin@link:plugins/console":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     chalk "^3.0.0"
 
 "@proof-ui/core@link:packages/core":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@proof-ui/browser" "link:packages/browser"
     "@proof-ui/logger" "link:packages/logger"
@@ -2621,32 +2650,32 @@
     tapable "^1.1.3"
 
 "@proof-ui/junit-plugin@link:plugins/junit":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     junit-report-builder "^1.3.3"
     xmlbuilder "^15.1.0"
 
 "@proof-ui/logger@link:packages/logger":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@types/signale" "^1.4.0"
     signale "^1.4.0"
 
 "@proof-ui/skip-tests-plugin@link:plugins/skip-tests":
-  version "0.0.20-0"
+  version "0.1.2"
 
 "@proof-ui/storybook@link:packages/storybook":
   version "0.0.0"
   uid ""
 
 "@proof-ui/test@link:packages/test":
-  version "0.0.20-0"
+  version "0.1.2"
   dependencies:
     "@proof-ui/browser" "link:packages/browser"
     webdriverio "6.1.22"
 
 "@proof-ui/utils@link:packages/utils":
-  version "0.0.20-0"
+  version "0.1.2"
 
 "@reach/router@^1.2.1":
   version "1.3.4"
@@ -3166,11 +3195,6 @@
     "@types/node" "*"
     "@types/responselike" "*"
 
-"@types/caseless@*":
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.2.tgz#f65d3d6389e01eeb458bd54dc8f52b95a9463bc8"
-  integrity sha512-6ckxMjBBD8URvjB6J3NcnuAn5Pkl7t3TizAg+xdlzzQGSPSmBcXf8KoIH0ua/i+tio+ZRUHEXp0HEmvaR4kt0w==
-
 "@types/color-name@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
@@ -3356,16 +3380,6 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
-
-"@types/request@^2.48.4":
-  version "2.48.5"
-  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.5.tgz#019b8536b402069f6d11bee1b2c03e7f232937a0"
-  integrity sha512-/LO7xRVnL3DxJ1WkPGDQrp4VTV1reX9RkC85mJ+Qzykj2Bdw+mG15aAfDahc76HtknjzE16SX/Yddn6MxVbmGQ==
-  dependencies:
-    "@types/caseless" "*"
-    "@types/node" "*"
-    "@types/tough-cookie" "*"
-    form-data "^2.5.0"
 
 "@types/responselike@*", "@types/responselike@^1.0.0":
   version "1.0.0"
@@ -3569,15 +3583,6 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@wdio/config@5.22.4":
-  version "5.22.4"
-  resolved "https://registry.yarnpkg.com/@wdio/config/-/config-5.22.4.tgz#053d4ba0a8b0dae6be740b1b7b9ab25abac2799e"
-  integrity sha512-i5dJQWb80darcRA//tfG0guMeQCeRUXroZNnHjGNb1qzvTRZmcIIhdxaD+DbK/5dWEx6aoMfoi6wjVp/CXwdAg==
-  dependencies:
-    "@wdio/logger" "5.16.10"
-    deepmerge "^4.0.0"
-    glob "^7.1.2"
-
 "@wdio/config@6.1.14":
   version "6.1.14"
   resolved "https://registry.yarnpkg.com/@wdio/config/-/config-6.1.14.tgz#41dec1cebcc76e387b44ddef0302839ffac1f99f"
@@ -3586,16 +3591,6 @@
     "@wdio/logger" "6.0.16"
     deepmerge "^4.0.0"
     glob "^7.1.2"
-
-"@wdio/logger@5.16.10":
-  version "5.16.10"
-  resolved "https://registry.yarnpkg.com/@wdio/logger/-/logger-5.16.10.tgz#45d0ea485d52c8a7c526954ccc980d54c3e29e56"
-  integrity sha512-hRKhxgd9uB48Dtj2xe2ckxU4KwI/RO8IwguySuaI2SLFj6EDbdonwzpVkq111/fjBuq7R1NauAaNcm3AMEbIFA==
-  dependencies:
-    chalk "^3.0.0"
-    loglevel "^1.6.0"
-    loglevel-plugin-prefix "^0.8.4"
-    strip-ansi "^6.0.0"
 
 "@wdio/logger@6.0.16":
   version "6.0.16"
@@ -3607,22 +3602,10 @@
     loglevel-plugin-prefix "^0.8.4"
     strip-ansi "^6.0.0"
 
-"@wdio/protocols@5.22.1":
-  version "5.22.1"
-  resolved "https://registry.yarnpkg.com/@wdio/protocols/-/protocols-5.22.1.tgz#51fde0acb57d4ddf07d078fef0ad9c91d227229d"
-  integrity sha512-GdoWb/HTrb09Qb0S/7sLp1NU94LAhTsF1NnFj5sEFSUpecrl0S07pnhVg54pUImectN/woaqSl7uJGjlSGZcdQ==
-
 "@wdio/protocols@6.1.14":
   version "6.1.14"
   resolved "https://registry.yarnpkg.com/@wdio/protocols/-/protocols-6.1.14.tgz#ac499b4b8777524c9de7ff054c96896927d2bac1"
   integrity sha512-UtRLQ55i23cLQRGtFiEJty1F6AbAfiSpfIxDAiXKHbw6Rp1StwxlqHFrhNe5F48Zu4hnie46t9N/tr/cZOe0kA==
-
-"@wdio/repl@5.23.0":
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/@wdio/repl/-/repl-5.23.0.tgz#6a4fd9d5c0351d04235c09d1c80e39d71b2d8c00"
-  integrity sha512-cKG9m0XuqcQenQmoup0yJX1fkDQEdY06QXuwt636ZQf6XgDoeoAdNOgnRnNruQ0+JsC2eqHFoSNto1q8wcLH/g==
-  dependencies:
-    "@wdio/utils" "5.23.0"
 
 "@wdio/repl@6.1.17":
   version "6.1.17"
@@ -3630,14 +3613,6 @@
   integrity sha512-bGzzb+4IgFZ21QifMXPz7VHPidgEjSgWOTF3R2KMKc+FYRjqmje0VD00a0JRc/sh6Fc/BsLdCH8ud+RJBFHFFw==
   dependencies:
     "@wdio/utils" "6.1.17"
-
-"@wdio/utils@5.23.0":
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/@wdio/utils/-/utils-5.23.0.tgz#af22c6d4a346990c87f9e65cfb8e7ba75e552eff"
-  integrity sha512-dWPEkDiaNUqJXPO6L2di2apI7Rle7Er4euh67Wlb5+3MrPNjCKhiF8gHcpQeL8oe6A1MH/f89kpSEEXe4BMkAw==
-  dependencies:
-    "@wdio/logger" "5.16.10"
-    deepmerge "^4.0.0"
 
 "@wdio/utils@6.1.17":
   version "6.1.17"
@@ -4251,19 +4226,6 @@ archiver-utils@^2.1.0:
     normalize-path "^3.0.0"
     readable-stream "^2.0.0"
 
-archiver@^3.0.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/archiver/-/archiver-3.1.1.tgz#9db7819d4daf60aec10fe86b16cb9258ced66ea0"
-  integrity sha512-5Hxxcig7gw5Jod/8Gq0OneVgLYET+oNHcxgWItq4TbhOzRLKNAFUb9edAftiMKXvXfCB0vbGrJdZDNq0dWMsxg==
-  dependencies:
-    archiver-utils "^2.1.0"
-    async "^2.6.3"
-    buffer-crc32 "^0.2.1"
-    glob "^7.1.4"
-    readable-stream "^3.4.0"
-    tar-stream "^2.1.0"
-    zip-stream "^2.1.2"
-
 archiver@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/archiver/-/archiver-4.0.1.tgz#3f722b121777e361ca9fad374ecda38e77e63c7f"
@@ -4576,7 +4538,7 @@ axe-core@3.5.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.2.tgz#1946be7a18a05b5d37f18d339989db0d5434ebf6"
   integrity sha512-9wBDgdzbn06on6Xt+ay7EM4HV+NBOkeXhjK9DMezD8/qvJKeUTzheGHhM+U1uNaX4OvuIR4BePDStRLF7vyOfg==
 
-axios@0.19.2, axios@^0.19.0:
+axios@0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
   integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
@@ -5987,16 +5949,6 @@ component-emitter@^1.2.1:
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.0.tgz#16e4070fba8ae29b679f2215853ee181ab2eabc0"
   integrity sha512-Rd3se6QB+sO1TwqZjscQrurpEPIfO0/yYnSin6Q/rD3mOutHvUrCAhJub3r90uNb+SESBuE0QYoB90YdfatsRg==
 
-compress-commons@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/compress-commons/-/compress-commons-2.1.1.tgz#9410d9a534cf8435e3fbbb7c6ce48de2dc2f0610"
-  integrity sha512-eVw6n7CnEMFzc3duyFVrQEuY1BlHR3rYsSztyG32ibGMW722i3C6IizEGMFmfMU+A+fALvBIwxN3czffTcdA+Q==
-  dependencies:
-    buffer-crc32 "^0.2.13"
-    crc32-stream "^3.0.1"
-    normalize-path "^3.0.0"
-    readable-stream "^2.3.6"
-
 compress-commons@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/compress-commons/-/compress-commons-3.0.0.tgz#833944d84596e537224dd91cf92f5246823d4f1d"
@@ -7312,11 +7264,6 @@ es5-shim@^4.5.13:
   resolved "https://registry.yarnpkg.com/es5-shim/-/es5-shim-4.5.14.tgz#90009e1019d0ea327447cb523deaff8fe45697ef"
   integrity sha512-7SwlpL+2JpymWTt8sNLuC2zdhhc+wrfe5cMPI2j0o6WsPdfAiPwmFy2f0AocPB4RQVBOZ9kNTgi5YF7TdhkvEg==
 
-es6-promise-pool@2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/es6-promise-pool/-/es6-promise-pool-2.5.0.tgz#147c612b36b47f105027f9d2bf54a598a99d9ccb"
-  integrity sha1-FHxhKza0fxBQJ/nSv1SlmKmdnMs=
-
 es6-promise@^4.0.3:
   version "4.2.8"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.8.tgz#4eb21594c972bc40553d276e510539143db53e0a"
@@ -7403,9 +7350,9 @@ eslint-config-xo@0.29.1:
   dependencies:
     confusing-browser-globals "1.0.9"
 
-"eslint-import-resolver-lerna@git+https://github.com/hipstersmoothie/eslint-import-resolver-lerna.git#catch":
+"eslint-import-resolver-lerna@https://github.com/hipstersmoothie/eslint-import-resolver-lerna.git#catch":
   version "1.1.0"
-  resolved "git+https://github.com/hipstersmoothie/eslint-import-resolver-lerna.git#5c67ee424b102be38755728b55102e12f1bbd52d"
+  resolved "https://github.com/hipstersmoothie/eslint-import-resolver-lerna.git#5c67ee424b102be38755728b55102e12f1bbd52d"
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.4"
@@ -13899,7 +13846,7 @@ request@2.88.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
-request@^2.83.0, request@^2.88.0:
+request@^2.88.0:
   version "2.88.2"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.2.tgz#d73c918731cb5a87da047e207234146f664d12b3"
   integrity sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==
@@ -14052,11 +13999,6 @@ reusify@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
-
-rgb2hex@^0.1.0:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/rgb2hex/-/rgb2hex-0.1.10.tgz#4fdd432665273e2d5900434940ceba0a04c8a8a8"
-  integrity sha512-vKz+kzolWbL3rke/xeTE2+6vHmZnNxGyDnaVW4OckntAIcc7DcZzWkQSfxMDwqHS8vhgySnIFyBUH7lIk6PxvQ==
 
 rgb2hex@^0.2.0:
   version "0.2.0"
@@ -14225,7 +14167,7 @@ selenium-standalone@^6.17.0:
     which "^1.3.1"
     yauzl "^2.10.0"
 
-selenium-webdriver@4.0.0-alpha.7, selenium-webdriver@^4.0.0-alpha.5:
+selenium-webdriver@4.0.0-alpha.7:
   version "4.0.0-alpha.7"
   resolved "https://registry.yarnpkg.com/selenium-webdriver/-/selenium-webdriver-4.0.0-alpha.7.tgz#e3879d8457fd7ad8e4424094b7dc0540d99e6797"
   integrity sha512-D4qnTsyTr91jT8f7MfN+OwY0IlU5+5FmlO5xlgRUV6hDEV8JyYx2NerdTEqDDkNq7RZDYc4VoPALk8l578RBHw==
@@ -14289,13 +14231,6 @@ send@0.17.1:
     on-finished "~2.3.0"
     range-parser "~1.2.1"
     statuses "~1.5.0"
-
-serialize-error@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-5.0.0.tgz#a7ebbcdb03a5d71a6ed8461ffe0fc1a1afed62ac"
-  integrity sha512-/VtpuyzYf82mHYTtI4QKtwHa79vAdU5OQpNPAmE/0UDdlGT0ZxHwC+J6gXkw29wwoVI8fMPsfcVHOwXtUQYYQA==
-  dependencies:
-    type-fest "^0.8.0"
 
 serialize-error@^7.0.0:
   version "7.0.1"
@@ -15186,7 +15121,7 @@ tar-stream@2.0.0:
     inherits "^2.0.3"
     readable-stream "^3.1.1"
 
-tar-stream@^2.0.0, tar-stream@^2.1.0, tar-stream@^2.1.2:
+tar-stream@^2.0.0, tar-stream@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/tar-stream/-/tar-stream-2.1.2.tgz#6d5ef1a7e5783a95ff70b69b97455a5968dc1325"
   integrity sha512-UaF6FoJ32WqALZGOIAApXx+OdxhekNMChu6axLJR85zMMjXKWFGjbIRe+J6P4UnRGg9rAwWvbTT0oI7hD/Un7Q==
@@ -15645,7 +15580,7 @@ type-fest@^0.6.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.6.0.tgz#8d2a2370d3df886eb5c90ada1c5bf6188acf838b"
   integrity sha512-q+MB8nYR1KDLrgr4G5yemftpMC7/QLqVndBmEEdqzmNj5dcFOO4Oo8qlwZE3ULT3+Zim1F8Kq4cBnikNhlCMlg==
 
-type-fest@^0.8.0, type-fest@^0.8.1:
+type-fest@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==
@@ -16124,19 +16059,6 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-webdriver@5.23.0:
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/webdriver/-/webdriver-5.23.0.tgz#5373e3e43803aaf962da24b47bbdb98bf8f84cc6"
-  integrity sha512-r7IrbZ2SuTIRyWV8mv4a4hZoFcT9Qt4MznOkdRWPE1sPpZ8lyLZsIEjKCEbHelOzPwURqk+biwGrm4z2OZRAiw==
-  dependencies:
-    "@types/request" "^2.48.4"
-    "@wdio/config" "5.22.4"
-    "@wdio/logger" "5.16.10"
-    "@wdio/protocols" "5.22.1"
-    "@wdio/utils" "5.23.0"
-    lodash.merge "^4.6.1"
-    request "^2.83.0"
-
 webdriver@6.1.17:
   version "6.1.17"
   resolved "https://registry.yarnpkg.com/webdriver/-/webdriver-6.1.17.tgz#669249677625d5e29caf90a2e3dab6ed2240eb9c"
@@ -16170,27 +16092,6 @@ webdriverio@6.1.22:
     rgb2hex "^0.2.0"
     serialize-error "^7.0.0"
     webdriver "6.1.17"
-
-webdriverio@^5.18.6:
-  version "5.23.0"
-  resolved "https://registry.yarnpkg.com/webdriverio/-/webdriverio-5.23.0.tgz#ec7191c127f8b7c561832c2b5f5fd1dcc9386ef9"
-  integrity sha512-hxt6Nuu2bBrTsVk7GfoFRTh63l4fRVXlK9U30RtPbHoWO5tcFdyUz2UTgeHEZ54ea1DQEVPfsgFiLnJULkWp1Q==
-  dependencies:
-    "@wdio/config" "5.22.4"
-    "@wdio/logger" "5.16.10"
-    "@wdio/repl" "5.23.0"
-    "@wdio/utils" "5.23.0"
-    archiver "^3.0.0"
-    css-value "^0.0.1"
-    grapheme-splitter "^1.0.2"
-    lodash.clonedeep "^4.5.0"
-    lodash.isobject "^3.0.2"
-    lodash.isplainobject "^4.0.6"
-    lodash.zip "^4.2.0"
-    resq "^1.6.0"
-    rgb2hex "^0.1.0"
-    serialize-error "^5.0.0"
-    webdriver "5.23.0"
 
 webidl-conversions@^4.0.2:
   version "4.0.2"
@@ -16673,15 +16574,6 @@ yauzl@^2.10.0:
   dependencies:
     buffer-crc32 "~0.2.3"
     fd-slicer "~1.1.0"
-
-zip-stream@^2.1.2:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/zip-stream/-/zip-stream-2.1.3.tgz#26cc4bdb93641a8590dd07112e1f77af1758865b"
-  integrity sha512-EkXc2JGcKhO5N5aZ7TmuNo45budRaFGHOmz24wtJR7znbNqDPmdZtUauKX6et8KAVseAMBOyWJqEpXcHTBsh7Q==
-  dependencies:
-    archiver-utils "^2.1.0"
-    compress-commons "^2.1.1"
-    readable-stream "^3.4.0"
 
 zip-stream@^3.0.1:
   version "3.0.1"
