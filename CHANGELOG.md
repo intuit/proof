@@ -1,3 +1,16 @@
+# v0.1.2 (Tue Aug 11 2020)
+
+#### 🐛 Bug Fix
+
+- `@proof-ui/browser`
+  - Fix headless chrome arguments for `--headless` flag [#51](https://github.com/intuit/proof/pull/51) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.1 (Mon Jul 06 2020)
 
 #### 🐛 Bug Fix
