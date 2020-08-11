@@ -1,3 +1,16 @@
+# v0.1.4 (Tue Aug 11 2020)
+
+#### 🐛 Bug Fix
+
+- Add dep for selenium-webdriver (used by applitools) [#53](https://github.com/intuit/proof/pull/53) ([@adierkens](https://github.com/adierkens))
+- Add dep for selenium-webdriver (used by applitools) ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.3 (Tue Aug 11 2020)
 
 #### 🐛 Bug Fix
