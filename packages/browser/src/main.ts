@@ -135,11 +135,11 @@ export default class BrowserFactory {
       ...base,
       sync: true,
       desiredCapabilities: {
-        chromeOptions,
         overlappingCheckDisabled: true,
         name: `${testName} - ${platform} - ${name}`,
       },
       capabilities: {
+        'goog:chromeOptions': chromeOptions,
         browserName: name,
         platformName: platform,
         browserVersion: version,
