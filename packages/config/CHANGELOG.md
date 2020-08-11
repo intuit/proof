@@ -1,3 +1,16 @@
+# v0.1.3 (Tue Aug 11 2020)
+
+#### 🐛 Bug Fix
+
+- Update applitools version in the plugin [#52](https://github.com/intuit/proof/pull/52) ([@adierkens](https://github.com/adierkens))
+- Update applitools to latest ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.0 (Wed Jul 01 2020)
 
 ### Release Notes
