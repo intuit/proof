@@ -8,8 +8,8 @@
     "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "@applitools/eyes-selenium": "4.33.31",
-    "@applitools/eyes-webdriverio": "5.9.23"
+    "@applitools/eyes-selenium": "4.44.0",
+    "@applitools/eyes-webdriverio": "5.21.0"
   },
   "peerDependencies": {
     "@proof-ui/cli-plugin": "*",

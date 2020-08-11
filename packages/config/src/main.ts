@@ -19,6 +19,5 @@ export async function getConfig(): Promise<Config> {
     return defaultConfig;
   }
 
-  logger.info(`Using config from: ${result.filepath}`);
   return result.config || {};
 }
