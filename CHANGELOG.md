@@ -1,3 +1,16 @@
+# v0.1.5 (Thu Aug 20 2020)
+
+#### 🐛 Bug Fix
+
+- `@proof-ui/browser`, `@proof-ui/core`
+  - move switchToFrame to getStories [#55](https://github.com/intuit/proof/pull/55) ([@hainessss](https://github.com/hainessss))
+
+#### Authors: 1
+
+- [@hainessss](https://github.com/hainessss)
+
+---
+
 # v0.1.4 (Tue Aug 11 2020)
 
 #### 🐛 Bug Fix

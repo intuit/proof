@@ -1,3 +1,16 @@
+# v0.1.5 (Thu Aug 20 2020)
+
+#### 🐛 Bug Fix
+
+- move switchToFrame to getStories [#55](https://github.com/intuit/proof/pull/55) ([@hainessss](https://github.com/hainessss))
+- move swith to frame to get stories ([@hainessss](https://github.com/hainessss))
+
+#### Authors: 1
+
+- [@hainessss](https://github.com/hainessss)
+
+---
+
 # v0.1.2 (Tue Aug 11 2020)
 
 #### 🐛 Bug Fix
