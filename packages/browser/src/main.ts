@@ -204,13 +204,6 @@ export default class BrowserFactory {
       logger.debug(`Waiting ${this.waitForRoot}ms for root element to exist`);
       await (await browser.$(root)).waitForExist({ timeout: this.waitForRoot });
 
-      if (!options.story) {
-        logger.trace('Swapping to storybook iframe');
-        await browser.switchToFrame(
-          await browser.$('#storybook-preview-iframe')
-        );
-      }
-
       logger.debug('title', await browser.getTitle());
 
       return session;
