@@ -37,10 +37,13 @@ export async function getStories(
 
   let stories;
 
-  const getStoriesFromBrowser = () =>
-    browser.execute<StoryboookAPI>(
+  const getStoriesFromBrowser = async () => {
+    await browser.switchToFrame(await browser.$('#storybook-preview-iframe'));
+
+    return browser.execute<StoryboookAPI>(
       'return __STORYBOOK_CLIENT_API__.getStorybook()'
     );
+  };
 
   try {
     stories = await promiseRetry(
