@@ -2,6 +2,16 @@
   <img width="400" alt="proof" src="./packages/docs/src/media/proof.color.text.svg"/>
 </h1>
 
+<p align="center">
+  <a href="#"><img alt="@proof-ui" src="https://img.shields.io/npm/v/@proof-ui/core?label=proof-ui"></a>
+<!--   <a href="#"><img alt="CircleCI" src="https://img.shields.io/circleci/build/github/intuit/proof"></a><br> -->
+  <a href="#"><img alt="TypeScript" src="https://img.shields.io/npm/types/typescript?label=%20"></a>
+  <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-Es6-red"></a>
+  <a href="#"><img alt="License" src="https://img.shields.io/github/license/intuit/proof"></a></a><br>
+  <a href="#"><img alt="issues" src="https://img.shields.io/github/issues/intuit/proof"></a>
+  <a href="#"><img alt="Forks" src="https://img.shields.io/github/forks/intuit/proof?style=social"></a>
+</p>
+
 Storybook is a great tool for developing components -- and while simulated and snapshot based testing can get you _pretty_ far, there's no substitution for the real thing. `proof` is a tapable integration testing library for your stories.
 
 ## Usage
