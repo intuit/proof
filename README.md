@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <a href="#"><img alt="@proof-ui" src="https://img.shields.io/npm/v/@proof-ui/core"></a>
+  <a href="#"><img alt="@proof-ui" src="https://img.shields.io/npm/v/@proof-ui/core?label=proof-ui"></a>
 <!--   <a href="#"><img alt="CircleCI" src="https://img.shields.io/circleci/build/github/intuit/proof"></a><br> -->
   <a href="#"><img alt="TypeScript" src="https://img.shields.io/npm/types/typescript?label=%20"></a>
   <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-Es6-red"></a>
