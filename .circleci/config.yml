@@ -63,6 +63,13 @@ jobs:
           name: 'Test'
           command: yarn test
       - run:
+          name: Download Selenium
+          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run:
+          name: Start Selenium
+          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          background: true
+      - run:
           name: 'Integration Tests'
           command: cd examples/react && yarn test
 
