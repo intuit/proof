@@ -9,6 +9,16 @@
   "imageSize": 100,
   "commit": true,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "christyjacob4",
+      "name": "Christy Jacob",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/20852629?v=4",
+      "profile": "https://christyjacob4.github.io/",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
