@@ -8,7 +8,7 @@
   <a href="#"><img alt="TypeScript" src="https://img.shields.io/npm/types/typescript?label=%20"></a>
   <a href="#"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-Es6-red"></a>
   <a href="#"><img alt="License" src="https://img.shields.io/github/license/intuit/proof"></a></a><br>
-  <a href="#"><img alt="Forks" src="https://img.shields.io/github/issues/intuit/proof"></a>
+  <a href="#"><img alt="issues" src="https://img.shields.io/github/issues/intuit/proof"></a>
   <a href="#"><img alt="Forks" src="https://img.shields.io/github/forks/intuit/proof?style=social"></a>
 </p>
 
