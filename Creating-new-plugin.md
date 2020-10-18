@@ -34,4 +34,11 @@ export default class HelloWorldPlugin implements ProofPlugin {
 
 The `import` statement above imports `Proof` as well as the `ProofPlugin` from the `core` module
 of `proof`. All plugins that want to extend `proof` must implement the interface [ProofPlugin](https://github.com/intuit/proof/blob/master/packages/core/src/main.ts#L20).
-`Proof` is required when using Typescript to strongly type the variable being passed to the plugin. 
+`Proof` is required to strongly type the variable being passed to the plugin's `apply` method.
+
+The `ProofPlugin` requires the plugin to implement a single method called `apply`. The method argument,
+`Proof` is tapable, and thus provides all lifecycle methods exposed. In the above example, we have
+tapped the `start` method which is invoked when the plugin starts. We do a simple `console.log` 
+to indicate that our plugin ran.
+
+
