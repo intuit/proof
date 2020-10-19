@@ -7,6 +7,7 @@
   - [Tests](./api/test.md)
   - [Configuration](./api/config.md)
   - [CLI](./api/cli.md)
+  - [Available Hooks](./api/hooks.md)
 
 * [Plugins](./plugins/README.md)
   - [accessibility](./plugins/accessibility.md)
