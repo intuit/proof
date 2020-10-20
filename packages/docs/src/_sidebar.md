@@ -16,3 +16,4 @@
   - [console](./plugins/console.md)
   - [junit](./plugins/junit.md)
   - [skip-tests](./plugins/skip-tests.md)
+  - [Creating a new plugin](./plugins/Creating-new-plugin.md)
