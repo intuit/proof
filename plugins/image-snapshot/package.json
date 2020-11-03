@@ -1,0 +1,33 @@
+{
+  "name": "@proof-ui/image-snapshot-plugin",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -b",
+    "build:watch": "npm run build -- -w"
+  },
+  "dependencies": {
+    "@babel/traverse": "^7.12.1",
+    "jest-image-snapshot": "^4.2.0",
+    "jest-snapshot": "^26.6.0",
+    "lodash": "^4.17.20",
+    "sharp": "^0.26.2"
+  },
+  "peerDependencies": {
+    "@proof-ui/browser": "*",
+    "@proof-ui/cli-plugin": "*",
+    "@proof-ui/core": "*",
+    "@proof-ui/test": "*"
+  },
+  "devDependencies": {
+    "@proof-ui/core": "link:../../packages/core",
+    "@types/jest-image-snapshot": "4.1.2",
+    "@types/lodash": "4.14.164",
+    "@types/sharp": "0.26.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
