@@ -1,7 +1,8 @@
 {
   "plugins": [
     "npm",
-    "released"
+    "released",
+    "all-contributors"
   ],
   "labels": [
     {
