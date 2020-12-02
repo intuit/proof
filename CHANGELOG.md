@@ -1,3 +1,26 @@
+# v0.1.6 (Wed Dec 02 2020)
+
+#### 🐛 Bug Fix
+
+- Test out PR builds [#1](https://github.com/intuit/proof/pull/1) ([@adierkens](https://github.com/adierkens) [@hipstersmoothie](https://github.com/hipstersmoothie))
+- `@proof-ui/cli`, `@proof-ui/config`
+  - Fix loading of custom config files [#71](https://github.com/intuit/proof/pull/71) ([@adierkens](https://github.com/adierkens))
+
+#### 📝 Documentation
+
+- Fix #63: Document writing custom plugins [#67](https://github.com/intuit/proof/pull/67) ([@nsinghal12](https://github.com/nsinghal12))
+- Fix #3: Add hooks documentation [#68](https://github.com/intuit/proof/pull/68) ([@nsinghal12](https://github.com/nsinghal12))
+- Adding Badges in README.md [#64](https://github.com/intuit/proof/pull/64) ([@akashprasher](https://github.com/akashprasher))
+
+#### Authors: 4
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Akash Prasher ([@akashprasher](https://github.com/akashprasher))
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Niti ([@nsinghal12](https://github.com/nsinghal12))
+
+---
+
 # v0.1.5 (Thu Aug 20 2020)
 
 #### 🐛 Bug Fix

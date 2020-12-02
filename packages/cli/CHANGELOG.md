@@ -1,3 +1,16 @@
+# v0.1.6 (Wed Dec 02 2020)
+
+#### 🐛 Bug Fix
+
+- Fix loading of custom config files [#71](https://github.com/intuit/proof/pull/71) ([@adierkens](https://github.com/adierkens))
+- Fix loading of custom config files ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.1 (Mon Jul 06 2020)
 
 #### 🐛 Bug Fix
