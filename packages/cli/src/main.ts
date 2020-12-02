@@ -4,7 +4,7 @@ import CLIPlugin from '@proof-ui/cli-plugin';
 import { getConfig, Config } from '@proof-ui/config';
 import BabelPlugin from '@proof-ui/babel-plugin';
 import url from 'url';
-import { LogLevel, logger, logLevels } from '@proof-ui/logger';
+import { LogLevel, logger, logLevels, setLogLevel } from '@proof-ui/logger';
 import ConsoleReporterPlugin from '@proof-ui/console-plugin';
 import appDef, { CLIArguments } from './args';
 
@@ -42,12 +42,12 @@ function getUrl(args: any, conf: Config): string {
   return optUrl;
 }
 
-function getLogLevel(args: any, conf: Config): LogLevel {
+function getLogLevel(args: any, conf?: Config): LogLevel {
   if (args.verbose) {
     return logLevels[Math.min(args.verbose.length, logLevels.length - 1)];
   }
 
-  if (conf.logLevel) {
+  if (conf?.logLevel) {
     return conf.logLevel;
   }
 
@@ -86,7 +86,9 @@ type ParsedCLIArgs = CLIArguments & {
 };
 
 async function getOptions() {
-  const config = await getConfig();
+  const tmpParsedArgs = app(appDef, { argv: process.argv }) as ParsedCLIArgs;
+  setLogLevel(getLogLevel(tmpParsedArgs));
+  const config = await getConfig(tmpParsedArgs?.config);
 
   const fullAppDef = await getAppDefinition(config);
   const args = app(fullAppDef, { argv: process.argv }) as ParsedCLIArgs;
