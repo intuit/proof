@@ -8,9 +8,9 @@ const defaultConfig: Config = {
   plugins: [],
 };
 
-export async function getConfig(): Promise<Config> {
+export async function getConfig(customConfig?: string): Promise<Config> {
   const explorer = cosmiconfig('proof', {
-    searchPlaces: ['proof.config.js'],
+    searchPlaces: [customConfig, 'proof.config.js'].filter(Boolean) as string[],
   });
   const result = await explorer.search();
 
@@ -18,6 +18,8 @@ export async function getConfig(): Promise<Config> {
     logger.info('Unable to locate config file. Using default');
     return defaultConfig;
   }
+
+  logger.debug(`Using config file: ${result.filepath}`);
 
   return result.config || {};
 }
