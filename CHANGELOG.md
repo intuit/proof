@@ -1,3 +1,16 @@
+# v0.2.0 (Fri Dec 18 2020)
+
+#### 🚀 Enhancement
+
+- `@proof-ui/image-snapshot-plugin`
+  - Proof image snapshot plugin. [#69](https://github.com/intuit/proof/pull/69) ([@hainessss](https://github.com/hainessss))
+
+#### Authors: 1
+
+- [@hainessss](https://github.com/hainessss)
+
+---
+
 # v0.1.6 (Wed Dec 02 2020)
 
 #### 🐛 Bug Fix
