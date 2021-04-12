@@ -125,7 +125,7 @@ export default class BrowserFactory {
             '--window-size=1280,800',
           ],
         }
-      : {};
+      : undefined;
 
     const base = gridOptions?.[normalGrid]
       ? gridOptions[normalGrid]
