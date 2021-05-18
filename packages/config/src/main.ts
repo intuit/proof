@@ -15,7 +15,7 @@ export async function getConfig(customConfig?: string): Promise<Config> {
   const result = await explorer.search();
 
   if (!result) {
-    logger.info('Unable to locate config file. Using default');
+    logger.debug('Unable to locate config file. Using default');
     return defaultConfig;
   }
 
