@@ -7,6 +7,7 @@
   - [Tests](./api/test.md)
   - [Configuration](./api/config.md)
   - [CLI](./api/cli.md)
+  - [Available Hooks](./api/hooks.md)
 
 * [Plugins](./plugins/README.md)
   - [accessibility](./plugins/accessibility.md)
@@ -14,5 +15,6 @@
   - [applitools](./plugins/applitools.md)
   - [babel](./plugins/babel.md)
   - [console](./plugins/console.md)
+  - [image-snapshot](./plugins/image-snapshot.md)
   - [junit](./plugins/junit.md)
   - [skip-tests](./plugins/skip-tests.md)
