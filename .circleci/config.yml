@@ -69,6 +69,9 @@ jobs:
       - attach_workspace:
           at: ~/proof
       - run:
+          name: Avoid hosts unknown for github
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
           name: deploy
           command: yarn lerna run deploy --scope @proof-ui/docs --stream
 
