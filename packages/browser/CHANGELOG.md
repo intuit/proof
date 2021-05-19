@@ -1,3 +1,16 @@
+# v0.2.1 (Tue May 18 2021)
+
+#### 🐛 Bug Fix
+
+- fix deserialize instance of `java.lang.String` error [#72](https://github.com/intuit/proof/pull/72) ([@kendallgassner](https://github.com/kendallgassner))
+- fix deserialize instance of `java.lang.String` error ([@kendallgassner](https://github.com/kendallgassner))
+
+#### Authors: 1
+
+- Kendall Gassner ([@kendallgassner](https://github.com/kendallgassner))
+
+---
+
 # v0.1.5 (Thu Aug 20 2020)
 
 #### 🐛 Bug Fix

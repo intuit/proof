@@ -1,3 +1,16 @@
+# v0.2.1 (Tue May 18 2021)
+
+#### 🐛 Bug Fix
+
+- Change log to debug [#73](https://github.com/intuit/proof/pull/73) ([@adierkens](https://github.com/adierkens))
+- Update main.ts ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 1
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+
+---
+
 # v0.1.6 (Wed Dec 02 2020)
 
 #### 🐛 Bug Fix

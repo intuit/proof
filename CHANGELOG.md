@@ -1,3 +1,25 @@
+# v0.2.1 (Tue May 18 2021)
+
+#### 🐛 Bug Fix
+
+- Try to debug the build [#75](https://github.com/intuit/proof/pull/75) ([@adierkens](https://github.com/adierkens))
+- Bump auto [#74](https://github.com/intuit/proof/pull/74) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/config`
+  - Change log to debug [#73](https://github.com/intuit/proof/pull/73) ([@adierkens](https://github.com/adierkens))
+- `@proof-ui/browser`
+  - fix deserialize instance of `java.lang.String` error [#72](https://github.com/intuit/proof/pull/72) ([@kendallgassner](https://github.com/kendallgassner))
+
+#### ⚠️ Pushed to `master`
+
+- Update config.yml ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 2
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Kendall Gassner ([@kendallgassner](https://github.com/kendallgassner))
+
+---
+
 # v0.2.0 (Fri Dec 18 2020)
 
 #### 🚀 Enhancement
