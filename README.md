@@ -1,3 +1,10 @@
+> **Warning**
+> 
+> This repo is being archived as I no longer have time to keep up with new features and support requests.
+> If you're interested in taking it over, please email or [DM me](https://twitter.com/Dierkens03)
+
+---
+
 <h1 align="center">
   <img width="400" alt="proof" src="./packages/docs/src/media/proof.color.text.svg"/>
 </h1>
@@ -11,6 +18,9 @@
   <a href="#"><img alt="issues" src="https://img.shields.io/github/issues/intuit/proof"></a>
   <a href="#"><img alt="Forks" src="https://img.shields.io/github/forks/intuit/proof?style=social"></a>
 </p>
+
+
+
 
 Storybook is a great tool for developing components -- and while simulated and snapshot based testing can get you _pretty_ far, there's no substitution for the real thing. `proof` is a tapable integration testing library for your stories.
 
