@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@proof-ui/browser": "link:../browser",
-    "webdriverio": "6.1.22"
+    "webdriverio": "7.20.7"
   },
   "publishConfig": {
     "access": "public",

@@ -10,6 +10,11 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "types": [
+      "webdriverio/async",
+      "jest",
+      "@applitools/spec-driver-webdriverio/v7"
+    ]
   }
 }

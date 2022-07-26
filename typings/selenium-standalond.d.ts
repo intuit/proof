@@ -10,9 +10,6 @@ declare module 'selenium-standalone' {
       ) => void;
     },
     opts?: any
-  ): any;
-  export function start(
-    opts?: any,
-    cb?: (err: any, child: ChildProcess) => any
-  ): any;
+  ): Promise<void>;
+  export function start(opts?: any): Promise<ChildProcess>;
 }

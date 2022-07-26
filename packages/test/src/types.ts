@@ -1,5 +1,3 @@
-import { Browser } from 'webdriverio';
-
 export type TestService = (
   config: TestConfig,
   callback: TestCallback,
@@ -7,7 +5,7 @@ export type TestService = (
 ) => void;
 
 export interface TestArgs {
-  browser: Browser;
+  browser: WebdriverIO.Browser;
   story: string;
   kind: string;
 }

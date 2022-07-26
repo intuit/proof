@@ -1,9 +1,7 @@
-import * as webdriver from 'webdriverio';
-
 const grids = ['local', 'remote'] as const;
 export type Grid = typeof grids[number];
 
-export type Browser = webdriver.BrowserObject;
+export type Browser = WebdriverIO.Browser;
 
 const browserNames = [
   'chrome',
@@ -14,7 +12,7 @@ const browserNames = [
 ] as const;
 
 export type BrowserName = typeof browserNames[number];
-export type GridOptions = Record<Grid, object>;
+export type GridOptions = Record<Grid, any>;
 export interface BrowserConfig {
   name: BrowserName;
   platform?: string;
