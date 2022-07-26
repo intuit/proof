@@ -58,7 +58,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@types/got": "9.6.9",
-    "@wdio/types": "7.20.7"
+    "@types/got": "9.6.9"
   }
 }
