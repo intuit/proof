@@ -102,6 +102,7 @@ const cmd: Command = {
   footer: [
     {
       header: 'Version',
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       content: require('../package.json').version,
     },
   ],

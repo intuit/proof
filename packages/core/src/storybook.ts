@@ -40,7 +40,7 @@ export async function getStories(
   const getStoriesFromBrowser = async () => {
     await browser.switchToFrame(await browser.$('#storybook-preview-iframe'));
 
-    return browser.execute<StoryboookAPI>(
+    return browser.execute<StoryboookAPI, []>(
       'return __STORYBOOK_CLIENT_API__.getStorybook()'
     );
   };
@@ -49,7 +49,10 @@ export async function getStories(
     stories = await promiseRetry(
       getStoriesFromBrowser,
       3,
-      () => new Promise((r) => setTimeout(() => r, 1000))
+      () =>
+        new Promise<void>((r) => {
+          setTimeout(() => r, 1000);
+        })
     );
   } catch (error) {
     throw new Error(

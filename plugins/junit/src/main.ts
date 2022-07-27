@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import XMLBuilder from 'xmlbuilder';
-import { newBuilder, TestSuite, Builder } from 'junit-report-builder';
+import builder, { Builder, TestSuite } from 'junit-report-builder';
 import Proof, { ProofPlugin, SuiteResult } from '@proof-ui/core';
 import CLIPlugin, { Arguments } from '@proof-ui/cli-plugin';
 
@@ -18,7 +18,7 @@ function writeReportToFile(report: Builder, file: string) {
     suiteOrCase.build(tree);
   });
 
-  return new Promise((resolve) => {
+  return new Promise<void>((resolve) => {
     const fileWriteStream = fs.createWriteStream(file, 'utf8');
     fileWriteStream.on('open', () => {
       tree.end(
@@ -53,7 +53,7 @@ export default class JunitPlugin implements ProofPlugin, CLIPlugin {
     const suites: Map<string, TestSuite> = new Map();
 
     proof.hooks.end.tapPromise('junit', async (results: SuiteResult) => {
-      const reportBuilder = newBuilder();
+      const reportBuilder = builder.newBuilder();
       results.tests.forEach((t) => {
         if (!suites.has(t.story.kind)) {
           suites.set(

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { remote, BrowserObject } from 'webdriverio';
+import { remote } from 'webdriverio';
 import { AsyncSeriesHook, SyncWaterfallHook, SyncHook } from 'tapable';
 import { createLogger } from '@proof-ui/logger';
 import urlJoin from 'url-join';
@@ -7,6 +7,7 @@ import { normalizeBaseURL, getStoryURL } from './url';
 import { BrowserConfig, Grid } from './common';
 import localGrid from './local-grid';
 import getWDLogger from '@wdio/logger';
+import { WebDriverLogTypes } from '@wdio/types/build/Options';
 
 const loggers = ['webdriver', 'webdriverio', 'devtools'];
 loggers.forEach((name) => {
@@ -28,7 +29,7 @@ loggers.forEach((name) => {
 export * from './common';
 
 export interface BrowserSession extends BrowserSessionOptions {
-  browser: BrowserObject;
+  browser: WebdriverIO.Browser;
   config: BrowserConfig;
   url: string;
 }
@@ -53,7 +54,7 @@ const DefaultGridOptions: Record<Grid, any> = {
   },
 };
 
-function convertToBrowserLevel(logLevel: WebDriver.WebDriverLogTypes): string {
+function convertToBrowserLevel(logLevel: WebDriverLogTypes): string {
   switch (logLevel) {
     case 'warn':
     case 'error':
@@ -92,7 +93,7 @@ export default class BrowserFactory {
   constructor(options: {
     config: BrowserConfig;
     storybookBaseURL: string;
-    logLevel: WebDriver.WebDriverLogTypes;
+    logLevel: WebDriverLogTypes;
     waitForRoot?: number;
   }) {
     this.config = options.config;

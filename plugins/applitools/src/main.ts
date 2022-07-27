@@ -4,17 +4,15 @@ import {
   VisualGridRunner,
   Target,
   Configuration,
+  BrowserType,
+  TestResultsStatus,
+  TestResults,
 } from '@applitools/eyes-webdriverio';
-import { BrowserType } from '@applitools/eyes-selenium';
-import Proof, {
-  ProofPlugin,
-  TestHookArgs,
-  TestHookBaseArgs,
-  ProofTest,
-} from '@proof-ui/core';
+import Proof, { ProofPlugin, TestHookArgs, ProofTest } from '@proof-ui/core';
 import { TestCallback } from '@proof-ui/test';
 import CLIPlugin, { CLIOption, Arguments } from '@proof-ui/cli-plugin';
 import { Logger } from '@proof-ui/logger';
+import createApplitoolsLogHandler from './createApplitoolsLogHandler';
 
 export interface ApplitoolsPluginConfig {
   delay?: number;
@@ -41,10 +39,6 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
 
   private readonly appSDKID = process.env[APPLITOOLS_SDK_ENV];
 
-  private readonly visualSessions = new Map<string, Eyes>();
-
-  private commonBatchInfo?: BatchInfo;
-
   constructor(options?: ApplitoolsPluginConfig) {
     this.options = options ?? {};
     if (options?.delay !== undefined) {
@@ -52,48 +46,34 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
     }
   }
 
-  private async createApplitoolsInstance(
-    testArgs: TestHookArgs
-  ): Promise<Eyes> {
-    const eyes = new Eyes(new VisualGridRunner(75));
-    const configuration = new Configuration();
-
-    configuration.setAppName('Proof');
-    configuration.setTestName('WebdriverIO Visual Grid');
-
-    const browserConfig = this.options.configure ?? defaultConfigure;
-
-    browserConfig(configuration);
-
-    // Settings
-    configuration.setApiKey(this.appSDKID!);
-    configuration.setForceFullPageScreenshot(true);
-    configuration.setHideScrollbars(true);
-    configuration.stitchMode = 'CSS';
-    eyes.setConfiguration(configuration);
-
-    if (this.commonBatchInfo) {
-      eyes.setBatch(
-        this.commonBatchInfo._name,
-        this.commonBatchInfo._id,
-        this.commonBatchInfo._startedAt
-      );
-    } else {
-      eyes.setBatch(this.baseBatchName);
-      this.commonBatchInfo = eyes.getBatch();
-    }
-
-    await eyes.open(testArgs.browser, 'proof/visual', testArgs.name);
-    return eyes;
-  }
-
-  private async runVisualCheck(eyes: Eyes, logger: Logger, name: string) {
+  private async runVisualCheck(
+    eyes: Eyes,
+    logger: Logger,
+    name: string,
+    browser: WebdriverIO.Browser
+  ) {
     logger.trace(`Taking screenshot for ${name}`);
-    if (this.delay > 0) {
-      await new Promise((r) => setTimeout(r, this.delay));
+
+    let results: TestResults;
+    try {
+      await eyes.open(browser, 'proof/visual', name);
+      await eyes.check(`${name ? `${name}-` : ''}`, Target.window());
+      results = await eyes.close(false);
+    } catch (error) {
+      logger.error(error);
+
+      if (eyes.isOpen) {
+        eyes.abort();
+      }
+
+      throw error;
     }
 
-    await eyes.check(`${name ? `${name}-` : ''}`, Target.window());
+    if (results.getStatus() !== TestResultsStatus.Passed) {
+      throw new Error(
+        `Applitools detected differences. See ${results.getUrl()} for details`
+      );
+    }
   }
 
   apply(proof: Proof) {
@@ -107,33 +87,38 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
       );
     }
 
+    const runner = new VisualGridRunner({
+      testConcurrency: 75,
+    });
+    const configuration = new Configuration({
+      appName: 'Proof',
+      testName: 'WebdriverIO Visual Grid',
+      batch: new BatchInfo({ name: this.baseBatchName }),
+      apiKey: this.appSDKID,
+      forceFullPageScreenshot: true,
+      hideScrollbars: true,
+      stitchMode: 'CSS',
+      waitBeforeScreenshots: this.delay > 0 ? this.delay : undefined,
+    });
+
+    const browserConfig = this.options.configure ?? defaultConfigure;
+    browserConfig(configuration);
+
     proof.hooks.testStart.tap('visual', (t: ProofTest) => {
       t.hooks.beforeExecute.tapPromise(
         'visual',
         async (_testFunc: TestCallback, testArgs: TestHookArgs) => {
-          const eyes = await this.createApplitoolsInstance(testArgs);
-          this.visualSessions.set(testArgs.name, eyes);
-          await this.runVisualCheck(eyes, testArgs.logger, testArgs.name);
+          const eyes = new Eyes(runner, configuration);
+          eyes.setLogHandler(createApplitoolsLogHandler(testArgs.logger));
+
+          await this.runVisualCheck(
+            eyes,
+            testArgs.logger,
+            testArgs.name,
+            testArgs.browser
+          );
         }
       );
-
-      t.hooks.afterExecute.tapPromise(
-        'visual',
-        async (testArgs: TestHookArgs) => {
-          const eyes = this.visualSessions.get(testArgs.name);
-          if (eyes) {
-            await eyes.close();
-          }
-        }
-      );
-
-      t.hooks.end.tapPromise('visual', async (testArgs: TestHookBaseArgs) => {
-        const eyes = this.visualSessions.get(testArgs.name);
-        if (eyes) {
-          await eyes.abortIfNotClosed();
-          this.visualSessions.delete(testArgs.name);
-        }
-      });
     });
   }
 

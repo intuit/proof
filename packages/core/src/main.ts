@@ -92,7 +92,7 @@ export default class Proof {
         }
       );
     } catch (error) {
-      testResult.error = error;
+      testResult.error = error as Error;
     }
 
     const endTime = Date.now();

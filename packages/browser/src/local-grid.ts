@@ -6,60 +6,40 @@ import Progress from 'progress';
 export class LocalGrid {
   install: Promise<void>;
 
-  process?: Promise<ChildProcess>;
+  process?: ChildProcess;
 
   constructor(options?: { install?: boolean }) {
     let progress: Progress;
 
     if (options?.install) {
-      this.install = new Promise((resolve, reject) => {
-        selenium.install(
-          {
-            progressCb(total: number, progressLength: number, chunk: number) {
-              progress =
-                progress ||
-                new Progress('Selenium installation [:bar] :percent :etas', {
-                  total,
-                  complete: '=',
-                  incomplete: ' ',
-                  width: 20,
-                });
+      this.install = selenium.install({
+        progressCb(total: number, progressLength: number, chunk: number) {
+          progress =
+            progress ||
+            new Progress('Selenium installation [:bar] :percent :etas', {
+              total,
+              complete: '=',
+              incomplete: ' ',
+              width: 20,
+            });
 
-              progress.tick(chunk);
-            },
-          },
-          (err: any, paths: any) => {
-            if (err) {
-              return reject(err);
-            }
-
-            resolve(paths);
-          }
-        );
+          progress.tick(chunk);
+        },
       });
     } else {
       this.install = Promise.resolve();
     }
   }
 
-  start(port = 4444): Promise<ChildProcess> {
+  async start(port = 4444): Promise<ChildProcess> {
     if (this.process) {
       return this.process;
     }
 
-    this.process = this.install.then(() => {
-      return new Promise((resolve, reject) => {
-        selenium.start(
-          { seleniumArgs: ['-port', `${port}`] },
-          (err: any, child: ChildProcess) => {
-            if (err) {
-              // return reject(err);
-            }
+    await this.install;
 
-            return resolve(child);
-          }
-        );
-      });
+    this.process = await selenium.start({
+      seleniumArgs: ['--port', `${port}`],
     });
 
     return this.process;
@@ -67,17 +47,11 @@ export class LocalGrid {
 
   end() {
     if (this.process) {
-      const end = this.process.then((child) => {
-        if (child) {
-          child.kill();
-        }
-      });
+      const end = this.process.kill();
 
       this.process = undefined;
       return end;
     }
-
-    return Promise.resolve();
   }
 }
 
