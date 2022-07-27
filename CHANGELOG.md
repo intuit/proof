@@ -1,3 +1,21 @@
+# v0.3.0 (Wed Jul 27 2022)
+
+#### 🚀 Enhancement
+
+- `@proof-ui/browser`, `@proof-ui/cli`, `@proof-ui/core`, `@proof-ui/test`, `@proof-ui/applitools-plugin`, `@proof-ui/image-snapshot-plugin`, `@proof-ui/junit-plugin`
+  - Update core dependencies [#76](https://github.com/intuit/proof/pull/76) (thomas_marmer@intuit.com)
+
+#### ⚠️ Pushed to `master`
+
+- [skip CI] update readme ([@adierkens](https://github.com/adierkens))
+
+#### Authors: 2
+
+- Adam Dierkens ([@adierkens](https://github.com/adierkens))
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.2.1 (Tue May 18 2021)
 
 #### 🐛 Bug Fix
