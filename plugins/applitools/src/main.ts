@@ -5,19 +5,37 @@ import {
   Target,
   Configuration,
   BrowserType,
+  BrowserTypePlain,
   TestResultsStatus,
   TestResults,
+  DesktopBrowserInfo,
+  ChromeEmulationInfo,
+  DeviceNamePlain,
+  ScreenOrientationPlain,
+  IOSDeviceInfo,
+  AndroidDeviceInfo,
 } from '@applitools/eyes-webdriverio';
 import Proof, { ProofPlugin, TestHookArgs, ProofTest } from '@proof-ui/core';
 import { TestCallback } from '@proof-ui/test';
 import CLIPlugin, { CLIOption, Arguments } from '@proof-ui/cli-plugin';
 import { Logger } from '@proof-ui/logger';
 import createApplitoolsLogHandler from './createApplitoolsLogHandler';
+import BrowserFactory from '@proof-ui/browser';
 
 export interface ApplitoolsPluginConfig {
   delay?: number;
   configure?(configuration: Configuration): void;
 }
+
+type ApplitoolsBrowsersInfo =
+  | DesktopBrowserInfo
+  | ChromeEmulationInfo
+  | {
+      deviceName: DeviceNamePlain;
+      screenOrientation?: ScreenOrientationPlain;
+    }
+  | IOSDeviceInfo
+  | AndroidDeviceInfo;
 
 const APPLITOOLS_SDK_ENV = 'APPLITOOLS_ID';
 
@@ -76,7 +94,7 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
     }
   }
 
-  apply(proof: Proof) {
+  apply(proof: Proof): void {
     if (!this.enabled) {
       return;
     }
@@ -104,19 +122,103 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
     const browserConfig = this.options.configure ?? defaultConfigure;
     browserConfig(configuration);
 
+    const browserConfigs: Array<{
+      width: number;
+      height: number;
+      browsers: BrowserTypePlain[];
+    }> = [];
+    const otherConfigs: Array<ApplitoolsBrowsersInfo> = [];
+    configuration.getBrowsersInfo().forEach((info) => {
+      // Group known screen sizes so browser can be resized before test runs to allow JS to run before image capture.
+      if ('name' in info && info.name !== undefined) {
+        const existing = browserConfigs.find(
+          (w) => w.width === info.width && w.height === info.height
+        );
+        if (existing) {
+          if (!existing.browsers.includes(info.name)) {
+            existing.browsers.push(info.name);
+          }
+        } else {
+          browserConfigs.push({
+            width: info.width,
+            height: info.height,
+            browsers: [info.name],
+          });
+        }
+      } else {
+        // TODO: Find a way to get screen size info for all device types.
+        otherConfigs.push(info);
+      }
+    });
+
+    let browserFactory: BrowserFactory;
+    proof.hooks.browserFactory.tap('visual', (factory) => {
+      browserFactory = factory;
+    });
+
     proof.hooks.testStart.tap('visual', (t: ProofTest) => {
       t.hooks.beforeExecute.tapPromise(
         'visual',
         async (_testFunc: TestCallback, testArgs: TestHookArgs) => {
-          const eyes = new Eyes(runner, configuration);
-          eyes.setLogHandler(createApplitoolsLogHandler(testArgs.logger));
+          const applitoolsLogger = createApplitoolsLogHandler(testArgs.logger);
 
-          await this.runVisualCheck(
-            eyes,
-            testArgs.logger,
-            testArgs.name,
-            testArgs.browser
-          );
+          const runTest = async (
+            browsersInfo: ApplitoolsBrowsersInfo[],
+            browser: WebdriverIO.Browser
+          ): Promise<void> => {
+            const eyes = new Eyes(runner, configuration);
+            const config = eyes.getConfiguration();
+            config.setBrowsersInfo(browsersInfo);
+            eyes.setConfiguration(config);
+            eyes.setLogHandler(applitoolsLogger);
+
+            await this.runVisualCheck(
+              eyes,
+              testArgs.logger,
+              testArgs.name,
+              browser
+            );
+          };
+
+          const allTests = browserConfigs.map(async (browserConfig) => {
+            const browserSession = await browserFactory.create(
+              {
+                name: testArgs.name,
+                kind: testArgs.config.kind,
+                story: testArgs.config.story,
+              },
+              testArgs.logger
+            );
+
+            try {
+              await browserSession.browser.url(await testArgs.browser.getUrl());
+              // Resizing the browser instead of using applitools config allows for JS dependent on screen size to run before the screenshot is taken
+              await browserSession.browser.setWindowSize(
+                browserConfig.width,
+                browserConfig.height
+              );
+
+              const browsersInfo = browserConfig.browsers.map(
+                (browserName) => ({
+                  width: browserConfig.width,
+                  height: browserConfig.height,
+                  name: browserName,
+                })
+              );
+
+              await runTest(browsersInfo, browserSession.browser);
+            } finally {
+              if (browserSession.browser) {
+                await browserSession.browser.deleteSession();
+              }
+            }
+          });
+
+          if (otherConfigs.length > 0) {
+            allTests.push(runTest(otherConfigs, testArgs.browser));
+          }
+
+          await Promise.all(allTests);
         }
       );
     });
