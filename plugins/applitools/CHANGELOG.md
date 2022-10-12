@@ -1,3 +1,16 @@
+# v0.3.1 (Wed Oct 12 2022)
+
+#### 🐛 Bug Fix
+
+- Preemptively resize browser in ApplitoolsPlugin [#77](https://github.com/intuit/proof/pull/77) (thomas_marmer@intuit.com)
+- Update applitools plugin to allow browsers to run some JS before screenshots are taken (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.0 (Wed Jul 27 2022)
 
 #### 🚀 Enhancement
