@@ -23,8 +23,12 @@ import createApplitoolsLogHandler from './createApplitoolsLogHandler';
 import BrowserFactory from '@proof-ui/browser';
 
 export interface ApplitoolsPluginConfig {
+  /** Delay time before taking a screenshot (Default: 1000) */
   delay?: number;
+  /** Optional function to configure applitools for all tests */
   configure?(configuration: Configuration): void;
+  /** Set to true to resize browser before sending to the UltraFastGrid. Slower test runs but allows JS dependent on screen size to run before the DOM is sent to applitools for comparisons. (Default: false) */
+  useWebdriverWindowSize?: boolean;
 }
 
 type ApplitoolsBrowsersInfo =
@@ -122,34 +126,40 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
     const browserConfig = this.options.configure ?? defaultConfigure;
     browserConfig(configuration);
 
+    const useWebdriverWindowSize = this.options.useWebdriverWindowSize ?? false;
+
     const browserConfigs: Array<{
       width: number;
       height: number;
       browsers: BrowserTypePlain[];
     }> = [];
     const otherConfigs: Array<ApplitoolsBrowsersInfo> = [];
-    configuration.getBrowsersInfo().forEach((info) => {
-      // Group known screen sizes so browser can be resized before test runs to allow JS to run before image capture.
-      if ('name' in info && info.name !== undefined) {
-        const existing = browserConfigs.find(
-          (w) => w.width === info.width && w.height === info.height
-        );
-        if (existing) {
-          if (!existing.browsers.includes(info.name)) {
-            existing.browsers.push(info.name);
+    if (useWebdriverWindowSize) {
+      configuration.getBrowsersInfo().forEach((info) => {
+        // Group known screen sizes so browser can be resized before test runs to allow JS to run before image capture.
+        if ('name' in info && info.name !== undefined) {
+          const existing = browserConfigs.find(
+            (w) => w.width === info.width && w.height === info.height
+          );
+          if (existing) {
+            if (!existing.browsers.includes(info.name)) {
+              existing.browsers.push(info.name);
+            }
+          } else {
+            browserConfigs.push({
+              width: info.width,
+              height: info.height,
+              browsers: [info.name],
+            });
           }
         } else {
-          browserConfigs.push({
-            width: info.width,
-            height: info.height,
-            browsers: [info.name],
-          });
+          // TODO: Find a way to get screen size info for all device types.
+          otherConfigs.push(info);
         }
-      } else {
-        // TODO: Find a way to get screen size info for all device types.
-        otherConfigs.push(info);
-      }
-    });
+      });
+    } else {
+      otherConfigs.push(...configuration.getBrowsersInfo());
+    }
 
     let browserFactory: BrowserFactory;
     proof.hooks.browserFactory.tap('visual', (factory) => {
@@ -165,19 +175,23 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
           const runTest = async (
             browsersInfo: ApplitoolsBrowsersInfo[],
             browser: WebdriverIO.Browser
-          ): Promise<void> => {
-            const eyes = new Eyes(runner, configuration);
-            const config = eyes.getConfiguration();
-            config.setBrowsersInfo(browsersInfo);
-            eyes.setConfiguration(config);
-            eyes.setLogHandler(applitoolsLogger);
+          ): Promise<Error | undefined> => {
+            try {
+              const eyes = new Eyes(runner, configuration);
+              const config = eyes.getConfiguration();
+              config.setBrowsersInfo(browsersInfo);
+              eyes.setConfiguration(config);
+              eyes.setLogHandler(applitoolsLogger);
 
-            await this.runVisualCheck(
-              eyes,
-              testArgs.logger,
-              testArgs.name,
-              browser
-            );
+              await this.runVisualCheck(
+                eyes,
+                testArgs.logger,
+                testArgs.name,
+                browser
+              );
+            } catch (e) {
+              return e as Error;
+            }
           };
 
           const allTests = browserConfigs.map(async (browserConfig) => {
@@ -187,38 +201,41 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
                 kind: testArgs.config.kind,
                 story: testArgs.config.story,
               },
-              testArgs.logger
+              testArgs.logger,
+              browserConfig
             );
 
-            try {
-              await browserSession.browser.url(await testArgs.browser.getUrl());
-              // Resizing the browser instead of using applitools config allows for JS dependent on screen size to run before the screenshot is taken
-              await browserSession.browser.setWindowSize(
-                browserConfig.width,
-                browserConfig.height
-              );
+            const browsersInfo = browserConfig.browsers.map((browserName) => ({
+              width: browserConfig.width,
+              height: browserConfig.height,
+              name: browserName,
+            }));
 
-              const browsersInfo = browserConfig.browsers.map(
-                (browserName) => ({
-                  width: browserConfig.width,
-                  height: browserConfig.height,
-                  name: browserName,
-                })
-              );
-
-              await runTest(browsersInfo, browserSession.browser);
-            } finally {
-              if (browserSession.browser) {
-                await browserSession.browser.deleteSession();
-              }
+            const result = await runTest(browsersInfo, browserSession.browser);
+            if (browserSession.browser) {
+              await browserSession.browser.deleteSession();
             }
+
+            return result;
           });
 
           if (otherConfigs.length > 0) {
             allTests.push(runTest(otherConfigs, testArgs.browser));
           }
 
-          await Promise.all(allTests);
+          const results = (await Promise.all(allTests)).filter(
+            (result): result is Error => result !== undefined
+          );
+
+          if (results.length === 0) return;
+
+          if (results.length === 1) throw results[0];
+
+          throw new Error(
+            `Visual tests failed for multiple screen sizes with the following messages:\n\t${results
+              .map((e) => e.message)
+              .join('\n\t')}`
+          );
         }
       );
     });
