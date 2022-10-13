@@ -41,6 +41,11 @@ export interface BrowserSessionOptions {
   path?: string;
 }
 
+export interface ViewportDimensions {
+  width: number;
+  height: number;
+}
+
 const DefaultGridOptions: Record<Grid, any> = {
   local: {
     host: 'localhost',
@@ -102,7 +107,13 @@ export default class BrowserFactory {
     this.waitForRoot = options.waitForRoot ?? 1000;
   }
 
-  private getOptions(options: BrowserSessionOptions) {
+  private getOptions(
+    options: BrowserSessionOptions,
+    browserSize: ViewportDimensions = {
+      width: 1280,
+      height: 800,
+    }
+  ) {
     const {
       grid,
       name,
@@ -114,6 +125,7 @@ export default class BrowserFactory {
     const { name: testName } = options;
 
     const normalGrid = grid ?? 'local';
+    const windowSizeArg = `--window-size=${browserSize.width},${browserSize.height}`;
 
     const chromeOptions = headless
       ? {
@@ -123,10 +135,10 @@ export default class BrowserFactory {
             '--disable-extensions',
             '--no-sandbox',
             '--disable-dev-shm-usage',
-            '--window-size=1280,800',
+            windowSizeArg,
           ],
         }
-      : undefined;
+      : [windowSizeArg];
 
     const base = gridOptions?.[normalGrid]
       ? gridOptions[normalGrid]
@@ -153,12 +165,13 @@ export default class BrowserFactory {
 
   async create(
     options: BrowserSessionOptions,
-    logger = createLogger({ scope: 'browser' })
+    logger = createLogger({ scope: 'browser' }),
+    browserSize?: ViewportDimensions
   ): Promise<BrowserSession> {
     const { config } = this;
     logger.trace('Creating browser session', config);
     const grid = this.config.grid || 'local';
-    const browserOptions = this.getOptions(options);
+    const browserOptions = this.getOptions(options, browserSize);
     let browser;
 
     try {

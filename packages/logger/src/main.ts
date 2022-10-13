@@ -111,7 +111,7 @@ function wrap(l: Logger): Logger {
 export const logger = wrap(baseLogger);
 
 /** Create a logger scoped to a specific command */
-export function createLogger({ scope }: { scope: string }) {
+export function createLogger({ scope }: { scope: string }): Logger {
   const scoped = logger.scope(padScope(scope));
   return wrap(scoped);
 }
