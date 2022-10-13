@@ -1,3 +1,16 @@
+# v0.3.2 (Thu Oct 13 2022)
+
+#### 🐛 Bug Fix
+
+- Allow applitools to resize browser using capabilities [#78](https://github.com/intuit/proof/pull/78) (thomas_marmer@intuit.com)
+- Allow applitools to resize browser using capabilities. Fix issues with applitools test failures (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.1.0 (Wed Jul 01 2020)
 
 ### Release Notes
