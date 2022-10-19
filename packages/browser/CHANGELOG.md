@@ -1,3 +1,16 @@
+# v0.3.3 (Wed Oct 19 2022)
+
+#### 🐛 Bug Fix
+
+- Fixed an issue where non headless browsers would throw errors [#79](https://github.com/intuit/proof/pull/79) (thomas_marmer@intuit.com)
+- Fixed an issue where non headless browsers would throw errors (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.2 (Thu Oct 13 2022)
 
 #### 🐛 Bug Fix
