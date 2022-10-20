@@ -98,6 +98,10 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
     }
   }
 
+  isEnabled(): boolean {
+    return this.enabled;
+  }
+
   apply(proof: Proof): void {
     if (!this.enabled) {
       return;
