@@ -1,3 +1,16 @@
+# v0.3.4 (Thu Oct 20 2022)
+
+#### 🐛 Bug Fix
+
+- Expose enabled flag on applitools plugin [#80](https://github.com/intuit/proof/pull/80) (thomas_marmer@intuit.com)
+- Expose enabled flag on applitools plugin (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.2 (Thu Oct 13 2022)
 
 #### 🐛 Bug Fix
