@@ -1,3 +1,16 @@
+# v0.3.5 (Mon Oct 24 2022)
+
+#### 🐛 Bug Fix
+
+- Force applitools tests to run sequentially to adhere to concurrency limit [#81](https://github.com/intuit/proof/pull/81) (thomas_marmer@intuit.com)
+- Force applitools plugin to run tests sequentially to not go over concurrency limit (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.4 (Thu Oct 20 2022)
 
 #### 🐛 Bug Fix
