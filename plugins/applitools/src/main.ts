@@ -1,3 +1,4 @@
+/* eslint-disable no-await-in-loop */
 import {
   Eyes,
   BatchInfo,
@@ -198,7 +199,17 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
             }
           };
 
-          const allTests = browserConfigs.map(async (browserConfig) => {
+          const allTests = [];
+
+          if (otherConfigs.length > 0) {
+            allTests.push(await runTest(otherConfigs, testArgs.browser));
+
+            if (testArgs.browser) {
+              await testArgs.browser.deleteSession();
+            }
+          }
+
+          for (const browserConfig of browserConfigs) {
             const browserSession = await browserFactory.create(
               {
                 name: testArgs.name,
@@ -220,14 +231,10 @@ export default class ApplitoolsPlugin implements ProofPlugin, CLIPlugin {
               await browserSession.browser.deleteSession();
             }
 
-            return result;
-          });
-
-          if (otherConfigs.length > 0) {
-            allTests.push(runTest(otherConfigs, testArgs.browser));
+            allTests.push(result);
           }
 
-          const results = (await Promise.all(allTests)).filter(
+          const results = allTests.filter(
             (result): result is Error => result !== undefined
           );
 
