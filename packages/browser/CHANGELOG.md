@@ -1,3 +1,17 @@
+# v0.3.6 (Wed Sep 06 2023)
+
+#### 🐛 Bug Fix
+
+- Version bump selenium-standalone [#83](https://github.com/intuit/proof/pull/83) (thomas_marmer@intuit.com)
+- revert webdriverio bump (thomas_marmer@intuit.com)
+- version bump webdriverio and selenium-standalone (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.3 (Wed Oct 19 2022)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,16 @@
+# v0.3.6 (Wed Sep 06 2023)
+
+#### 🐛 Bug Fix
+
+- `@proof-ui/browser`, `@proof-ui/test`, `@proof-ui/image-snapshot-plugin`
+  - Version bump selenium-standalone [#83](https://github.com/intuit/proof/pull/83) (thomas_marmer@intuit.com)
+
+#### Authors: 1
+
+- Thomas Marmer ([@tmarmer](https://github.com/tmarmer))
+
+---
+
 # v0.3.5 (Mon Oct 24 2022)
 
 #### 🐛 Bug Fix
