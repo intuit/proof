@@ -8,8 +8,7 @@
     "build:watch": "npm run build -- -w"
   },
   "dependencies": {
-    "@proof-ui/browser": "link:../browser",
-    "webdriverio": "7.20.7"
+    "@proof-ui/browser": "link:../browser"
   },
   "publishConfig": {
     "access": "public",
