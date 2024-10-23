@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "command-line-docs": "0.0.6",
-    "docsify": "4.11.3",
+    "docsify": "4.12.2",
     "docsify-cli": "4.4.0",
     "fs-extra": "9.0.0",
     "gh-pages": "2.2.0",
